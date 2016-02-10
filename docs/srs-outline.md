@@ -45,7 +45,7 @@ Overall Description
  Henceforward the term *service* represents the univaq telegram bot service itself
  
 ### Product Functions
-*******************
+
 .
  The diagram below shows an overview of the functions that the service must provides:
 
@@ -59,7 +59,7 @@ Overall Description
 
 
 ### Assumptions and dependencies
-*******************
+
 
 - The service is built to be extended along time, it's a sort of continuous improvement.
 - The service operativity strictly depends on the infrastructure freely provided by the main project contributors ([@diegomariani](http://diegomariani.com) and [@giacomocerquone](http://giacomocerquone.com))
@@ -79,7 +79,7 @@ There are several ways to prioritize the requirements in the backlog. Some of th
 - *WON'T* have this time but would like in the future
 
 ### External interface requirements
-*******************
+
 
 Here it's a small description of interface requirements
 
@@ -101,7 +101,7 @@ Here it's a small description of interface requirements
 * Contributors **SHOULD** communicate project's decisions using Github issue tracking system 
 
 ### Functional Requirements
-*******************
+
 
 Functional requirements describe in a formal way all project feautures
 
@@ -137,7 +137,7 @@ Functional requirements describe in a formal way all project feautures
 **strictly depends on the `service.cfg` configuration file*
 
 ### Performance Requirements
-*******************
+
 
 * The service **SHOULD** operate 24/24h (except for possible maintenance periods)
 
@@ -169,6 +169,6 @@ Portability
 
 
 #### Appendices
-**********
+
 
 To be completed
