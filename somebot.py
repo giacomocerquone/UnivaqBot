@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# All the code has been written by Diego Mariani and Giacomo Cerquone
-
 """
 This Bot uses the Updater class to handle the bot.
 
