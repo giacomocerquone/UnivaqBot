@@ -48,7 +48,7 @@ def error(bot, update, error):
 
 def main():
     # Create the EventHandler and pass it your bot's token.
-    updater = Updater("165182269:AAEUj6tjcJClzUk0BP1zf1q4uIm3JJlgC4w")
+    updater = Updater("")
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
