@@ -2,12 +2,12 @@
 
 
 ### Introduction
-************
 
 This is a univaq telegram bot, an autonomous system integrated with univaq data, built in python and over telegram API
 
 ### DISCLAIMER ###
 **THIS PROJECT IS NOT OFFICIALLY AFFILIATED WITH UNIVAQ INSTITUTION** 
+
 It's an open source project built for didactic purposes
 
 Scope
@@ -152,26 +152,23 @@ Reliability
 Availability
 
 * All code is open source.
-* The OLPC project and all software it uses is open source.
+* The project and all software it uses is open source.
 
-.. Requirements for availability of the system or the information it handles.
 
 Security
 
-* The OLPC laptops will run on a private network.  There is no security threat from outside the network.
-* Data stored on the OLPC server provides limitied security.
+* The project will be deployed on a virtual private server.  There is a limitied security.
 
 Maintainability
 
-* Code is documented using standard Python practices, including function docstrings (:pep:`257`) and the use of Restructured Text.
-* Code is written in standard Python style (:pep:`8`).
+* Code is documented using standard Python guidelines as specified in the [References](#references)
 
 Portability
 
-* The code targets only the OLPC laptop.
-* DeSugarized applications should run on any computer with Python 2.5.
+* The project can be run on any computer with Python 2.5.
 
 
 #### Appendices
 **********
+
 To be completed
