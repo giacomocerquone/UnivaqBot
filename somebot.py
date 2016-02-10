@@ -18,8 +18,11 @@ bot.
 
 from telegram import Updater
 import logging
+import configparser
 
-token = open('service.cfg', 'r').read()
+Config = configparser.ConfigParser()
+Config.read("service.cfg")
+token = Config.get('API-KEYS', 'TelegramBot')
 
 # Enable logging
 logging.basicConfig(
@@ -27,8 +30,6 @@ logging.basicConfig(
         level=logging.INFO)
 
 logger = logging.getLogger(__name__)
-
-print(token)
 
 # Define a few command handlers. These usually take the two arguments bot and
 # update. Error handlers also receive the raised TelegramError object in error.
