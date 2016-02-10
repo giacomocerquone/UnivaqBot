@@ -9,9 +9,8 @@
 
      This is the bot we'll use for testing and deploy (I created it now to occupy the username):
 
-     Name: Univaq
-     Username: univaq_bot
-     Api-Key: 131649821:AAElUf3Ad6E0x7YoQX34GUKJA5qALd8Vds8
-     Telegram Url: tg://resolve?domain=univaq_bot
+     Name: Univaq Informatica
+     Username: univaq_informatica_bot
+     Telegram Url: tg://resolve?domain=univaq_informatica_bot
 
   2. Wrapper documentation - https://github.com/python-telegram-bot/python-telegram-bot
