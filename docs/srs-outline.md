@@ -119,16 +119,19 @@ Functional requirements describe in a formal way all project feautures
 * A complete list of commands to retrieve univaq informations and news
     + **/help** to retrieve all available commands
     + **/news** to retrieve last 10 news
-    + **/newson** to enable news notifications
-    + **/newsoff** to disable news notifications
     + **/prof** to get a list of all professors
-    + **/prof &lt;name&gt;** to search info of a professor
-    + **/canteen** to retrieve the canteen time tables
-    + **/schedule** to retrieve all courses' schedules available
-    + **/schedule &lt;course&gt;** to retrieve a specific course's schedule
+    + **/prof &lt;nome&gt;** to search info of a specific professor
+    + **/mensa** to retrieve the *mensa* time tables
+    + **/orario** to retrieve all courses available
+    + **/orario &lt;corso&gt;** to retrieve a specific course's schedule
+    + **/segreteriastudenti** to retrieve a *segreteria studenti* hours
+    + **/segreteriadidattica** to retrieve a *segreteria didattica* hours
+    + **/esami** to retrieve a specific exams schedule
+    + **/adsu** to retrieve location, contacts and hours of ADSU
 
 **Environment Requirements**
 
+* The service data (time tables, information, ...) **MUST** be placed into `json` files
 * The Telegram Bot API KEY **MUST** be placed in a `service.cfg` file and **MUST** not be pushed to the repository
 * All configuration options **MUST** be placed in the `service.cfg` configuration file
 * The project is built using [pip](https://pypi.python.org/pypi/pip) as a dependency manager. Required libraries **MUST** be placed in the `requirements.txt` file as common practice and as specified in the [pip documentation](https://pip.pypa.io/en/stable/).
