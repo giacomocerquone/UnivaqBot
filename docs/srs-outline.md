@@ -47,7 +47,7 @@ Activities
 References 
 ----------
 
-* :pep:`8` - Style Guide for Python Code
+* https://www.python.org/dev/peps/pep-0008/ - Style Guide for Python Code
 * :pep:`257` - Docstring Conventions
 * `OLPC home page <http://laptop.org/en/>`_
 * `OLPC Wiki <http://wiki.laptop.org/>`_
