@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# Simple Bot to reply to Telegram messages
-# This program is dedicated to the public domain under the CC0 license.
+
+# All the code has been written by Diego Mariani and Giacomo Cerquone
 
 """
 This Bot uses the Updater class to handle the bot.
@@ -20,6 +19,8 @@ bot.
 from telegram import Updater
 import logging
 
+token = open('service.cfg', 'r').read()
+
 # Enable logging
 logging.basicConfig(
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -27,6 +28,7 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)
 
+print(token)
 
 # Define a few command handlers. These usually take the two arguments bot and
 # update. Error handlers also receive the raised TelegramError object in error.
@@ -48,7 +50,7 @@ def error(bot, update, error):
 
 def main():
     # Create the EventHandler and pass it your bot's token.
-    updater = Updater("")
+    updater = Updater(token)
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
