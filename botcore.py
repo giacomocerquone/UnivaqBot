@@ -14,18 +14,19 @@ Press Ctrl-C on the command line or send a signal to the process to stop the
 bot.
 """
 
-from telegram import Updater
 import logging
 import configparser
+from telegram import Updater
 
-Config = configparser.ConfigParser()
-Config.read("service.cfg")
-token = Config.get('API-KEYS', 'TelegramBot')
+
+config = configparser.ConfigParser()
+config.read("service.cfg")
+token = config.get('API-KEYS', 'TelegramBot')
 
 # Enable logging
 logging.basicConfig(
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-        level=logging.INFO)
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    level=logging.INFO)
 
 logger = logging.getLogger(__name__)
 
@@ -35,7 +36,7 @@ def start(bot, update):
     bot.sendMessage(update.message.chat_id, text='Hi!')
 
 
-def help(bot, update):
+def botHelp(bot, update):
     bot.sendMessage(update.message.chat_id, text='Help!')
 
 
@@ -43,8 +44,9 @@ def echo(bot, update):
     bot.sendMessage(update.message.chat_id, text=update.message.text)
 
 
-def error(bot, update, error):
-    logger.warn('Update "%s" caused error "%s"' % (update, error))
+def error(bot, update, err):
+    bot.sendMessage(update.message.chat_id, text="Error!")
+    logger.warning('Update' + update + ' caused error ' + err)
 
 
 def main():
