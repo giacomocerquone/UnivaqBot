@@ -1,8 +1,6 @@
-1. We'll use pip as package manager just to make easier the deploy process. So we're going to use it only to install a local pip package so without publishing it on PyPA.
+1. We'll use pip as package manager just to make easier the deploy process. So since our goal is not to let others install easily the application but to let us get easily the required libraries, we'll not really use a setup.py file, but just a requirements.txt as common practice and as specified in the pip documentation.
 
-  1. How to install packages locally using sdist - http://stackoverflow.com/questions/15031694/installing-python-packages-from-local-file-system-folder-with-pip
-  2. Documentation on creating a package - http://python-packaging-user-guide.readthedocs.org/en/latest/distributing/
-  3. Example Package - https://github.com/pypa/sampleproject
+  1. So to install the dependencies of the project folder this is enough: pip install -r requirements.txt
 
 2. To create "physically" the bot and get an API key we use BotFather as suggested by the wrapper we're using.
 
