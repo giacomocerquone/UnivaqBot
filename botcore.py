@@ -18,22 +18,25 @@ import logging
 import configparser
 from telegram import Updater
 
-
+# Reading Configuration file
 config = configparser.ConfigParser()
 config.read("service.cfg")
 token = config.get('API-KEYS', 'TelegramBot')
+debug = config.getboolean('UTILS', 'Debug')
 
-# Enable logging
-logging.basicConfig(
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    level=logging.INFO)
-
+# Enable/Disable logging
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+if debug == False:
+    logging.disable(logging.CRITICAL)
+
 
 # Define a few command handlers. These usually take the two arguments bot and
 # update. Error handlers also receive the raised TelegramError object in error.
 def start(bot, update):
-    bot.sendMessage(update.message.chat_id, text='Hi!')
+    welcome = "Ciao, sono il bot dell'Univaq (Università dell'Aquila). Premendo uno dei bottoni che vedi qui sotto, posso fornirti tutte le informazioni di cui hai bisogno."
+    bot.sendMessage(update.message.chat_id, text=welcome)
 
 
 def botHelp(bot, update):
@@ -58,7 +61,7 @@ def main():
 
     # on different commands - answer in Telegram
     dp.addTelegramCommandHandler("start", start)
-    dp.addTelegramCommandHandler("help", help)
+    dp.addTelegramCommandHandler("help", botHelp)
 
     # on noncommand i.e message - echo the message on Telegram
     dp.addTelegramMessageHandler(echo)
