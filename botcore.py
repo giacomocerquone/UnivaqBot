@@ -72,12 +72,12 @@ def news_command(bot, update):
 
     bot.sendMessage(update.message.chat_id, text=update.message.text)
 
-def prof_command(bot, update, err):
+def prof_command(bot, update):
     """Defining the `prof` command"""
 
     bot.sendMessage(update.message.chat_id, text="Lista professori da Professors.json")
 
-def canteen_command(bot, update, err):
+def canteen_command(bot, update):
     """Defining the `canteen` command"""
 
     bot.sendMessage(update.message.chat_id, text="Orari della mensa")
