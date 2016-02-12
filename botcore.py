@@ -18,27 +18,42 @@ import logging
 import configparser
 from telegram import Updater
 
-# Reading Configuration file
-config = configparser.ConfigParser()
-config.read("service.cfg")
-token = config.get('API-KEYS', 'TelegramBot')
-debug = config.getboolean('UTILS', 'Debug')
+def get_configuration():
+    """Get global configuration from service.cfg"""
 
-# Enable/Disable logging
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
-logger = logging.getLogger(__name__)
+    config = configparser.ConfigParser()
+    config.read("service.cfg")
 
-if debug == False:
-    logging.disable(logging.CRITICAL)
+    return config
 
-# Define a few command handlers. These usually take the two arguments bot and
-# update. Error handlers also receive the raised TelegramError object in error.
-def start(bot, update):
-    welcome = "Ciao, sono il bot dell'Univaq (Università dell'Aquila). Premendo uno dei bottoni che vedi qui sotto, posso fornirti tutte le informazioni di cui hai bisogno sulla nostra università."
+def get_logger(debug):
+    """Get logger object"""
+
+    logging.basicConfig(
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        level=logging.INFO
+        )
+    logger = logging.getLogger(__name__)
+
+    if debug is False:
+        logging.disable(logging.CRITICAL)
+
+    return logger
+
+def start_command(bot, update):
+    """Defining the `start` command"""
+
+    welcome = """
+    Ciao, sono il bot dell'Univaq (Università dell'Aquila). 
+    Premendo uno dei bottoni che vedi qui sotto, posso fornirti 
+    tutte le informazioni di cui hai bisogno sulla nostra università."""
+
     bot.sendMessage(update.message.chat_id, text=welcome)
 
-def botHelp(bot, update):
-    helpMessage = """Sono il bot dell'Univaq (Università dell'Aquila).
+def help_command(bot, update):
+    """Defining the `help` command"""
+
+    help_message = """Sono il bot dell'Univaq (Università dell'Aquila).
     Premendo uno dei bottoni qui sotto, posso fornirti tutte le informazioni di cui hai bisogno sulla nostra università.
 
     Ecco la lista di comandi:
@@ -48,36 +63,42 @@ def botHelp(bot, update):
     /prof - Stampa numeri di telefono, e-mail e altro di ogni professore
     /mensa - Stampa gli orari della mensa
     """
-    bot.sendMessage(update.message.chat_id, text=helpMessage)
 
-def pullNews(bot, update):
+    bot.sendMessage(update.message.chat_id, text=help_message)
+
+def news_command(bot, update):
+    """Defining the `news` command"""
+
     bot.sendMessage(update.message.chat_id, text=update.message.text)
 
-def prof(bot, update, err):
+def prof_command(bot, update, err):
+    """Defining the `prof` command"""
+
     bot.sendMessage(update.message.chat_id, text="Lista professori da Professors.json")
 
-def canteen(bot, update, err):
+def canteen_command(bot, update, err):
+    """Defining the `canteen` command"""
+
     bot.sendMessage(update.message.chat_id, text="Orari della mensa")
 
-
-
 def main():
-    # Create the EventHandler and pass it your bot's token.
+    """Defining the main function"""
+
+    config = get_configuration()
+
+    token = config.get('API-KEYS', 'TelegramBot')
+    debug = config.getboolean('UTILS', 'Debug')
+    logger = get_logger(debug)
+
     updater = Updater(token)
 
-    # Get the dispatcher to register handlers
-    dp = updater.dispatcher
+    dispatcher = updater.dispatcher
 
-    # on different commands - answer in Telegram
-    dp.addTelegramCommandHandler("start", start)
-    dp.addTelegramCommandHandler("help", botHelp)
+    dispatcher.addTelegramCommandHandler("start", start_command)
+    dispatcher.addTelegramCommandHandler("help", help_command)
+    logger.info('Bot started')
 
-    # Start the Bot
     updater.start_polling()
-
-    # Run the bot until the you presses Ctrl-C or the process receives SIGINT,
-    # SIGTERM or SIGABRT. This should be used most of the time, since
-    # start_polling() is non-blocking and will stop the bot gracefully.
     updater.idle()
 
 if __name__ == '__main__':
