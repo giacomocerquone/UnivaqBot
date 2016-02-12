@@ -16,6 +16,7 @@ bot.
 
 import logging
 import configparser
+
 from telegram import Updater
 
 def get_configuration():
