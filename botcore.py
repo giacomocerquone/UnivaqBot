@@ -44,27 +44,14 @@ def get_logger(debug):
 def start_command(bot, update):
     """Defining the `start` command"""
 
-    welcome = """
-    Ciao, sono il bot dell'Univaq (Università dell'Aquila).
-    Premendo uno dei bottoni che vedi qui sotto, posso fornirti
-    tutte le informazioni di cui hai bisogno sulla nostra università."""
+    welcome = "Ciao, sono il bot dell'Univaq (Università dell'Aquila). Premendo uno dei bottoni che vedi qui sotto, posso fornirti tutte le informazioni di cui hai bisogno sulla nostra università."
 
     bot.sendMessage(update.message.chat_id, text=welcome)
 
 def help_command(bot, update):
     """Defining the `help` command"""
 
-    help_message = """Sono il bot dell'Univaq (Università dell'Aquila).
-    Premendo uno dei bottoni qui sotto, posso fornirti tutte le informazioni di cui hai bisogno sulla nostra università.
-
-    Ecco la lista di comandi:
-
-    /help - Stampa questo messaggio
-    /news - Stampa le ultime 10 news
-    /prof - Stampa numeri di telefono, e-mail e altro di ogni professore
-    /mensa - Stampa gli orari della mensa
-    """
-
+    help_message = """Sono il bot dell'Univaq (Università dell'Aquila).\nPremendo uno dei bottoni qui sotto, posso fornirti tutte le informazioni di cui hai bisogno sulla nostra università.\n\nEcco la lista di comandi:\n\n/help - Stampa questo messaggio\n/news - Stampa le ultime 10 news\n/prof - Mostra info sui professori\n/mensa - Stampa gli orari della mensa"""
     bot.sendMessage(update.message.chat_id, text=help_message)
 
 def news_command(bot, update):
