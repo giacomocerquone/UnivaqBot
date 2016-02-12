@@ -6,7 +6,7 @@
 This is a univaq telegram bot, an autonomous system integrated with univaq data, built in python and over telegram API
 
 ### DISCLAIMER ###
-**THIS PROJECT IS NOT OFFICIALLY AFFILIATED WITH UNIVAQ INSTITUTION** 
+**THIS PROJECT IS NOT OFFICIALLY AFFILIATED WITH UNIVAQ INSTITUTION**
 
 It's an open source project built for didactic purposes
 
@@ -15,12 +15,12 @@ Scope
 
 The aim of univaq telegram bot is to provide a free, simple and easy to use service to access and retrieve all informations about univaq. It can be used by all univaq students and affiliates
 
-Definitions, acronyms, and abbreviations 
+Definitions, acronyms, and abbreviations
 ----------------------------------------
 
 - **univaq** the university of L'Aquila, Italy
 
-References 
+References
 ----------
 
 * https://www.python.org/dev/peps/pep-0008/ - Style Guide for Python Code
@@ -35,7 +35,7 @@ Overview
    + Product Function
    + Assumptions
 
-* Specific Requirements 
+* Specific Requirements
    + External
    + Functional
    + Performance
@@ -43,7 +43,7 @@ Overview
 Overall Description
 -----------------
  Henceforward the term *service* represents the univaq telegram bot service itself
- 
+
 ### Product Functions
 
 .
@@ -67,15 +67,15 @@ Overall Description
 
 Specific Requirements
 -----------------
-	
+
 This section is built to provide a clear and formal description of the service's functionalities.
 There are several ways to prioritize the requirements in the backlog. Some of the most popular ones include,
 
 **MoSCoW**
 
-- *MUST* have this. 
-- *SHOULD* have this if at all possible. 
-- *COULD* have this if it does not effect anything else. 
+- *MUST* have this.
+- *SHOULD* have this if at all possible.
+- *COULD* have this if it does not effect anything else.
 - *WON'T* have this time but would like in the future
 
 ### External interface requirements
@@ -85,7 +85,7 @@ Here it's a small description of interface requirements
 
 **Telegram response type**
 
-- The ideal response type to provide to the end user, **COULD** be *markdown* formatted. 
+- The ideal response type to provide to the end user, **COULD** be *markdown* formatted.
 
 
 **Software interfaces**
@@ -98,7 +98,7 @@ Here it's a small description of interface requirements
 **Communications interfaces**
 
 
-* Contributors **SHOULD** communicate project's decisions using Github issue tracking system 
+* Contributors **SHOULD** communicate project's decisions using Github issue tracking system
 
 ### Functional Requirements
 
@@ -109,7 +109,7 @@ Functional requirements describe in a formal way all project feautures
 
 * Debian 8 VPS or similar
 * [Python](https://www.python.org/) interpreter installed
-* 24/24h uptime for the vps machine 
+* 24/24h uptime for the vps machine
 
 **Service Requirements**
 
@@ -117,17 +117,16 @@ Functional requirements describe in a formal way all project feautures
 * the **news notifications queue** is updated and synchronized every 30 minutes* to get newest news
 * the **schedule** of a univaq course **MUST** be manually updated every 6 months
 * A complete list of commands to retrieve univaq informations and news
-    + **/help** to retrieve all available commands
+    + **/help** to retrieve all available commands (ok)
     + **/news** to retrieve last 10 news
-    + **/prof** to get a list of all professors
-    + **/prof &lt;nome&gt;** to search info of a specific professor
-    + **/mensa** to retrieve the *mensa* time tables
-    + **/orario** to retrieve all courses available
+    + **/prof** to get buttons of every professors to click to get info (ok)
+    + **/orario** to retrieve all courses schedules available
     + **/orario &lt;corso&gt;** to retrieve a specific course's schedule
-    + **/segreteriastudenti** to retrieve a *segreteria studenti* hours
-    + **/segreteriadidattica** to retrieve a *segreteria didattica* hours
     + **/esami** to retrieve a specific exams schedule
-    + **/adsu** to retrieve location, contacts and hours of ADSU
+    + **/mensa** to retrieve the *mensa* time tables
+    + **/segreteria** to retrieve information about *segreteria studenti* (ok)
+    + **/adsu** to retrieve information about the ADSU
+
 
 **Environment Requirements**
 
