@@ -31,25 +31,34 @@ logger = logging.getLogger(__name__)
 if debug == False:
     logging.disable(logging.CRITICAL)
 
-
 # Define a few command handlers. These usually take the two arguments bot and
 # update. Error handlers also receive the raised TelegramError object in error.
 def start(bot, update):
-    welcome = "Ciao, sono il bot dell'Univaq (Università dell'Aquila). Premendo uno dei bottoni che vedi qui sotto, posso fornirti tutte le informazioni di cui hai bisogno."
+    welcome = "Ciao, sono il bot dell'Univaq (Università dell'Aquila). Premendo uno dei bottoni che vedi qui sotto, posso fornirti tutte le informazioni di cui hai bisogno sulla nostra università."
     bot.sendMessage(update.message.chat_id, text=welcome)
 
-
 def botHelp(bot, update):
-    bot.sendMessage(update.message.chat_id, text='Help!')
+    helpMessage = """Sono il bot dell'Univaq (Università dell'Aquila).
+    Premendo uno dei bottoni qui sotto, posso fornirti tutte le informazioni di cui hai bisogno sulla nostra università.
 
+    Ecco la lista di comandi:
 
-def echo(bot, update):
+    /help - Stampa questo messaggio
+    /news - Stampa le ultime 10 news
+    /prof - Stampa numeri di telefono, e-mail e altro di ogni professore
+    /mensa - Stampa gli orari della mensa
+    """
+    bot.sendMessage(update.message.chat_id, text=helpMessage)
+
+def pullNews(bot, update):
     bot.sendMessage(update.message.chat_id, text=update.message.text)
 
+def prof(bot, update, err):
+    bot.sendMessage(update.message.chat_id, text="Lista professori da Professors.json")
 
-def error(bot, update, err):
-    bot.sendMessage(update.message.chat_id, text="Error!")
-    logger.warning('Update' + update + ' caused error ' + err)
+def canteen(bot, update, err):
+    bot.sendMessage(update.message.chat_id, text="Orari della mensa")
+
 
 
 def main():
@@ -62,12 +71,6 @@ def main():
     # on different commands - answer in Telegram
     dp.addTelegramCommandHandler("start", start)
     dp.addTelegramCommandHandler("help", botHelp)
-
-    # on noncommand i.e message - echo the message on Telegram
-    dp.addTelegramMessageHandler(echo)
-
-    # log all errors
-    dp.addErrorHandler(error)
 
     # Start the Bot
     updater.start_polling()
