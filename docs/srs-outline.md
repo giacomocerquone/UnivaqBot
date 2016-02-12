@@ -24,6 +24,7 @@ References
 ----------
 
 * https://www.python.org/dev/peps/pep-0008/ - Style Guide for Python Code
+* https://gist.github.com/sloria/7001839 - The Best of the Best Practices (BOBP) Guide for Python
 * http://www.pylint.org/ - Pylint for code quality checking
 * https://core.telegram.org/bots/api - Telegram bot API
 * https://github.com/python-telegram-bot/python-telegram-bot - Python Telegram API wrapper
