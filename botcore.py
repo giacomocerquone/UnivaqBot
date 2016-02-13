@@ -44,7 +44,7 @@ def get_logger(debug):
 def start_command(bot, update):
     """Defining the `start` command"""
 
-    welcome = "Ciao, sono il bot dell'Univaq (Università dell'Aquila)." \
+    welcome = "Ciao, sono il bot dell'Univaq (Università dell'Aquila).\n" \
               "Premendo uno dei bottoni che vedi qui sotto, " \
               "posso fornirti tutte le informazioni di cui hai bisogno sulla nostra università. "
 
