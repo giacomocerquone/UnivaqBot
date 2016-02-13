@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 def scrape_student_office():
     """Get info about the student service office"""
 
-    scraped_info = []
+    scraped_info = {}
     student_office_url = "http://www.univaq.it/section.php?id=607"
     headers = {
         "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5)",
@@ -27,13 +27,26 @@ def scrape_student_office():
         print("Error! Status "+request.status_code)
         return
 
-    info_table = BeautifulSoup(request.text, "html.parser").find(string="AREA SCIENTIFICA")\
-                 .parent.parent.find_next_sibling()
+    first_row = BeautifulSoup(request.text, "html.parser").find(string="AREA SCIENTIFICA")\
+                .parent.parent.find_next_sibling().find("tr")
 
-    print(info_table)
+    address = first_row.find(class_="address_table_description").text
+    phone = first_row.find_next_sibling().find(class_="address_table_description").text
+    email = first_row.find_next_sibling().find_next_sibling()\
+            .find(class_="address_table_description").text
+    hours = first_row.find_next_sibling().find_next_sibling().find_next_sibling()\
+            .find(class_="address_table_description").text.replace('\n', '')
 
-    with open('../json/studentOffice.json', 'w') as file_open:
-        json.dump(scraped_info, file_open)
+    scraped_info.update({
+        "indirizzo": address,
+        "telefono": phone,
+        "e-mail": email,
+        "orari": hours
+    })
+
+
+    with open('../json/student_office.json', 'w') as file_open:
+        json.dump(scraped_info, file_open) # PROBLEM ENCODING CHARS
 
 if __name__ == "__main__":
     scrape_student_office()
