@@ -49,7 +49,7 @@ def scrape_professors():
         })
 
     with open('../json/professors.json', 'w') as file_open:
-        json.dump(scraped_professors, file_open)
+        json.dump(scraped_professors, file_open) # PROBLEM ENCODING CHARS
 
 if __name__ == "__main__":
     scrape_professors()
