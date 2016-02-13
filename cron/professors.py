@@ -9,7 +9,7 @@ import requests
 from bs4 import BeautifulSoup
 
 def scrape_professors():
-    """Defining the method to scrape professors"""
+    """Get information about professors"""
 
     scraped_professors = []
     professors_url = "http://www.disim.univaq.it/didattica/" \
