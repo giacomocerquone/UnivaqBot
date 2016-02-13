@@ -126,7 +126,7 @@ Functional requirements describe in a formal way all project feautures
     + **/esami** to retrieve a specific exams schedule
     + **/mensa** to retrieve the *mensa* time tables
     + **/segreteria** to retrieve information about *segreteria studenti* (ok)
-    + **/adsu** to retrieve information about the ADSU
+    + **/adsu** to retrieve information about the ADSU (ok)
 
 
 **Environment Requirements**
