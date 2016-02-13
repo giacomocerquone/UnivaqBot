@@ -16,6 +16,7 @@ bot.
 
 import logging
 import configparser
+import telegram
 
 from telegram import Updater
 
@@ -56,9 +57,13 @@ def help_command(bot, update):
     help_message = "Sono il bot dell'Univaq (Università dell'Aquila).\n" \
                    "Premendo uno dei bottoni qui sotto, posso fornirti " \
                    "tutte le informazioni di cui hai bisogno sulla nostra università.\n\n" \
-                   "Ecco la lista di comandi:\n\n/help - Stampa questo messaggio\n" \
-                   "/news - Stampa le ultime 10 news\n/prof - Mostra info sui professori\n" \
-                   "/mensa - Stampa gli orari della mensa"
+                   "Ecco la lista di comandi:\n\n" \
+                   "/help - Stampa questo messaggio\n" \
+                   "/news - Stampa le ultime 10 news\n" \
+                   "/prof - Mostra info sui professori\n" \
+                   "/mensa - Stampa gli orari della mensa\n" \
+                   "/cancel - Cancella l'ultima operazione\n" \
+                   "/commands_keyboard - Mostra la tastiera"
 
     bot.sendMessage(update.message.chat_id, text=help_message)
 
@@ -72,10 +77,23 @@ def prof_command(bot, update):
 
     bot.sendMessage(update.message.chat_id, text="Lista professori da Professors.json")
 
+def commands_keyboard(bot, update):
+    """Enable a custom keyboard"""
+
+    keyboard = [["/help", "/news", "/prof", "/mensa", "/cancel"]]
+    reply_markup = telegram.ReplyKeyboardMarkup(keyboard)
+    bot.sendMessage(update.message.chat_id, text="Enabled keyboard", reply_markup=reply_markup)
+
 def canteen_command(bot, update):
     """Defining the `canteen` command"""
 
     bot.sendMessage(update.message.chat_id, text="Orari della mensa")
+
+def cancel_command(bot, update):
+    """Defining the cancel command to delete last operation"""
+
+    bot.sendMessage(update.message.chat_id, text="Ultima operazione annullata")
+
 
 def main():
     """Defining the main function"""
@@ -92,6 +110,12 @@ def main():
 
     dispatcher.addTelegramCommandHandler("start", start_command)
     dispatcher.addTelegramCommandHandler("help", help_command)
+    dispatcher.addTelegramCommandHandler("news", news_command)
+    dispatcher.addTelegramCommandHandler("prof", prof_command)
+    dispatcher.addTelegramCommandHandler("commands_keyboard", commands_keyboard)
+    dispatcher.addTelegramCommandHandler("mensa", canteen_command)
+    dispatcher.addTelegramCommandHandler("cancel", cancel_command)
+
     logger.info('Bot started')
 
     updater.start_polling()
