@@ -94,27 +94,49 @@ def cancel_command(bot, update):
 
     bot.sendMessage(update.message.chat_id, text="Ultima operazione annullata")
 
+def newson_command(bot, update):
+    """Defining the command to enable notifications for news"""
+
+    def notify_news(bat):
+        """Defining method that will be repeated over and over"""
+
+        # ALL THE CHECKS NEEDED TO KNOW IF THERE IS A NEW NEWS
+
+        bat.sendMessage(update.message.chat_id, text='News')
+
+    bot.sendMessage(update.message.chat_id, text='Notifiche abilitate')
+    JOB_QUEUE.put(notify_news, 10, repeat=True)
+
+def newsoff_command(bot, update):
+    """Defining the command to disable notifications for news"""
+
+    JOB_QUEUE.stop()
+    bot.sendMessage(update.message.chat_id, text='Notifiche disabilitate')
 
 def main():
     """Defining the main function"""
 
-    config = get_configuration()
+    global JOB_QUEUE
 
+    config = get_configuration()
     token = config.get('API-KEYS', 'TelegramBot')
     debug = config.getboolean('UTILS', 'Debug')
     logger = get_logger(debug)
 
     updater = Updater(token)
-
+    JOB_QUEUE = updater.job_queue
     dispatcher = updater.dispatcher
 
     dispatcher.addTelegramCommandHandler("start", start_command)
     dispatcher.addTelegramCommandHandler("help", help_command)
     dispatcher.addTelegramCommandHandler("news", news_command)
+    dispatcher.addTelegramCommandHandler("newson", newson_command)
+    dispatcher.addTelegramCommandHandler("newsoff", newsoff_command)
     dispatcher.addTelegramCommandHandler("prof", prof_command)
-    dispatcher.addTelegramCommandHandler("commands_keyboard", commands_keyboard)
     dispatcher.addTelegramCommandHandler("mensa", canteen_command)
+    dispatcher.addTelegramCommandHandler("commands_keyboard", commands_keyboard)
     dispatcher.addTelegramCommandHandler("cancel", cancel_command)
+
 
     logger.info('Bot started')
 
