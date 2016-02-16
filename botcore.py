@@ -136,10 +136,11 @@ def newson_command(bot, update):
 
     def notify_news(bat):
         """Defining method that will be repeated over and over"""
+        unread_news = check_news()
 
-        # ALL THE CHECKS NEEDED TO KNOW IF THERE IS A NEW NEWS
-
-        bat.sendMessage(update.message.chat_id, text='News')
+        if len(unread_news) > 0:
+            write_news()
+            bat.sendMessage(update.message.chat_id, text='Ci sono nuove news')
 
     bot.sendMessage(update.message.chat_id, text='Notifiche abilitate')
     JOB_QUEUE.put(notify_news, 10, repeat=True)
