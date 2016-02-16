@@ -8,12 +8,7 @@ This is a simple script the schedule the news pull
 import json
 import requests
 
-from telegram import Updater
 from bs4 import BeautifulSoup
-
-def build_updater():
-    """ This function build the current job queue updater """
-    return Updater('TOKEN')
 
 def pull_news():
     """ This function is built to pull all the news from rss endpoint """
@@ -30,13 +25,25 @@ def pull_news():
     response = requests.get(url, headers=headers)
 
     if response.status_code != 200:
-    	raise ValueError('Something bad happened during news scraping :/')
+        raise ValueError('Something bad happened during news scraping :/')
 
     document_root = BeautifulSoup(response.text, "html.parser")
     items = document_root.findAll("item")
 
-    print items[0]
+    for item in items[:10]:
+        title = item.find("title").text
+        description = item.find("description").text
+        pulled_news.append({
+            "title": title,
+            "description": description
+            })
+
+    with open("../json/news.json", "w") as news_file:
+        json.dump(pulled_news, news_file)
+
+    print "completed successfully"
+
 
 
 if __name__ == "__main__":
-	pull_news()
+    pull_news()
