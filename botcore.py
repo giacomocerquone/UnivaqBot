@@ -14,9 +14,12 @@ Press Ctrl-C on the command line or send a signal to the process to stop the
 bot.
 """
 
+import json
+import string
 import logging
-import configparser
 import telegram
+import feedparser
+import configparser
 
 from telegram import Updater
 
@@ -41,6 +44,39 @@ def get_logger(debug):
         logging.disable(logging.CRITICAL)
 
     return logger
+
+def pull_news():
+    """ This function is built to pull all the news from rss endpoint """
+    document = feedparser.parse(
+        "http://www.disim.univaq.it/didattica/content.php?fid=rss&pid=114&did=8&lid=it"
+        )
+    news = [
+        {"title": item.title, "description": string.replace(item.description, "&amp;#39;", "'")}
+        for item in document["entries"][:10]
+        ]
+    return news
+
+def write_news():
+    news = pull_news()
+    with open("json/news.json", "w") as file:
+        json.dump(news, file)
+
+def check_news():
+    """This function check if there is some unread news from the website"""
+    pulled_news = pull_news()
+    stored_news = read_news()
+    unread_news = []
+
+    for i in range(0, 10):
+        if pulled_news[i]["title"] != stored_news[i]["title"]:
+            unread_news.append(pulled_news[i]["title"])
+
+    return unread_news
+
+def read_news():
+    """This function read news locally stored into the json file"""
+    with open("json/news.json", "r") as file:
+        return json.load(file)
 
 def start_command(bot, update):
     """Defining the `start` command"""
