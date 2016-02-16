@@ -81,7 +81,7 @@ def commands_keyboard(bot, update):
     """Enable a custom keyboard"""
 
     keyboard = [["/help", "/news", "/prof", "/mensa", "/cancel"]]
-    reply_markup = telegram.ReplyKeyboardMarkup(keyboard)
+    reply_markup = telegram.ReplyKeyboardMarkup(keyboard, resize_keyboard=True, one_time_keyboard=False)
     bot.sendMessage(update.message.chat_id, text="Enabled keyboard", reply_markup=reply_markup)
 
 def canteen_command(bot, update):
