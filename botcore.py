@@ -57,9 +57,10 @@ def pull_news():
     return news
 
 def write_news():
+    """Pulling and writing news to the json file"""
     news = pull_news()
-    with open("json/news.json", "w") as file:
-        json.dump(news, file)
+    with open("json/news.json", "w") as news_file:
+        json.dump(news, news_file)
 
 def check_news():
     """This function check if there is some unread news from the website"""
@@ -75,8 +76,8 @@ def check_news():
 
 def read_news():
     """This function read news locally stored into the json file"""
-    with open("json/news.json", "r") as file:
-        return json.load(file)
+    with open("json/news.json", "r") as news_file:
+        return json.load(news_file)
 
 def start_command(bot, update):
     """Defining the `start` command"""
