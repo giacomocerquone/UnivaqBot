@@ -37,14 +37,14 @@ def write_json(data, json_file):
         json.dump(data, json_file)
 
 def read_json(json_file):
-    """This function read news locally stored into the json file"""
+    """General function used everywhere to read a json file"""
 
     with open(json_file, "r") as json_file:
         return json.load(json_file)
 
 
 def pull_news():
-    """This function is built to pull all the news from the rss endpoint"""
+    """This function is built to pull 10 news from the rss endpoint"""
 
     document = feedparser.parse(
         "http://www.disim.univaq.it/didattica/content.php?fid=rss&pid=114&did=8&lid=it"
@@ -53,7 +53,7 @@ def pull_news():
         {"title": item.title, "description": item.description.replace("&amp;#39;", "'")}
         for item in document["entries"][:10]
         ]
-    write_json(news, "json/news.json")
+
     return news
 
 def check_news():
