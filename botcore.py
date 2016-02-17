@@ -2,20 +2,9 @@
 # -*- coding: utf-8 -*-
 
 """
-This Bot uses the Updater class to handle the bot.
-
-First, a few handler functions are defined. Then, those functions are passed to
-the Dispatcher and registered at their respective places.
-Then, the bot is started and runs until we press Ctrl-C on the command line.
-
-Usage:
-Basic Echobot example, repeats messages.
-Press Ctrl-C on the command line or send a signal to the process to stop the
-bot.
+This is the core script of the UnivaqInformaticaBot created by Giacomo Cerquone and Diego Mariani 
 """
 
-#import json
-import feedparser
 import telegram
 
 from telegram import Updater
