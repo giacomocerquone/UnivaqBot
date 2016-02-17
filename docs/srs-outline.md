@@ -119,8 +119,8 @@ Functional requirements describe in a formal way all project feautures
 * the **schedule** of a univaq course **MUST** be manually updated every 6 months
 * A complete list of commands to retrieve univaq informations and news
     + **/help** to retrieve all available commands
-    + **/news10** to retrieve last 10 news
-    + **/news5**  to retrieve the last 5 news
+    + **/news** to retrieve last 10 news
+    + **/news <number>**  to retrieve the last <number> news
     + **/newson** to enable notifications from the bot
     + **/newsoff** to block notifications from the bot
     + **/prof** to get info about professors
@@ -128,7 +128,7 @@ Functional requirements describe in a formal way all project feautures
     + **/adsu** to retrieve information about the ADSU
 
     **Sources to be find**
-    
+
     + **/orario** to retrieve all courses schedules available
     + **/orario &lt;corso&gt;** to retrieve a specific course's schedule
     + **/esami** to retrieve a specific exams schedule
