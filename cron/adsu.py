@@ -27,7 +27,8 @@ def scrape_adsu():
         print("Error! Status "+request.status_code)
         return
 
-    info = BeautifulSoup(request.text, "html.parser").find(id="AutoNumber5").text.replace("  ", "").replace("\t", "").replace("\r", "").replace("\n\n", "")
+    info = BeautifulSoup(request.text, "html.parser").find(id="AutoNumber5").text.replace("  ", "")\
+           .replace("\t", "").replace("\r", "").replace("\n\n", "")
 
     scraped_info.update({
         "info": info
