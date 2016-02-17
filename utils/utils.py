@@ -49,7 +49,8 @@ def pull_news():
         "http://www.disim.univaq.it/didattica/content.php?fid=rss&pid=114&did=8&lid=it"
         )
     news = [
-        {"title": item.title, "description": item.description.replace("&amp;#39;", "'")}
+        {"title": item.title, "description": item.description.replace("&amp;#39;", "'"),
+         "id": item.id}
         for item in document["entries"][:10]
         ]
 
@@ -63,7 +64,8 @@ def check_news():
     unread_news = []
 
     for i in range(0, 10):
-        if pulled_news[i]["title"] != stored_news[i]["title"]:
-            unread_news.append(pulled_news[i]["title"])
+        if pulled_news[i]["id"] != stored_news[i]["id"]:
+            unread_news.append({"title": pulled_news[i]["title"],
+                                "description": pulled_news[i].description})
 
     return unread_news
