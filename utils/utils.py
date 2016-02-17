@@ -42,8 +42,8 @@ def read_json(json_file):
     with open(json_file, "r") as json_file:
         return json.load(json_file)
 
-def pull_news():
-    """This function is built to pull 10 news from the rss endpoint"""
+def pull_news(num):
+    """This function is built to pull 10 (or an arbitrary number) news from the rss endpoint"""
 
     document = feedparser.parse(
         "http://www.disim.univaq.it/didattica/content.php?fid=rss&pid=114&did=8&lid=it"
@@ -51,7 +51,7 @@ def pull_news():
     news = [
         {"title": item.title, "description": item.description.replace("&amp;#39;", "'"),
          "id": item.id}
-        for item in document["entries"][:10]
+        for item in document["entries"][:int(num)]
         ]
 
     return news
@@ -59,7 +59,7 @@ def pull_news():
 def check_news():
     """This function check if there are some unread news from the website"""
 
-    pulled_news = pull_news()
+    pulled_news = pull_news(10)
     stored_news = read_json("json/news.json")
     unread_news = []
 
