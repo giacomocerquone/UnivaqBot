@@ -37,7 +37,8 @@ def scrape_student_office():
     email = first_row.find_next_sibling().find_next_sibling()\
             .find(class_="address_table_description").text
     hours = first_row.find_next_sibling().find_next_sibling().find_next_sibling()\
-            .find(class_="address_table_description").text.replace('\n', '')
+            .find(class_="address_table_description").text.replace('\n', '')\
+            .replace("13", "13, ")
 
     scraped_info.update({
         "indirizzo": address,
