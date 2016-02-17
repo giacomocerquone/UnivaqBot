@@ -42,7 +42,6 @@ def read_json(json_file):
     with open(json_file, "r") as json_file:
         return json.load(json_file)
 
-
 def pull_news():
     """This function is built to pull 10 news from the rss endpoint"""
 
@@ -57,7 +56,7 @@ def pull_news():
     return news
 
 def check_news():
-    """This function check if there is some unread news from the website"""
+    """This function check if there are some unread news from the website"""
 
     pulled_news = pull_news()
     stored_news = read_json("json/news.json")
