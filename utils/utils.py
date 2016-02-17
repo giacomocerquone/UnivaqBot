@@ -30,14 +30,21 @@ def get_logger(debug):
 
     return logger
 
+def write_json(data, json_file):
+    """General function used everywhere to write data into a json file"""
 
+    with open(json_file, "w") as json_file:
+        json.dump(data, json_file)
 
+def read_json(json_file):
+    """This function read news locally stored into the json file"""
 
-
+    with open(json_file, "r") as json_file:
+        return json.load(json_file)
 
 
 def pull_news():
-    """ This function is built to pull all the news from rss endpoint """
+    """This function is built to pull all the news from the rss endpoint"""
 
     document = feedparser.parse(
         "http://www.disim.univaq.it/didattica/content.php?fid=rss&pid=114&did=8&lid=it"
@@ -46,20 +53,14 @@ def pull_news():
         {"title": item.title, "description": item.description.replace("&amp;#39;", "'")}
         for item in document["entries"][:10]
         ]
+    write_json(news, "json/news.json")
     return news
-
-def write_news():
-    """Pulling and writing news to the json file"""
-
-    news = pull_news()
-    with open("json/news.json", "w") as news_file:
-        json.dump(news, news_file)
 
 def check_news():
     """This function check if there is some unread news from the website"""
 
     pulled_news = pull_news()
-    stored_news = read_news()
+    stored_news = read_json("json/news.json")
     unread_news = []
 
     for i in range(0, 10):
@@ -67,9 +68,3 @@ def check_news():
             unread_news.append(pulled_news[i]["title"])
 
     return unread_news
-
-def read_news():
-    """This function read news locally stored into the json file"""
-
-    with open("json/news.json", "r") as news_file:
-        return json.load(news_file)

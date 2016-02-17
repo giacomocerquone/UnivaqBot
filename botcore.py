@@ -14,70 +14,12 @@ Press Ctrl-C on the command line or send a signal to the process to stop the
 bot.
 """
 
-import json
-import string
-import logging
-import telegram
+#import json
 import feedparser
-import configparser
+import telegram
 
 from telegram import Updater
-
-def get_configuration():
-    """Get global configuration from service.cfg"""
-
-    config = configparser.ConfigParser()
-    config.read("service.cfg")
-
-    return config
-
-def get_logger(debug):
-    """Get logger object"""
-
-    logging.basicConfig(
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-        level=logging.INFO
-        )
-    logger = logging.getLogger(__name__)
-
-    if debug is False:
-        logging.disable(logging.CRITICAL)
-
-    return logger
-
-def pull_news():
-    """ This function is built to pull all the news from rss endpoint """
-    document = feedparser.parse(
-        "http://www.disim.univaq.it/didattica/content.php?fid=rss&pid=114&did=8&lid=it"
-        )
-    news = [
-        {"title": item.title, "description": string.replace(item.description, "&amp;#39;", "'")}
-        for item in document["entries"][:10]
-        ]
-    return news
-
-def write_news():
-    """Pulling and writing news to the json file"""
-    news = pull_news()
-    with open("json/news.json", "w") as news_file:
-        json.dump(news, news_file)
-
-def check_news():
-    """This function check if there is some unread news from the website"""
-    pulled_news = pull_news()
-    stored_news = read_news()
-    unread_news = []
-
-    for i in range(0, 10):
-        if pulled_news[i]["title"] != stored_news[i]["title"]:
-            unread_news.append(pulled_news[i]["title"])
-
-    return unread_news
-
-def read_news():
-    """This function read news locally stored into the json file"""
-    with open("json/news.json", "r") as news_file:
-        return json.load(news_file)
+from utils import utils
 
 def start_command(bot, update):
     """Defining the `start` command"""
@@ -118,8 +60,8 @@ def commands_keyboard(bot, update):
     """Enable a custom keyboard"""
 
     keyboard = [["/help", "/news", "/prof", "/mensa", "/cancel"]]
-    reply_markup = telegram.ReplyKeyboardMarkup(keyboard, resize_keyboard=True, one_time_keyboard=False)
-    bot.sendMessage(update.message.chat_id, text="Enabled keyboard", reply_markup=reply_markup)
+    markup = telegram.ReplyKeyboardMarkup(keyboard, resize_keyboard=True, one_time_keyboard=False)
+    bot.sendMessage(update.message.chat_id, text="Enabled keyboard", reply_markup=markup)
 
 def canteen_command(bot, update):
     """Defining the `canteen` command"""
@@ -136,14 +78,15 @@ def newson_command(bot, update):
 
     def notify_news(bat):
         """Defining method that will be repeated over and over"""
-        unread_news = check_news()
+        unread_news = utils.check_news()
 
         if len(unread_news) > 0:
-            write_news()
+            data = utils.pull_news()
+            utils.write_json(data, "json/news.json")
             bat.sendMessage(update.message.chat_id, text='Ci sono nuove news')
 
-    bot.sendMessage(update.message.chat_id, text='Notifiche abilitate')
     JOB_QUEUE.put(notify_news, 10, repeat=True)
+    bot.sendMessage(update.message.chat_id, text='Notifiche abilitate')
 
 def newsoff_command(bot, update):
     """Defining the command to disable notifications for news"""
@@ -156,10 +99,10 @@ def main():
 
     global JOB_QUEUE
 
-    config = get_configuration()
+    config = utils.get_configuration()
     token = config.get('API-KEYS', 'TelegramBot')
     debug = config.getboolean('UTILS', 'Debug')
-    logger = get_logger(debug)
+    logger = utils.get_logger(debug)
 
     updater = Updater(token)
     JOB_QUEUE = updater.job_queue
@@ -175,6 +118,10 @@ def main():
     dispatcher.addTelegramCommandHandler("commands_keyboard", commands_keyboard)
     dispatcher.addTelegramCommandHandler("cancel", cancel_command)
 
+    document = feedparser.parse(
+        "http://www.disim.univaq.it/didattica/content.php?fid=rss&pid=114&did=8&lid=it"
+        )
+    print(document['entries'][0]['title'])
 
     logger.info('Bot started')
 
