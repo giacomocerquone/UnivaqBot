@@ -3,10 +3,12 @@
 
 """This script scrapes all the info about the adsu of the university's city."""
 
-import json
+import sys
+sys.path.insert(0, '../')
 import requests
 
 from bs4 import BeautifulSoup
+from utils import utils
 
 def scrape_adsu():
     """Get information about the adsu in a crazy way due to their bitching page made like shit"""
@@ -34,10 +36,7 @@ def scrape_adsu():
         "info": info
     })
 
-    print(info)
-
-    with open('../json/adsu.json', 'w') as file_open:
-        json.dump(scraped_info, file_open) # PROBLEM ENCODING CHARS
+    utils.write_json(scraped_info, "../json/adsu.json")
 
 if __name__ == "__main__":
     scrape_adsu()

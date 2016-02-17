@@ -3,10 +3,12 @@
 
 """This script scrapes all the professors from the univaq website."""
 
-import json
+import sys
+sys.path.insert(0, '../')
 import requests
 
 from bs4 import BeautifulSoup
+from utils import utils
 
 def scrape_professors():
     """Get information about professors"""
@@ -48,8 +50,7 @@ def scrape_professors():
             "ufficio": "0"
         })
 
-    with open('../json/professors.json', 'w') as file_open:
-        json.dump(scraped_professors, file_open) # PROBLEM ENCODING CHARS
+    utils.write_json(scraped_professors, "../json/professors.json")
 
 if __name__ == "__main__":
     scrape_professors()
