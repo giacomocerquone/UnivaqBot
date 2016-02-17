@@ -49,7 +49,12 @@ def help_command(bot, update):
 def news_command(bot, update):
     """Defining the `news` command"""
 
-    bot.sendMessage(update.message.chat_id, text=update.message.text)
+    ten_news = utils.pull_news()
+    ten_news_string = ""
+    for news in ten_news:
+        ten_news_string += news['title'] + "\n" + news['description'] + "\n\n"
+    # ERROR DUE TO SOME FUCKING ENCODING PROBLEM IN THE DESCRIPION CHARS (WITH ONLY TITLE IT WORKS)
+    bot.sendMessage(update.message.chat_id, text=ten_news_string)
 
 def prof_command(bot, update):
     """Defining the `prof` command"""
@@ -83,9 +88,12 @@ def newson_command(bot, update):
         if len(unread_news) > 0:
             data = utils.pull_news()
             utils.write_json(data, "json/news.json")
-            bat.sendMessage(update.message.chat_id, text='Ci sono nuove news')
+            new_news_string = ""
+            for news in unread_news:
+                new_news_string += news['title'] + "\n" + news['description'] + "\n\n"
+            bat.sendMessage(update.message.chat_id, text=new_news_string)
 
-    JOB_QUEUE.put(notify_news, 10, repeat=True)
+    JOB_QUEUE.put(notify_news, 60, repeat=True)
     bot.sendMessage(update.message.chat_id, text='Notifiche abilitate')
 
 def newsoff_command(bot, update):
@@ -117,11 +125,6 @@ def main():
     dispatcher.addTelegramCommandHandler("mensa", canteen_command)
     dispatcher.addTelegramCommandHandler("commands_keyboard", commands_keyboard)
     dispatcher.addTelegramCommandHandler("cancel", cancel_command)
-
-    document = feedparser.parse(
-        "http://www.disim.univaq.it/didattica/content.php?fid=rss&pid=114&did=8&lid=it"
-        )
-    print(document['entries'][0]['title'])
 
     logger.info('Bot started')
 
