@@ -124,6 +124,7 @@ Functional requirements describe in a formal way all project feautures
     + **/newson** to enable notifications from the bot
     + **/newsoff** to block notifications from the bot
     + **/prof** to get info about professors
+    + **/prof {cognome}** to get info about one professor
     + **/segreteria** to retrieve information about *segreteria studenti*
     + **/adsu** to retrieve information about the ADSU
 
@@ -132,7 +133,7 @@ Functional requirements describe in a formal way all project feautures
     + **/orario** to retrieve all courses schedules available
     + **/orario &lt;corso&gt;** to retrieve a specific course's schedule
     + **/esami** to retrieve a specific exams schedule
-    + **/mensa** to retrieve the *mensa* time tables
+    + **/mensa** to retrieve the *mensa* hours
 
 **Environment Requirements**
 
