@@ -24,26 +24,35 @@ def help_command(bot, update):
 
     help_message = "La lista di comandi:\n\n" \
                    "/help - Stampa questo messaggio\n" \
-                   "/news - Stampa le ultime 10 news\n" \
-                   "/news <numero> - Stampa quante news decidete voi (dalla più recente)" \
-                   "/newson - Abilita le notifiche per ogni nuova news" \
-                   "/newsoff - Disabilita le notifiche per ogni nuova news" \
-                   "/prof - Mostra info sui professori\n" \
-                   "/segreteria - Stampa info sulla segreteria studenti" \
-                   "/mensa - Stampa gli orari della mensa\n" \
-                   "/adsu - Stampa info sull'adsu" \
+                   "/news - Leggi le ultime 10 news\n" \
+                   "/news num - Leggi le ultime <num> news\n" \
+                   "/newson - Abilita le notifiche per ogni nuova news\n" \
+                   "/newsoff - Disabilita le notifiche per ogni nuova news\n" \
+                   "/prof cognome - Info su un solo docente\n" \
+                   "/prof - Info sui docenti\n" \
+                   "/segreteria - Info sulla segreteria studenti\n" \
+                   "/mensa - Info sugli orari della mensa\n" \
+                   "/adsu - Info sull'adsu" \
                    "\n\nQuesto bot è orgogliosamente open source, sviluppato da Giacomo Cerquone" \
-                   "e Diego Mariani."
+                   " e Diego Mariani."
 
     bot.sendMessage(update.message.chat_id, text=help_message)
 
-def news_command(bot, update):
+def news_command(bot, update, args):
     """Defining the `news` command"""
 
-    ten_news = utils.pull_news()
+    if len(args) and int(args[0]) <= 10:
+        ten_news = utils.pull_news(args[0])
+    else:
+        print("passato in else")
+        ten_news = utils.pull_news(10)
+
     ten_news_string = ""
-    for news in ten_news:
-        ten_news_string += "--" + news['title'] + "\n" + news['description'] + "\n\n"
+    for i, news in enumerate(ten_news):
+        truncated_descr = news['description'][:75] + '...' if len(news['description']) > 75 \
+                          else news['description']
+        ten_news_string += str(i+1) + "- " + news['title'] + "\n" + truncated_descr + "\n\n"
+
     bot.sendMessage(update.message.chat_id, text=ten_news_string)
 
 def newson_command(bot, update):
@@ -54,7 +63,7 @@ def newson_command(bot, update):
         unread_news = utils.check_news()
 
         if len(unread_news) > 0:
-            data = utils.pull_news()
+            data = utils.pull_news(10)
             utils.write_json(data, "json/news.json")
             new_news_string = ""
             for news in unread_news:
@@ -70,25 +79,42 @@ def newsoff_command(bot, update):
     JOB_QUEUE.stop()
     bot.sendMessage(update.message.chat_id, text='Notifiche disabilitate')
 
-def prof_command(bot, update):
+def prof_command(bot, update, args):
     """Defining the `prof` command"""
 
-    bot.sendMessage(update.message.chat_id, text="Lista professori da Professors.json")
+    data = utils.read_json("json/professors.json")
+    args[0] = int(args[0])
+    if args[0] and args[0] <= 10 and isinstance(args[0], int):
+        print("s")
+    else:
+        professors = []
+        for prof in data:
+            professors[0].append(prof['nome'])
+
+        bot.sendMessage(update.message.chat_id, text="Lista professori")
 
 def student_office_command(bot, update):
     """Defining the `student_office` command"""
 
-    bot.sendMessage(update.message.chat_id, text="Informazioni sulla segreteria")
+    data = utils.read_json("json/student_office.json")
+    student_office_info = "Orari:\n" + data['orari'] + "\n" \
+                          "Indirizzo:\n" + data['indirizzo'] + "\n" \
+                          "Telefono:\n" + data['telefono'] + "\n" \
+                          "E-mail:\n" + data['e-mail']
+
+    bot.sendMessage(update.message.chat_id, text=student_office_info)
 
 def canteen_command(bot, update):
     """Defining the `canteen` command"""
 
-    bot.sendMessage(update.message.chat_id, text="Orari della mensa")
+    data = utils.read_json("json/mensa.json")
+    bot.sendMessage(update.message.chat_id, text="Orari: "+data['orari'])
 
 def adsu_command(bot, update):
     """Defining the `canteen` command"""
 
-    bot.sendMessage(update.message.chat_id, text="Informazioni sull'adsu")
+    data = utils.read_json("json/adsu.json")
+    bot.sendMessage(update.message.chat_id, text=data['info'])
 
 # For testing only
 def commands_keyboard(bot, update):
