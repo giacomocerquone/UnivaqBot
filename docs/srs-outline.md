@@ -120,7 +120,7 @@ Functional requirements describe in a formal way all project feautures
 * A complete list of commands to retrieve univaq informations and news
     + **/help** to retrieve all available commands
     + **/news** to retrieve last 10 news
-    + **/news <number>**  to retrieve the last <number> news
+    + **/news {number}**  to retrieve the last {number} news
     + **/newson** to enable notifications from the bot
     + **/newsoff** to block notifications from the bot
     + **/prof** to get info about professors
