@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""This script scrapes all the info about the adsu of the university's city."""
+"""This is a little python package that groups all the functions needed by other scripts."""
 
 import logging
 import json
