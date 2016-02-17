@@ -31,7 +31,9 @@ def help_command(bot, update):
                    "/prof - Mostra info sui professori\n" \
                    "/segreteria - Stampa info sulla segreteria studenti" \
                    "/mensa - Stampa gli orari della mensa\n" \
-                   "/adsu - Stampa info sull'adsu"
+                   "/adsu - Stampa info sull'adsu" \
+                   "\n\nQuesto bot è orgogliosamente open source, sviluppato da Giacomo Cerquone" \
+                   "e Diego Mariani."
 
     bot.sendMessage(update.message.chat_id, text=help_message)
 
