@@ -43,10 +43,10 @@ def scrape_professors():
                   .get_text(" ").replace('\n', '').replace('\u00a0', '')
 
         scraped_professors.append({
-            "nome": name,
-            "telefono": phone,
-            "e-mail": email,
-            "corsi": courses,
+            "nome": name if name != "" else "non disponibile",
+            "telefono": phone if phone != "" else "non disponibile",
+            "e-mail": email if email != "" else "non disponibile",
+            "corsi": courses if courses != "" else "non disponibile",
             "ufficio": "0"
         })
 
