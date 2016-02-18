@@ -50,7 +50,7 @@ def news_command(bot, update, args):
     for i, news in enumerate(ten_news):
         truncated_descr = news['description'][:75] + '...' if len(news['description']) > 75 \
                           else news['description']
-        ten_news_string += str(i+1) + "- " + news['title'] + "\n" + truncated_descr + "\n\n"
+        ten_news_string += str(i+1) + "- " + news['title'] + "\n" + truncated_descr + "\n"
 
     bot.sendMessage(update.message.chat_id, text=ten_news_string)
 
@@ -90,13 +90,14 @@ def prof_command(bot, update, args):
                 professors += prof['nome'] + \
                               " - " + prof['telefono'] + \
                               " - " + prof['e-mail'] + \
-                              "\n"# + prof['corsi'] Problems due to string encodings
+                              " - " + prof['corsi'] + \
+                              "\n\n"
     else:
         for prof in data:
             professors += prof['nome'] + \
                           " - " + prof['telefono'] + \
                           " - " + prof['e-mail'] + \
-                          "\n"# + prof['corsi'] Problems due to string encodings
+                          "\n"
 
     bot.sendMessage(update.message.chat_id, text=professors)
 
