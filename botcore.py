@@ -82,16 +82,16 @@ def prof_command(bot, update, args):
     """Defining the `prof` command"""
 
     data = utils.read_json("json/professors.json")
+    professors = ""
 
     if len(args):
         for prof in data:
             if args[0] in prof['nome']:
-                professors = prof['nome'] + \
+                professors += prof['nome'] + \
                               " - " + prof['telefono'] + \
                               " - " + prof['e-mail'] + \
                               "\n"# + prof['corsi'] Problems due to string encodings
     else:
-        professors = ""
         for prof in data:
             professors += prof['nome'] + \
                           " - " + prof['telefono'] + \
