@@ -38,10 +38,11 @@ def scrape_professors():
     for name_cell in firsts_td:
         name = name_cell.find("a").text
         phone = name_cell.find_next_sibling().text
-        email = name_cell.find_next_sibling().find_next_sibling().get_text(".") # PROBLEM HERE
-        courses = name_cell.find_next_sibling().find_next_sibling().find_next_sibling()\
-                  .text.replace('\n', '').replace('\u00a0', '').replace('[F3I]', '')\
-                  .replace('[F4I]', '').replace('[F3M]', '').replace('[I3N]', '').replace('[I4T]', '')
+        email = name_cell.find_next_sibling().find_next_sibling().get_text(".") # PROBLEM HERE, CAN'T HAVE THE @
+        courses = name_cell.find_next_sibling().find_next_sibling().find_next_sibling() \
+                  .text.replace('\n', '').replace('\u00a0', '').replace('[F3I]', '') \
+                  .replace('[F4I]', '').replace('[F3M]', '').replace('[I3N]', '') \
+                  .replace('[I4T]', '')
 
         scraped_professors.append({
             "nome": name if name != "" else "non disponibile",
