@@ -28,8 +28,8 @@ def help_command(bot, update):
                    "/news num - Leggi le ultime <num> news\n" \
                    "/newson - Abilita le notifiche per ogni nuova news\n" \
                    "/newsoff - Disabilita le notifiche per ogni nuova news\n" \
-                   "/prof cognome - Info su un solo docente\n" \
-                   "/prof - Info sui docenti\n" \
+                   "/prof - Stampa la lista dei professori\n" \
+                   "/prof cognome - Info su un docente\n" \
                    "/segreteria - Info sulla segreteria studenti\n" \
                    "/mensa - Info sugli orari della mensa\n" \
                    "/adsu - Info sull'adsu" \
@@ -44,7 +44,6 @@ def news_command(bot, update, args):
     if len(args) and int(args[0]) <= 10:
         ten_news = utils.pull_news(args[0])
     else:
-        print("passato in else")
         ten_news = utils.pull_news(10)
 
     ten_news_string = ""
@@ -83,15 +82,23 @@ def prof_command(bot, update, args):
     """Defining the `prof` command"""
 
     data = utils.read_json("json/professors.json")
-    args[0] = int(args[0])
-    if args[0] and args[0] <= 10 and isinstance(args[0], int):
-        print("s")
-    else:
-        professors = []
-        for prof in data:
-            professors[0].append(prof['nome'])
 
-        bot.sendMessage(update.message.chat_id, text="Lista professori")
+    if len(args):
+        for prof in data:
+            if args[0] in prof['nome']:
+                professors = prof['nome'] + \
+                             "\n" + prof['telefono'] + \
+                             "\n" + prof['e-mail'] + \
+                             "\n"
+    else:
+        professors = ""
+        for prof in data:
+            professors += prof['nome'] + \
+                          "\n" + prof['telefono'] + \
+                          "\n" + prof['e-mail'] + \
+                          "\n"# + prof['corsi'] Problems due to string encodings
+
+    bot.sendMessage(update.message.chat_id, text=professors)
 
 def student_office_command(bot, update):
     """Defining the `student_office` command"""
