@@ -87,15 +87,15 @@ def prof_command(bot, update, args):
         for prof in data:
             if args[0] in prof['nome']:
                 professors = prof['nome'] + \
-                             "\n" + prof['telefono'] + \
-                             "\n" + prof['e-mail'] + \
-                             "\n"
+                              " - " + prof['telefono'] + \
+                              " - " + prof['e-mail'] + \
+                              "\n"# + prof['corsi'] Problems due to string encodings
     else:
         professors = ""
         for prof in data:
             professors += prof['nome'] + \
-                          "\n" + prof['telefono'] + \
-                          "\n" + prof['e-mail'] + \
+                          " - " + prof['telefono'] + \
+                          " - " + prof['e-mail'] + \
                           "\n"# + prof['corsi'] Problems due to string encodings
 
     bot.sendMessage(update.message.chat_id, text=professors)
@@ -104,10 +104,10 @@ def student_office_command(bot, update):
     """Defining the `student_office` command"""
 
     data = utils.read_json("json/student_office.json")
-    student_office_info = "Orari:\n" + data['orari'] + "\n" \
-                          "Indirizzo:\n" + data['indirizzo'] + "\n" \
-                          "Telefono:\n" + data['telefono'] + "\n" \
-                          "E-mail:\n" + data['e-mail']
+    student_office_info = "Orari: " + data['orari'] + \
+                          "\nIndirizzo: " + data['indirizzo'] + \
+                          "\nTelefono: " + data['telefono'] + \
+                          "\nE-mail: " + data['e-mail']
 
     bot.sendMessage(update.message.chat_id, text=student_office_info)
 
