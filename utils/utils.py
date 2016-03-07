@@ -50,7 +50,7 @@ def pull_news(num):
         )
     news = [
         {"title": item.title, "description": item.description.replace("&amp;#39;", "'"),
-         "id": item.id}
+         "id": item.id, "link": item.link}
         for item in document["entries"][:int(num)]
         ]
 
