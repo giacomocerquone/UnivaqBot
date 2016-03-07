@@ -47,7 +47,7 @@ def scrape_professors():
                   .replace('[F4I]', '').replace('[F3M]', '').replace('[I3N]', '') \
                   .replace('[I4T]', '')
 
-        '''scraped_professors.append({
+        scraped_professors.append({
             "nome": name if name != "" else "non disponibile",
             "telefono": phone if phone != "" else "non disponibile",
             "e-mail": email if email != "" else "non disponibile",
@@ -55,9 +55,7 @@ def scrape_professors():
             "ufficio": "0"
         })
 
-    utils.write_json(scraped_professors, "../json/professors.json")'''
-
-    print(email)
+    utils.write_json(scraped_professors, "../json/professors.json")
 
 if __name__ == "__main__":
     scrape_professors()
