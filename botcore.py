@@ -5,8 +5,8 @@
 This is the core script of the UnivaqInformaticaBot created by Giacomo Cerquone and Diego Mariani
 """
 
-import telegram
 import os.path
+import telegram
 
 from telegram import Updater
 from utils import utils
@@ -27,7 +27,7 @@ def help_command(bot, update):
                    "/help - Stampa questo messaggio\n" \
                    "/news - Leggi le ultime 10 news\n" \
                    "/news num - Leggi le ultime <num> news\n" \
-                   "/newson - Abilita le notifiche per ogni nuova news\n" \
+                   "/newson - Abilita le notifiche per ogni nuova news (default)\n" \
                    "/newsoff - Disabilita le notifiche per ogni nuova news\n" \
                    "/prof - Stampa la lista dei professori\n" \
                    "/prof cognome - Info su un docente\n" \
@@ -70,7 +70,7 @@ def newson_command(bot, update):
                 new_news_string += news['title'] + "\n" + news['description'] + "\n\n"
             bat.sendMessage(update.message.chat_id, text=new_news_string)
 
-    if(os.path.isfile("json/news.json") == False):
+    if not os.path.isfile("json/news.json"):
         print(os.path.isfile("json/news.json"))
         utils.write_json(utils.pull_news(10), "json/news.json")
 
