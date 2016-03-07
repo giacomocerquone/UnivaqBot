@@ -43,17 +43,18 @@ def news_command(bot, update, args):
     """Defining the `news` command"""
 
     if len(args) and int(args[0]) <= 10:
-        ten_news = utils.pull_news(args[0])
+        news_array = utils.pull_news(args[0])
     else:
-        ten_news = utils.pull_news(10)
+        news_array = utils.pull_news(10)
 
-    ten_news_string = ""
-    for i, news in enumerate(ten_news):
+    news_to_string = ""
+    for i, news in enumerate(news_array):
         truncated_descr = news['description'][:75] + '...' if len(news['description']) > 75 \
                           else news['description']
-        ten_news_string += str(i+1) + "- " + news['title'] + "\n" + truncated_descr + "\n"
+        news_to_string += str(i+1) + "- [" + news['title'] + "](" + news['link'] + ")\n" \
+                          + truncated_descr + "\n"
 
-    bot.sendMessage(update.message.chat_id, text=ten_news_string)
+    bot.sendMessage(update.message.chat_id, parse_mode='Markdown', text=news_to_string)
 
 def newson_command(bot, update):
     """Defining the command to enable notifications for news"""
