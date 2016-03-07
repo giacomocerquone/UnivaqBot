@@ -38,13 +38,16 @@ def scrape_professors():
     for name_cell in firsts_td:
         name = name_cell.find("a").text
         phone = name_cell.find_next_sibling().text
-        email = name_cell.find_next_sibling().find_next_sibling().get_text(".") # PROBLEM HERE, CAN'T HAVE THE @
+        email = str(name_cell.find_next_sibling().find_next_sibling().a) \
+                .replace('<a href="#">', '').replace('</a>', '') \
+                .replace('<img alt="dot" height="2" src="img/dot.gif" width="3"/>', '.') \
+                .replace('<img alt="at" height="10" src="img/at.gif" width="12"/>', '@')
         courses = name_cell.find_next_sibling().find_next_sibling().find_next_sibling() \
                   .text.replace('\n', '').replace('\u00a0', '').replace('[F3I]', '') \
                   .replace('[F4I]', '').replace('[F3M]', '').replace('[I3N]', '') \
                   .replace('[I4T]', '')
 
-        scraped_professors.append({
+        '''scraped_professors.append({
             "nome": name if name != "" else "non disponibile",
             "telefono": phone if phone != "" else "non disponibile",
             "e-mail": email if email != "" else "non disponibile",
@@ -52,7 +55,9 @@ def scrape_professors():
             "ufficio": "0"
         })
 
-    utils.write_json(scraped_professors, "../json/professors.json")
+    utils.write_json(scraped_professors, "../json/professors.json")'''
+
+    print(email)
 
 if __name__ == "__main__":
     scrape_professors()
