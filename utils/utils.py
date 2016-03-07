@@ -54,6 +54,8 @@ def pull_news(num):
         for item in document["entries"][:int(num)]
         ]
 
+    # WORK IN HERE TO AGGREGATE NEWS WITH BEAUTIFUL SOUP
+
     return news
 
 def check_news():
