@@ -6,6 +6,7 @@ This is the core script of the UnivaqInformaticaBot created by Giacomo Cerquone 
 """
 
 import telegram
+import os.path
 
 from telegram import Updater
 from utils import utils
@@ -69,7 +70,11 @@ def newson_command(bot, update):
                 new_news_string += news['title'] + "\n" + news['description'] + "\n\n"
             bat.sendMessage(update.message.chat_id, text=new_news_string)
 
-    JOB_QUEUE.put(notify_news, 60, repeat=True)
+    if(os.path.isfile("json/news.json") == False):
+        print(os.path.isfile("json/news.json"))
+        utils.write_json(utils.pull_news(10), "json/news.json")
+
+    JOB_QUEUE.put(notify_news, 10, repeat=True)
     bot.sendMessage(update.message.chat_id, text='Notifiche abilitate')
 
 def newsoff_command(bot, update):

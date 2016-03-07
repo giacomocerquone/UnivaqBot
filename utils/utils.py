@@ -66,6 +66,6 @@ def check_news():
     for i in range(0, 10):
         if pulled_news[i]["id"] != stored_news[i]["id"]:
             unread_news.append({"title": pulled_news[i]["title"],
-                                "description": pulled_news[i].description})
+                                "description": pulled_news[i]['description']})
 
     return unread_news
