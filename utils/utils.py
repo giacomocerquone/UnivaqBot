@@ -46,13 +46,16 @@ def pull_news(num):
     """This function is built to pull 10 (or an arbitrary number) news from the rss endpoint"""
 
     document = feedparser.parse(
-        "http://www.disim.univaq.it/didattica/content.php?fid=rss&pid=114&did=8&lid=it"
-        )
-    news = [
-        {"title": item.title, "description": item.description.replace("&amp;#39;", "'"),
-         "id": item.id, "link": item.link}
-        for item in document["entries"][:int(num)]
-        ]
+        "http://www.disim.univaq.it/didattica/content.php?fid=rss&pid=114&did=8&lid=it")
+
+    news = []
+    for item in document["entries"][:int(num)]:
+        news.append({
+            "title": item.title,
+            "description": item.description.replace("&amp;#39;", "'"),
+            "id": item.id,
+            "link": item.link
+        })
 
     # WORK IN HERE TO AGGREGATE NEWS WITH BEAUTIFUL SOUP
 
