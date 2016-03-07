@@ -86,7 +86,7 @@ def prof_command(bot, update, args):
 
     if len(args):
         for prof in data:
-            if args[0] in prof['nome']:
+            if args[0].lower() in prof['nome'].lower():
                 professors += prof['nome'] + \
                               " - " + prof['telefono'] + \
                               " - " + prof['e-mail'] + \
