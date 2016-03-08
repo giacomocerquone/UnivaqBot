@@ -43,9 +43,9 @@ def news_command(bot, update, args):
     """Defining the `news` command"""
 
     if len(args) and int(args[0]) <= 10:
-        news_array = utils.pull_news(args[0])
+        news_array = utils.read_json("json/news.json")[0:int(args[0])]
     else:
-        news_array = utils.pull_news(10)
+        news_array = utils.read_json("json/news.json")
 
     news_to_string = ""
     for i, news in enumerate(news_array):
