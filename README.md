@@ -2,7 +2,7 @@
 
 This is an **unofficial** [telegram bot](https://telegram.org/blog/bot-revolution), for the [University of L'Aquila](http://univaq.it).
 
-It's built to provide a single and simple source of information for the the students of university of L'Aquila, in particular for the faculty of Computer Science (aka [disim](www.disim.univaq.it)). 
+It's built to provide a single and simple source of information for the the students of university of L'Aquila, in particular for the faculty of Computer Science (aka [disim](http://www.disim.univaq.it)). 
 
 All the informations are scraped, parsed, stored and synchronised using a bunch of python scripts.
 
