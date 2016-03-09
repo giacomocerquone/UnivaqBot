@@ -67,9 +67,13 @@ def newson_command(bot, update):
             data = utils.pull_news(10)
             utils.write_json(data, "json/news.json")
             new_news_string = ""
-            for news in unread_news:
-                new_news_string += news['title'] + "\n" + news['description'] + "\n\n"
-            bat.sendMessage(update.message.chat_id, text=new_news_string)
+            for i, news in enumerate(unread_news):
+                truncated_descr = news['description'][:75] + '...' if len(news['description']) > 75\
+                                  else news['description']
+                new_news_string += str(i+1) + "- [" + news['title'] + "](" + news['link'] + ")\n" \
+                                  + truncated_descr + "\n"
+
+            bat.sendMessage(update.message.chat_id, parse_mode='Markdown', text=new_news_string)
 
     if not os.path.isfile("json/news.json"):
         print(os.path.isfile("json/news.json"))
