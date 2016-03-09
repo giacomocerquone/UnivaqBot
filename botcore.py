@@ -42,8 +42,6 @@ def help_command(bot, update):
 def news_command(bot, update, args):
     """Defining the `news` command"""
 
-    _create_news_json()
-
     if len(args) and int(args[0]) <= 10:
         news_array = utils.read_json("json/news.json")[0:int(args[0])]
     else:
@@ -63,7 +61,6 @@ def newson_command(bot, update):
 
     def notify_news(bat):
         """Defining method that will be repeated over and over"""
-        _create_news_json()
         unread_news = utils.check_news()
 
         if len(unread_news) > 0:
@@ -86,7 +83,6 @@ def _create_news_json():
     """Defining command to check (and create) the news.json file"""
 
     if not os.path.isfile("json/news.json"):
-        print(os.path.isfile("json/news.json"))
         utils.write_json(utils.pull_news(10), "json/news.json")
 
 def newsoff_command(bot, update):
@@ -153,6 +149,8 @@ def main():
     """Defining the main function"""
 
     global JOB_QUEUE
+
+    _create_news_json()
 
     config = utils.get_configuration()
     token = config.get('API-KEYS', 'TelegramBot')
