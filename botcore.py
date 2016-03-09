@@ -15,7 +15,7 @@ def start_command(bot, update):
     """Defining the `start` command"""
 
     welcome = "Ciao, sono il bot dell'Univaq (Università dell'Aquila).\n" \
-              "Posso fornirti tutte le informazioni di cui hai bisogno sulla nostra università,"\
+              "Posso fornirti tutte le informazioni di cui hai bisogno sulla nostra università, "\
               "digita /help per vedere la lista di comandi."
 
     bot.sendMessage(update.message.chat_id, text=welcome)
