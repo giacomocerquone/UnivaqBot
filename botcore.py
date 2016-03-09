@@ -42,6 +42,8 @@ def help_command(bot, update):
 def news_command(bot, update, args):
     """Defining the `news` command"""
 
+    _create_news_json()
+
     if len(args) and int(args[0]) <= 10:
         news_array = utils.read_json("json/news.json")[0:int(args[0])]
     else:
@@ -61,6 +63,7 @@ def newson_command(bot, update):
 
     def notify_news(bat):
         """Defining method that will be repeated over and over"""
+        _create_news_json()
         unread_news = utils.check_news()
 
         if len(unread_news) > 0:
@@ -75,12 +78,16 @@ def newson_command(bot, update):
 
             bat.sendMessage(update.message.chat_id, parse_mode='Markdown', text=new_news_string)
 
-    if not os.path.isfile("json/news.json"):
-        print(os.path.isfile("json/news.json"))
-        utils.write_json(utils.pull_news(10), "json/news.json")
 
     JOB_QUEUE.put(notify_news, 10, repeat=True)
     bot.sendMessage(update.message.chat_id, text='Notifiche abilitate')
+
+def _create_news_json():
+    """Defining command to check (and create) the news.json file"""
+
+    if not os.path.isfile("json/news.json"):
+        print(os.path.isfile("json/news.json"))
+        utils.write_json(utils.pull_news(10), "json/news.json")
 
 def newsoff_command(bot, update):
     """Defining the command to disable notifications for news"""

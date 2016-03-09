@@ -67,8 +67,10 @@ def pull_news(num):
     news = []
     for i, url in enumerate(news_url):
         request.append(requests.get(url, headers=headers))
-        bs_list.append(BeautifulSoup(request[i].text, "html.parser").find_all(class_="post_item_list"))
-        descr_list = BeautifulSoup(request[i].text, "html.parser").find_all(class_="post_description")
+        bs_list.append(BeautifulSoup(request[i].text, "html.parser") \
+                .find_all(class_="post_item_list"))
+        descr_list = BeautifulSoup(request[i].text, "html.parser") \
+                .find_all(class_="post_description")
 
         for j, single_news in enumerate(bs_list[i][:int(num)]):
             news.append({
