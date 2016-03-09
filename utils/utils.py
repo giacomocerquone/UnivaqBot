@@ -89,7 +89,7 @@ def check_news():
     stored_news = read_json("json/news.json")
     unread_news = []
 
-    for i in range(0, 10):
+    for i in range(0, 4):
         if pulled_news[i]["id"] != stored_news[i]["id"]:
             unread_news.append({"title": pulled_news[i]["title"],
                                 "description": pulled_news[i]['description'],
