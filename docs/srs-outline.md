@@ -112,29 +112,6 @@ Functional requirements describe in a formal way all project feautures
 * [Python](https://www.python.org/) interpreter installed
 * 24/24h uptime for the vps machine
 
-**Service Requirements**
-
-* the **news** notifications **SHOULD** be retrieved from the univaq official rss endpoint*
-* the **news notifications queue** is updated and synchronized every 30 minutes* to get newest news
-* the **schedule** of a univaq course **MUST** be manually updated every 6 months
-* A complete list of commands to retrieve univaq informations and news
-    + **/help** to retrieve all available commands
-    + **/news** to retrieve last 10 news
-    + **/news {number}**  to retrieve the last {number} news
-    + **/newson** to enable notifications from the bot
-    + **/newsoff** to block notifications from the bot
-    + **/prof** to get info about all the professors
-    + **/prof {cognome}** to get info about one professor
-    + **/segreteria** to retrieve information about *segreteria studenti*
-    + **/adsu** to retrieve information about the ADSU
-
-    **Sources to be find**
-
-    + **/orario** to retrieve all courses schedules available
-    + **/orario &lt;corso&gt;** to retrieve a specific course's schedule
-    + **/esami** to retrieve a specific exams schedule
-    + **/mensa** to retrieve the *mensa* hours
-
 **Environment Requirements**
 
 * The service data (time tables, information, ...) **MUST** be placed into `json` files
