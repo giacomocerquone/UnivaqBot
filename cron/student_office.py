@@ -8,7 +8,7 @@ sys.path.insert(0, '../')
 import requests
 
 from bs4 import BeautifulSoup
-from utils import utils
+from libs.utils import utils
 
 def scrape_student_office():
     """Get info about the student service office"""

@@ -8,7 +8,7 @@ sys.path.insert(0, '../')
 import requests
 
 from bs4 import BeautifulSoup
-from utils import utils
+from libs.utils import utils
 
 def scrape_adsu():
     """Get information about the adsu in a crazy way due to their bitching page made like shit"""

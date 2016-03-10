@@ -7,7 +7,7 @@ import sys
 sys.path.insert(0, '../')
 import requests
 
-from utils import utils
+from libs.utils import utils
 from bs4 import BeautifulSoup
 
 def scrape_professors():

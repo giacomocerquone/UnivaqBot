@@ -9,7 +9,7 @@ import os.path
 import telegram
 
 from telegram import Updater
-from utils import utils
+from libs.utils import utils
 
 def start_command(bot, update):
     """Defining the `start` command"""
