@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""This is a little python package that groups all the functions needed by other scripts."""
+"""The package that contains groups all the functions needed by other scripts."""
+
+import os.path
 
 import logging
 import json
@@ -95,3 +97,9 @@ def check_news():
                                 "link": pulled_news[i]['link']})
 
     return unread_news
+
+def create_news_json():
+    """Defining command to check (and create) the news.json file"""
+
+    if not os.path.isfile("json/news.json"):
+        write_json(pull_news(10), "json/news.json")
