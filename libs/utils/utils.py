@@ -76,7 +76,6 @@ def pull_news(num):
             news.append({
                 "title": single_news.h3.a.text,
                 "description": descr_list[j].get_text().replace("\n", " "),
-                "id": single_news.a.get('href').split("=")[1],
                 "link": "http://www.disim.univaq.it/main/" + single_news.a.get('href')
             })
 
@@ -90,10 +89,9 @@ def check_news():
     unread_news = []
 
     for i in range(0, 4):
-        if pulled_news[i]["id"] != stored_news[i]["id"]:
+        if pulled_news[i]["title"] != stored_news[i]["title"]:
             unread_news.append({"title": pulled_news[i]["title"],
                                 "description": pulled_news[i]['description'],
-                                "id": pulled_news[i]['id'],
                                 "link": pulled_news[i]['link']})
 
     return unread_news

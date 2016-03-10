@@ -140,8 +140,7 @@ def adsu_command(bot, update):
 # For testing only
 def commands_keyboard(bot, update):
     """Enable a custom keyboard"""
-
-    keyboard = [["/help", "/news", "/prof", "/mensa", "/cancel"]]
+    keyboard = [[]]
     markup = telegram.ReplyKeyboardMarkup(keyboard, resize_keyboard=True, one_time_keyboard=False)
     bot.sendMessage(update.message.chat_id, text="Enabled keyboard", reply_markup=markup)
 
