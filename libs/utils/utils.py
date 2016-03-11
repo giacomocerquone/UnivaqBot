@@ -74,7 +74,7 @@ def pull_news(num):
         descr_list = BeautifulSoup(request[i].text, "html.parser") \
                 .find_all(class_="post_description")
 
-        for j, single_news in enumerate(bs_list[i][:int(num)]):
+        for j, single_news in enumerate(bs_list[i]):
             news.append({
                 "title": single_news.h3.a.text,
                 "description": descr_list[j].get_text().replace("\n", " "),
@@ -90,7 +90,7 @@ def check_news():
     stored_news = read_json("json/news.json")
     unread_news = []
 
-    for i in range(0, 4):
+    for i in range(5):
         if pulled_news[i]["title"] != stored_news[i]["title"]:
             unread_news.append({"title": pulled_news[i]["title"],
                                 "description": pulled_news[i]['description'],
