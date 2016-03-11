@@ -45,10 +45,10 @@ def newson_command(bot, update):
 
     def notify_news(bat):
         """Defining method that will be repeated over and over"""
-        unread_news = utils.check_news()
+        unread_news = news.check_news()
 
         if len(unread_news) > 0:
-            data = utils.pull_news(10)
+            data = news.pull_news(10)
             utils.write_json(data, "json/news.json")
             new_news_string = ""
             for i, item in enumerate(unread_news):
