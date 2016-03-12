@@ -72,7 +72,7 @@ def check_news():
     unread_news = []
 
     if len(pulled_news) > 0:
-        for i in range(5):
+        for i in reversed(range(5)):
             if len(pulled_news[i]["title"]) > 0:
                 if pulled_news[i]["title"] != stored_news[i]["title"]:
                     unread_news.append({"title": pulled_news[i]["title"],
