@@ -71,12 +71,25 @@ def check_news():
     stored_news = utils.read_json("json/news.json")
     unread_news = []
 
+    ''' old
     if len(pulled_news) > 0:
         for i in reversed(range(5)):
             if len(pulled_news[i]["title"]) > 0:
                 if pulled_news[i]["title"] != stored_news[i]["title"]:
                     unread_news.append({"title": pulled_news[i]["title"],
                                         "description": pulled_news[i]['description'],
-                                        "link": pulled_news[i]['link']})
+                                        "link": pulled_news[i]['link']})'''
+    if len(pulled_news) > 0:
+        for single_pulled in pulled_news:
+            counter = 0
+            for single_stored in stored_news:
+                if len(single_pulled) > 0:
+                    if single_pulled == single_stored:
+                        counter = counter+1
+
+            if counter == 0:
+                unread_news.append({"title": single_pulled["title"],
+                                    "description": single_pulled['description'],
+                                    "link": single_pulled['link']})
 
     return unread_news
