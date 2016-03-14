@@ -92,7 +92,7 @@ def main():
 
     global JOB_QUEUE
 
-    utils.create_news_json()
+    news.create_news_json()
     utils.load_subscribers_json()
 
     config = utils.get_configuration()
