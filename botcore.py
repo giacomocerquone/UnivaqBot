@@ -51,10 +51,10 @@ def newson_command(bot, update):
             data = news.pull_news(10)
             utils.write_json(data, "json/news.json")
             new_news_string = ""
-            for i, item in enumerate(unread_news):
+            for item in unread_news:
                 truncated_descr = item['description'][:75] + '...' if len(item['description']) > 75\
                                   else item['description']
-                new_news_string += str(i+1) + "- [" + item['title'] + "](" + item['link'] + ")\n" \
+                new_news_string += "- [" + item['title'] + "](" + item['link'] + ")\n" \
                                   + truncated_descr + "\n"
 
             bat.sendMessage(update.message.chat_id, parse_mode='Markdown', text=new_news_string)
