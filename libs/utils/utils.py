@@ -4,10 +4,13 @@
 """The package that contains groups all the functions needed by other scripts."""
 
 import os.path
+import sys
+sys.path.insert(0, '../')
 
 import logging
 import json
 import configparser
+
 from libs.news_commands import news
 
 
