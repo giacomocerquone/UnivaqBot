@@ -75,10 +75,10 @@ def notify_news(bot):
             new_news_string += "- [" + item['title'] + "](" + item['link'] + ")\n" \
                               + truncated_descr + "\n"
 
-            for chat_id in utils.SUBSCRIBERS:
-                bot.sendMessage(chat_id, parse_mode='Markdown', text=new_news_string)
+        for chat_id in utils.SUBSCRIBERS:
+            bot.sendMessage(chat_id, parse_mode='Markdown', text=new_news_string)
 
-    JOB_QUEUE.put(notify_news, 60, repeat=True)
+    JOB_QUEUE.put(notify_news, 40, repeat=True)
 
 # For testing only
 def commands_keyboard(bot, update):
