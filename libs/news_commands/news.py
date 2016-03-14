@@ -3,11 +3,13 @@
 
 """The Package that contains all the telegram's news functions used"""
 
+import os.path
 import sys
 sys.path.insert(0, '../')
 
 import requests
 from bs4 import BeautifulSoup
+
 from libs.utils import utils
 
 def news_command(bot, update, args):
@@ -85,3 +87,9 @@ def check_news():
                                     "link": single_pulled['link']})
 
     return unread_news
+
+def create_news_json():
+    """Defining command to check (and create) the news.json file"""
+
+    if not os.path.isfile("json/news.json"):
+        utils.write_json(pull_news(10), "json/news.json")

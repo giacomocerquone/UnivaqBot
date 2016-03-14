@@ -58,7 +58,8 @@ def newsoff_command(bot, update):
         bot.sendMessage(update.message.chat_id, text='Notifiche Disattivate!')
         utils.write_json(utils.SUBSCRIBERS, "json/subscribers.json")
     else:
-        bot.sendMessage(update.message.chat_id, text='Per disattivare le notifiche dovresti prima attivarle.')
+        bot.sendMessage(update.message.chat_id, text='Per disattivare le notifiche dovresti \
+                        prima attivarle.')
 
 def notify_news(bot):
     """Defining method that will be repeated over and over"""
