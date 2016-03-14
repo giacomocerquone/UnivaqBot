@@ -8,6 +8,8 @@ import os.path
 import logging
 import json
 import configparser
+from libs.news_commands import news
+
 
 def get_configuration():
     """Get global configuration from service.cfg"""
@@ -47,4 +49,14 @@ def create_news_json():
     """Defining command to check (and create) the news.json file"""
 
     if not os.path.isfile("json/news.json"):
-        write_json(pull_news(10), "json/news.json")
+        write_json(news.pull_news(10), "json/news.json")
+
+def load_subscribers_json():
+    """Defining command to check (and create) the subscribers.json file"""
+
+    global SUBSCRIBERS
+
+    if not os.path.isfile("json/subscribers.json"):
+        SUBSCRIBERS = []
+    else:
+        SUBSCRIBERS = read_json("json/subscribers.json")

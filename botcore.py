@@ -43,30 +43,41 @@ def help_command(bot, update):
 def newson_command(bot, update):
     """Defining the command to enable notifications for news"""
 
-    def notify_news(bat):
-        """Defining method that will be repeated over and over"""
-        unread_news = news.check_news()
-
-        if len(unread_news) > 0:
-            data = news.pull_news(10)
-            utils.write_json(data, "json/news.json")
-            new_news_string = ""
-            for item in unread_news:
-                truncated_descr = item['description'][:75] + '...' if len(item['description']) > 75\
-                                  else item['description']
-                new_news_string += "- [" + item['title'] + "](" + item['link'] + ")\n" \
-                                  + truncated_descr + "\n"
-
-            bat.sendMessage(update.message.chat_id, parse_mode='Markdown', text=new_news_string)
-
-    JOB_QUEUE.put(notify_news, 10, repeat=True)
-    bot.sendMessage(update.message.chat_id, text='Notifiche abilitate')
+    if update.message.chat_id not in utils.SUBSCRIBERS:
+        utils.SUBSCRIBERS.append(update.message.chat_id)
+        bot.sendMessage(update.message.chat_id, text='Notifiche Abilitate!')
+        utils.write_json(utils.SUBSCRIBERS, "json/subscribers.json")
+    else:
+        bot.sendMessage(update.message.chat_id, text='Le notifiche sono già abilitate!')
 
 def newsoff_command(bot, update):
     """Defining the command to disable notifications for news"""
 
-    JOB_QUEUE.stop()
-    bot.sendMessage(update.message.chat_id, text='Notifiche disabilitate')
+    if update.message.chat_id in utils.SUBSCRIBERS:
+        utils.SUBSCRIBERS.remove(update.message.chat_id)
+        bot.sendMessage(update.message.chat_id, text='Notifiche Disattivate!')
+        utils.write_json(utils.SUBSCRIBERS, "json/subscribers.json")
+    else:
+        bot.sendMessage(update.message.chat_id, text='Per disattivare le notifiche dovresti prima attivarle.')
+
+def notify_news(bot):
+    """Defining method that will be repeated over and over"""
+    unread_news = news.check_news()
+
+    if len(unread_news) > 0:
+        data = news.pull_news(10)
+        utils.write_json(data, "json/news.json")
+        new_news_string = ""
+        for item in unread_news:
+            truncated_descr = item['description'][:75] + '...' if len(item['description']) > 75\
+                              else item['description']
+            new_news_string += "- [" + item['title'] + "](" + item['link'] + ")\n" \
+                              + truncated_descr + "\n"
+
+            for chat_id in utils.SUBSCRIBERS:
+                bot.sendMessage(chat_id, parse_mode='Markdown', text=new_news_string)
+
+    JOB_QUEUE.put(notify_news, 60, repeat=True)
 
 # For testing only
 def commands_keyboard(bot, update):
@@ -81,6 +92,7 @@ def main():
     global JOB_QUEUE
 
     utils.create_news_json()
+    utils.load_subscribers_json()
 
     config = utils.get_configuration()
     token = config.get('API-KEYS', 'TelegramBot')
@@ -89,6 +101,7 @@ def main():
 
     updater = Updater(token)
     JOB_QUEUE = updater.job_queue
+    notify_news(updater.bot)
     dispatcher = updater.dispatcher
 
     dispatcher.addTelegramCommandHandler("start", start_command)
