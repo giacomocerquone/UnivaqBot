@@ -1,12 +1,12 @@
 ## Univaq Bot - Faculty of Computer Science
 
-### [blog post](http://blog.giacomocerquone.com/how-we-built-our-university-s-bot/)
-
 This is an **unofficial** [telegram bot](https://telegram.org/blog/bot-revolution), for the [University of L'Aquila](http://univaq.it).
 
 It's built to provide a single and simple source of information for the the students of university of L'Aquila, in particular for the faculty of Computer Science (aka [disim](http://www.disim.univaq.it)). 
 
 All the informations are scraped, parsed, stored and synchronised using a bunch of python scripts.
+
+**Read the [blog post](http://blog.giacomocerquone.com/how-we-built-our-university-s-bot/)**
 
 ### Start using it
 
