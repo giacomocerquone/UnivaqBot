@@ -38,7 +38,7 @@ def write_json(data, json_file):
     """General function used everywhere to write data into a json file"""
 
     with open(json_file, "w") as json_file:
-        json.dump(data, json_file)
+        json.dump(data, json_file, indent=4)
 
 def read_json(json_file):
     """General function used everywhere to read a json file"""
