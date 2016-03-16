@@ -6,7 +6,7 @@ It's built to provide a single and simple source of information for the the stud
 
 All the informations are scraped, parsed, stored and synchronised using a bunch of python scripts.
 
-**Read the [blog post](http://blog.giacomocerquone.com/how-we-built-our-university-s-bot/)**
+**Read the [blog post](http://blog.giacomocerquone.com/how-we-built-our-university-s-bot/) for further information**
 
 ### Start using it
 
@@ -48,4 +48,5 @@ This is the website of univaq telegram bot http://univaqtelegrambot.github.io/
 ### DISCLAIMER
 
 **THIS PROJECT IS NOT OFFICIALLY AFFILIATED WITH UNIVAQ INSTITUTION**
+
 It's an open source project built for didactic purposes
