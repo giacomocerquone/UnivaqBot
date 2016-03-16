@@ -46,12 +46,8 @@ def read_json(json_file):
     with open(json_file, "r") as json_file:
         return json.load(json_file)
 
-def load_subscribers_json():
+def load_subscribers_json(json_file="json/subscribers.json"):
     """Defining command to check (and create) the subscribers.json file"""
 
     global SUBSCRIBERS
-
-    if not os.path.isfile("json/subscribers.json"):
-        SUBSCRIBERS = []
-    else:
-        SUBSCRIBERS = read_json("json/subscribers.json")
+    SUBSCRIBERS = read_json(json_file) if os.path.isfile(json_file) else []
