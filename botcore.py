@@ -15,28 +15,28 @@ from libs.other_commands import other_commands
 def start_command(bot, update):
     """Defining the `start` command"""
 
-    welcome = "Ciao, sono il bot dell'Univaq (Università dell'Aquila).\n" \
-              "Posso fornirti tutte le informazioni di cui hai bisogno sulla nostra università, "\
-              "digita /help per vedere la lista di comandi."
+    welcome = ("Ciao, sono il bot dell'Univaq (Università dell'Aquila).\n"
+               "Posso fornirti tutte le informazioni di cui hai bisogno sulla nostra università, "
+               "digita /help per vedere la lista di comandi.")
 
     bot.sendMessage(update.message.chat_id, text=welcome)
 
 def help_command(bot, update):
     """Defining the `help` command"""
 
-    help_message = "La lista di comandi:\n\n" \
-                   "/help - Stampa questo messaggio\n" \
-                   "/news - Leggi le ultime 10 news\n" \
-                   "/news num - Leggi le ultime <num> news\n" \
-                   "/newson - Abilita le notifiche per ogni nuova news (default)\n" \
-                   "/newsoff - Disabilita le notifiche per ogni nuova news\n" \
-                   "/prof - Stampa la lista dei professori\n" \
-                   "/prof cognome - Info su un docente\n" \
-                   "/segreteria - Info sulla segreteria studenti\n" \
-                   "/mensa - Info sugli orari della mensa\n" \
-                   "/adsu - Info sull'adsu" \
-                   "\n\nQuesto bot è orgogliosamente open source, sviluppato da Giacomo Cerquone" \
-                   " e Diego Mariani."
+    help_message = ("La lista di comandi:\n\n"
+                    "/help - Stampa questo messaggio\n"
+                    "/news - Leggi le ultime 10 news\n"
+                    "/news num - Leggi le ultime <num> news\n"
+                    "/newson - Abilita le notifiche per ogni nuova news (default)\n"
+                    "/newsoff - Disabilita le notifiche per ogni nuova news\n"
+                    "/prof - Stampa la lista dei professori\n"
+                    "/prof cognome - Info su un docente\n"
+                    "/segreteria - Info sulla segreteria studenti\n"
+                    "/mensa - Info sugli orari della mensa\n"
+                    "/adsu - Info sull'adsu"
+                    "\n\nQuesto bot è orgogliosamente open source, sviluppato da Giacomo Cerquone"
+                    " e Diego Mariani.")
 
     bot.sendMessage(update.message.chat_id, text=help_message)
 
@@ -58,22 +58,19 @@ def newsoff_command(bot, update):
         bot.sendMessage(update.message.chat_id, text='Notifiche Disattivate!')
         utils.write_json(utils.SUBSCRIBERS, "json/subscribers.json")
     else:
-        bot.sendMessage(update.message.chat_id, text='Per disattivare le notifiche dovresti \
-                        prima attivarle.')
+        bot.sendMessage(update.message.chat_id,
+                        text='Per disattivare le notifiche dovresti prima attivarle.')
 
 def notify_news(bot):
     """Defining method that will be repeated over and over"""
     unread_news = news.check_news()
-
-    if len(unread_news) > 0:
+    if unread_news:
         data = news.pull_news(10)
         utils.write_json(data, "json/news.json")
         new_news_string = ""
         for item in unread_news:
-            truncated_descr = item['description'][:75] + '...' if len(item['description']) > 75\
-                              else item['description']
-            new_news_string += "- [" + item['title'] + "](" + item['link'] + ")\n" \
-                              + truncated_descr + "\n"
+            item["suffix"] = '...' if len(item['description']) > 75 else ''
+            new_news_string += "- [{title}]({link})\n{description:.75}{suffix}\n".format(**item)
 
         for chat_id in utils.SUBSCRIBERS:
             bot.sendMessage(chat_id, parse_mode='Markdown', text=new_news_string)
