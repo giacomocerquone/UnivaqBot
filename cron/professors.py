@@ -14,9 +14,9 @@ def scrape_professors():
     """Get information about professors"""
 
     scraped_professors = []
-    professors_url = "http://www.disim.univaq.it/didattica/" \
-                     "content.php?tipo=3&ordine=1&chiave=0&pid=25&did=8&lid=it&" \
-                     "frmRicercaNome=&frmRicercaCognome=&frmRicercaLaurea=1&action_search=Filtra"
+    professors_url = ("http://www.disim.univaq.it/didattica/"
+                      "content.php?tipo=3&ordine=1&chiave=0&pid=25&did=8&lid=it&"
+                      "frmRicercaNome=&frmRicercaCognome=&frmRicercaLaurea=1&action_search=Filtra")
     headers = {
         "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5)",
         "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
@@ -48,10 +48,10 @@ def scrape_professors():
                   .replace('[I4T]', '')
 
         scraped_professors.append({
-            "nome": name if name != "" else "non disponibile",
-            "telefono": phone if phone != "" else "non disponibile",
-            "e-mail": email if email != "" else "non disponibile",
-            "corsi": courses if courses != "" else "non disponibile",
+            "nome": name or "non disponibile",
+            "telefono": phone or "non disponibile",
+            "e-mail": email or "non disponibile",
+            "corsi": courses or "non disponibile",
             "ufficio": "0"
         })
 
