@@ -3,13 +3,15 @@
 
 """The package that contains groups all the functions needed by other scripts."""
 
-import os.path
 import sys
 sys.path.insert(0, '../')
 
-import logging
-import json
+import bs4
 import configparser
+import json
+import logging
+import os
+import requests
 
 
 def get_configuration():
@@ -51,3 +53,21 @@ def load_subscribers_json(json_file="json/subscribers.json"):
 
     global SUBSCRIBERS
     SUBSCRIBERS = read_json(json_file) if os.path.isfile(json_file) else []
+
+def get_soup_from_url(url):
+    """Download a webpage and return its BeautifulSoup"""
+
+    headers = {
+        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5)',
+        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'accept-charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.3',
+        'accept-encoding': 'gzip,deflate,sdch',
+        'accept-language': 'en-US,en;q=0.8',
+    }
+    request = requests.get(url, headers=headers)
+    if request.status_code == 200:
+        return bs4.BeautifulSoup(request.text, 'html.parser')
+    else:
+        print('Error! Status ' + request.status_code)
+        return None
+
