@@ -66,7 +66,6 @@ def notify_news(bot):
     unread_news = news.check_news()
     if unread_news:
         data = news.pull_news(10)
-        utils.write_json(data, "json/news.json")
         new_news_string = ""
         for item in unread_news:
             item["suffix"] = '...' if len(item['description']) > 75 else ''
@@ -75,7 +74,7 @@ def notify_news(bot):
         for chat_id in utils.SUBSCRIBERS:
             bot.sendMessage(chat_id, parse_mode='Markdown', text=new_news_string)
 
-    JOB_QUEUE.put(notify_news, 40, repeat=True)
+        utils.write_json(data, "json/news.json")
 
 # For testing only
 def commands_keyboard(bot, update):
@@ -87,8 +86,6 @@ def commands_keyboard(bot, update):
 def main():
     """Defining the main function"""
 
-    global JOB_QUEUE
-
     news.create_news_json()
     utils.load_subscribers_json()
 
@@ -98,8 +95,7 @@ def main():
     logger = utils.get_logger(debug)
 
     updater = Updater(token)
-    JOB_QUEUE = updater.job_queue
-    notify_news(updater.bot)
+    updater.job_queue.put(notify_news, 40, repeat=True)
     dispatcher = updater.dispatcher
 
     dispatcher.addTelegramCommandHandler("start", start_command)
