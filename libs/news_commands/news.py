@@ -6,11 +6,11 @@
 import os.path
 import sys
 sys.path.insert(0, '../')
+from libs.utils import utils
 
 import requests
 from bs4 import BeautifulSoup
 
-from libs.utils import utils
 
 def news_command(bot, update, args):
     """Defining the `news` command"""
@@ -21,11 +21,9 @@ def news_command(bot, update, args):
         news_array = utils.read_json("json/news.json")
 
     news_to_string = ""
-    for i, news in enumerate(news_array):
-        truncated_descr = news['description'][:75] + '...' if len(news['description']) > 75 \
-                          else news['description']
-        news_to_string += str(i+1) + "- [" + news['title'] + "](" + news['link'] + ")\n" \
-                          + truncated_descr + "\n"
+    for i, item in enumerate(news_array):
+        item["suffix"] = '...' if len(item['description']) > 75 else ''
+        news_to_string += str(i+1)+"- [{title}]({link})\n{description:.75}{suffix}\n".format(**item)
 
     bot.sendMessage(update.message.chat_id, parse_mode='Markdown', text=news_to_string)
 

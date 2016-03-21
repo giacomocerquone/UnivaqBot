@@ -66,13 +66,12 @@ def notify_news(bot):
     unread_news = news.check_news()
     if unread_news:
         data = news.pull_news(10)
-        new_news_string = ""
+        news_to_string = ""
         for item in unread_news:
-            item["suffix"] = '...' if len(item['description']) > 75 else ''
-            new_news_string += "- [{title}]({link})\n{description:.75}{suffix}\n".format(**item)
+            news_to_string += "- [{title}]({link})\n{description}\n".format(**item)
 
         for chat_id in utils.SUBSCRIBERS:
-            bot.sendMessage(chat_id, parse_mode='Markdown', text=new_news_string)
+            bot.sendMessage(chat_id, parse_mode='Markdown', text=news_to_string)
 
         utils.write_json(data, "json/news.json")
 
