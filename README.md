@@ -2,7 +2,7 @@
 
 This is an **unofficial** [telegram bot](https://telegram.org/blog/bot-revolution), for the [University of L'Aquila](http://univaq.it).
 
-It's built to provide a single and simple source of information for the the students of university of L'Aquila, in particular for the faculty of Computer Science (aka [disim](http://www.disim.univaq.it)). 
+It's built to provide a single and simple source of information for the the students of university of L'Aquila, in particular for the faculty of Computer Science (aka [disim](http://www.disim.univaq.it)).
 
 All the informations are scraped, parsed, stored and synchronised using a bunch of python scripts.
 
@@ -14,7 +14,7 @@ You can start using the univaq telegram bot searching on telegram for [@univaq_i
 
 ### How does it work
 
-The telegram bot provides a series of functionalities that helps the students to stay updated with all the informations, news stuff about the university, **without necessarily visit every time the university website**, the univaq telegram **bot does that for you !** 
+The telegram bot provides a series of functionalities that helps the students to stay updated with all the informations, news stuff about the university, **without necessarily visit every time the university website**, the univaq telegram **bot does that for you !**
 
 ### Functionalities
 
@@ -32,8 +32,12 @@ La lista di comandi:
 /prof cognome - Info su un docente
 /segreteria - Info sulla segreteria studenti
 /mensa - Info sugli orari della mensa
-/adsu - Info sull'adsu
+/adsu - Info sull\'adsu
 ```
+
+### CONTRIBUTING
+We accept of course every kind of contribution and if you're going to submit pull requests to this project, we kindly ask you to do so on the dev branch.
+For further information on code style you can read the srs-outline inside the docs folder. Thank you very much. 
 
 **The list of commands is to be updated**. We could think on possible improvements and extensions
 
@@ -44,7 +48,7 @@ The **univaq telegram bot provides also a push notification service**. When a ne
 ### Website
 
 This is the website of univaq telegram bot http://univaqtelegrambot.github.io/
- 
+
 ### DISCLAIMER
 
 **THIS PROJECT IS NOT OFFICIALLY AFFILIATED WITH UNIVAQ INSTITUTION**
