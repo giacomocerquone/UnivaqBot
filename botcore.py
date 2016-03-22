@@ -67,13 +67,14 @@ def notify_news(bot):
     if unread_news:
         data = news.pull_news(10)
         news_to_string = ""
+        utils.write_json(data, "json/news.json")
+        
         for item in unread_news:
             news_to_string += "- [{title}]({link})\n{description}\n".format(**item)
 
         for chat_id in utils.SUBSCRIBERS:
             bot.sendMessage(chat_id, parse_mode='Markdown', text=news_to_string)
 
-        utils.write_json(data, "json/news.json")
 
 # For testing only
 def commands_keyboard(bot, update):
