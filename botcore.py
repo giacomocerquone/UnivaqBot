@@ -68,7 +68,7 @@ def notify_news(bot):
         data = news.pull_news(10)
         news_to_string = ""
         utils.write_json(data, "json/news.json")
-        
+
         for item in unread_news:
             news_to_string += "- [{title}]({link})\n{description}\n".format(**item)
 
