@@ -2,23 +2,23 @@
 
 This is an **unofficial** [telegram bot](https://telegram.org/blog/bot-revolution), for the [University of L'Aquila](http://univaq.it).
 
-It's built to provide a single and simple source of information for the the students of university of L'Aquila, in particular for the faculty of Computer Science (aka [disim](http://www.disim.univaq.it)).
+We built it to provide a single and simple source of information for students of University of L'Aquila, in particular for the faculty of Computer Science (aka [disim](http://www.disim.univaq.it)).
 
-All the informations are scraped, parsed, stored and synchronised using a bunch of python scripts.
+All information is acquired, scraped, parsed, stored and synchronised using a bunch of Python scripts.
 
 **Read the [blog post](http://blog.giacomocerquone.com/how-we-built-our-university-s-bot/) for further information**
 
 ### Start using it
 
-You can start using the univaq telegram bot searching on telegram for [@univaq_informatica_bot](https://telegram.me/univaq_informatica_bot)
+You can start using the univaq telegram bot by searching in the Telegram app for [@univaq_informatica_bot](https://telegram.me/univaq_informatica_bot)
 
 ### How does it work
 
-The telegram bot provides a series of functionalities that helps the students to stay updated with all the informations, news stuff about the university, **without necessarily visit every time the university website**, the univaq telegram **bot does that for you !**
+The telegram bot provides students with up-to-date information on professors, facilities and news about the university, **without needing to repeatedly visit the university website**, the univaq telegram **bot does the work so you don't have to!**
 
 ### Functionalities
 
-As every telegram bot you can ask what does it provide using `/help` or even `/start`
+As with every telegram bot, you can ask the bot what does by entering `/help` or even `/start`
 
 ```sh
 La lista di comandi:
@@ -36,21 +36,21 @@ La lista di comandi:
 ```
 
 ### CONTRIBUTING
-We accept of course every kind of contribution and if you're going to submit pull requests to this project, we kindly ask you to do so on the dev branch.
-For further information on code style you can read the srs-outline inside the docs folder. Thank you very much. 
+We accept of course every kind of contribution and if you're going to submit pull requests to this project, we kindly ask you to do so on the `dev` branch.
+For further information on code style, please read `srs-outline` inside the docs folder. Thank you very much. 
 
-**The list of commands is to be updated**. We could think on possible improvements and extensions
+**The list of commands will be updated**. We are currently thinking of possible improvements and extensions.  If you have suggestions for us, please consider opening an `issue` above.
 
 ### Notifications
 
-The **univaq telegram bot provides also a push notification service**. When a new unread news is published on the university website, univaq telegram bot reads it and sends you the push notification through telegram (the notification service could be activated/deactivated in any moment using the commands).
+The **univaq telegram bot also provides a push notification service**. When new unread news is published on the university website, the univaq telegram bot can send it to you via a push notification (you can activate/deactivate this notification service in any time using the bot commands).
 
 ### Website
 
-This is the website of univaq telegram bot http://univaqtelegrambot.github.io/
+The website of univaq telegram bot is http://univaqtelegrambot.github.io/
 
 ### DISCLAIMER
 
 **THIS PROJECT IS NOT OFFICIALLY AFFILIATED WITH UNIVAQ INSTITUTION**
 
-It's an open source project built for didactic purposes
+It's an open source project built for didactic purposes.  Please help us to make it better.
