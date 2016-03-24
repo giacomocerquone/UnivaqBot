@@ -37,7 +37,7 @@ La lista di comandi:
 
 ### CONTRIBUTING
 We accept of course every kind of contribution and if you're going to submit pull requests to this project, we kindly ask you to do so on the `dev` branch.
-For further information on code style, please read `srs-outline` inside the docs folder. Thank you very much. 
+For further information on code style, please read `srs-outline` inside the docs folder. Thank you very much.
 
 **The list of commands will be updated**. We are currently thinking of possible improvements and extensions.  If you have suggestions for us, please consider opening an `issue` above.
 
@@ -48,6 +48,12 @@ The **univaq telegram bot also provides a push notification service**. When new 
 ### Website
 
 The website of univaq telegram bot is http://univaqtelegrambot.github.io/
+
+### TODO
+
+1. Implement the ability to search professors from their subjects.
+2. Implement in some way (maybe scraping pdf documents) the lessons timetables with their notifications.
+3. Implement notifications on new jobs that appears on the University's website.
 
 ### DISCLAIMER
 
