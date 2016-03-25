@@ -11,7 +11,7 @@ All information is acquired, scraped, parsed, stored and synchronised using a bu
 ### Screenshots
 ![screen1](screenshots/screen1.jpg) | ![screen2](screenshots/screen2.jpg) | ![screen3](screenshots/screen3.jpg)
 --- | --- | ---
-![screen4](screenshots/screen4.jpg) |
+![screen4](screenshots/screen4.jpg) | ![screen5](screenshots/screen5.jpg) | ![screen6](screenshots/screen6.jpg)
 
 ### Start using it
 
