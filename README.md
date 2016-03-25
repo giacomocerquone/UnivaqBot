@@ -8,6 +8,11 @@ All information is acquired, scraped, parsed, stored and synchronised using a bu
 
 **Read the [blog post](http://blog.giacomocerquone.com/how-we-built-our-university-s-bot/) for further information**
 
+### Screenshots
+![screen1](screenshots/screen1.jpg) | ![screen2](screenshots/screen2.jpg) | ![screen3](screenshots/screen3.jpg)
+--- | --- | ---
+![screen4](screenshots/screen4.jpg) |
+
 ### Start using it
 
 You can start using the univaq telegram bot by searching in the Telegram app for [@univaq_informatica_bot](https://telegram.me/univaq_informatica_bot)
