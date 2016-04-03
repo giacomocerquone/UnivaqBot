@@ -7,9 +7,9 @@ import sys
 sys.path.insert(0, '../')
 from libs.utils import utils
 
-student_office_url = "http://www.univaq.it/section.php?id=607"
+STUDENT_OFFICE_URL = "http://www.univaq.it/section.php?id=607"
 
-def scrape_student_office(url=student_office_url):
+def scrape_student_office(url=STUDENT_OFFICE_URL):
     """Get info about the student service office"""
 
     first_row = utils.get_soup_from_url(url).find(string="AREA SCIENTIFICA")\
