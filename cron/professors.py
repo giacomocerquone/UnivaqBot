@@ -47,7 +47,7 @@ def scrape_professors(url=PROFESSORS_URL):
             "e-mail": email_soup_cleanup(email) or "non disponibile",
             "corsi": courses_cleanup(courses.text) or "non disponibile",
         })
-    utils.write_json(scraped_professors, "../json/professors.json")
+    return scraped_professors
 
 if __name__ == "__main__":
-    scrape_professors()
+    utils.write_json(scrape_professors(), "../json/professors.json")
