@@ -14,13 +14,7 @@ def scrape_adsu(url=ADSU_URL):
 
     soup = utils.get_soup_from_url(url).find(id="AutoNumber5")
     info = soup.text.replace("  ", "").replace("\t", "").replace("\r", "").replace("\n\n", "")
-
-    scraped_info = {}
-    scraped_info.update({
-        "info": info
-    })
-
-    utils.write_json(scraped_info, "../json/adsu.json")
+    utils.write_json({"info": info}, "../json/adsu.json")
 
 if __name__ == "__main__":
     scrape_adsu()
