@@ -7,14 +7,16 @@ import sys
 sys.path.insert(0, '../')
 from libs.utils import utils
 
-professors_url = ("http://www.disim.univaq.it/didattica/"
+PROFESSORS_URL = ("http://www.disim.univaq.it/didattica/"
                   "content.php?tipo=3&ordine=1&chiave=0&pid=25&did=8&lid=it&"
                   "frmRicercaNome=&frmRicercaCognome=&frmRicercaLaurea=1&action_search=Filtra")
 
-def courses_cleanup(s):
-    return ', '.join([x for x in s.splitlines() if x and x[0] != u'\xa0'])
+def courses_cleanup(course):
+    """Clean the courses' output"""
+    return ', '.join([x for x in course.splitlines() if x and x[0] != u'\xa0'])
 
 def email_soup_cleanup(email_soup):
+    """Clean the emails' output"""
     if not email_soup.a:
         return ''
     email_soup.find('img', alt='at').replace_with('@')
@@ -23,6 +25,7 @@ def email_soup_cleanup(email_soup):
     return email_soup.text.strip()  # .lower()  # ?
 
 def phone_cleanup(s):
+    """Clean the phones' output"""
     if not s:
         return ''
     s = ''.join([c for c in s if c.isdigit() or c == '+'])
@@ -30,7 +33,7 @@ def phone_cleanup(s):
         s = '+39' + s  # if not already internationalized, make it Italian
     return '-'.join([s[:3], s[3:7], s[7:]]) if s.startswith('+39') else s
 
-def scrape_professors(url=professors_url):
+def scrape_professors(url=PROFESSORS_URL):
     """Get information about professors"""
 
     scraped_professors = []
@@ -43,7 +46,6 @@ def scrape_professors(url=professors_url):
             "telefono": phone_cleanup(phone.text) or "non disponibile",
             "e-mail": email_soup_cleanup(email) or "non disponibile",
             "corsi": courses_cleanup(courses.text) or "non disponibile",
-            # "ufficio": "0"  # why provide useless data??
         })
     utils.write_json(scraped_professors, "../json/professors.json")
 
