@@ -6,7 +6,8 @@ This is the core script of the UnivaqInformaticaBot created by Giacomo Cerquone 
 """
 
 import telegram
-from telegram import Updater
+from telegram.ext import Updater
+from telegram import TelegramError
 
 from libs.utils import utils
 from libs.news_commands import news
@@ -64,6 +65,8 @@ def newsoff_command(bot, update):
 def notify_news(bot):
     """Defining method that will be repeated over and over"""
     unread_news = news.check_news()
+    invalid_chatid = list()
+
     if unread_news:
         data = news.pull_news(10)
         news_to_string = ""
@@ -73,8 +76,14 @@ def notify_news(bot):
             news_to_string += "- [{title}]({link})\n{description}\n".format(**item)
 
         for chat_id in utils.SUBSCRIBERS:
-            bot.sendMessage(chat_id, parse_mode='Markdown', text=news_to_string)
+            try:
+                bot.sendMessage(chat_id, parse_mode='Markdown', text=news_to_string)
+            except TelegramError:
+                invalid_chatid.append(chat_id)
 
+        for chat_id in invalid_chatid:
+            utils.SUBSCRIBERS.remove(chat_id)
+            utils.write_json(utils.SUBSCRIBERS, "json/subscribers.json")
 
 # For testing only
 def commands_keyboard(bot, update):
