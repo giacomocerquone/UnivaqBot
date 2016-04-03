@@ -15,14 +15,10 @@ def scrape_student_office(url=STUDENT_OFFICE_URL):
     soup = utils.get_soup_from_url(url)
     area = soup.find(text='AREA SCIENTIFICA').parent.parent.find_next_sibling()
     address, phone, email, hours = area.find_all(class_='address_table_description')
-    scraped_info = {
-        'indirizzo': address.text,
-        'telefono': phone.text,
-        'e-mail': email.text,
-        'orari': hours.text.strip().replace('13', '13, ')
-    }
-
-    utils.write_json(scraped_info, "../json/student_office.json")
+    return { 'indirizzo': address.text,
+             'telefono': phone.text,
+             'e-mail': email.text,
+             'orari': hours.text.strip().replace('13', '13, ') }
 
 if __name__ == "__main__":
-    scrape_student_office()
+    utils.write_json(scrape_student_office(), "../json/student_office.json")
