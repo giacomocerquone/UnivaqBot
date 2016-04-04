@@ -12,25 +12,13 @@ STUDENT_OFFICE_URL = "http://www.univaq.it/section.php?id=607"
 def scrape_student_office(url=STUDENT_OFFICE_URL):
     """Get info about the student service office"""
 
-    first_row = utils.get_soup_from_url(url).find(string="AREA SCIENTIFICA")\
-                .parent.parent.find_next_sibling().find("tr")
-
-    address = first_row.find(class_="address_table_description").text
-    phone = first_row.find_next_sibling().find(class_="address_table_description").text
-    email = first_row.find_next_sibling().find_next_sibling()\
-            .find(class_="address_table_description").text
-    hours = first_row.find_next_sibling().find_next_sibling().find_next_sibling()\
-            .find(class_="address_table_description").text.replace('\n', '')\
-            .replace("13", "13, ")
-
-    scraped_info = {
-        "indirizzo": address,
-        "telefono": phone,
-        "e-mail": email,
-        "orari": hours
-    }
-
-    utils.write_json(scraped_info, "../json/student_office.json")
+    soup = utils.get_soup_from_url(url)
+    area = soup.find(text='AREA SCIENTIFICA').parent.parent.find_next_sibling()
+    address, phone, email, hours = area.find_all(class_='address_table_description')
+    return { 'indirizzo': address.text,
+             'telefono': phone.text,
+             'e-mail': email.text,
+             'orari': hours.text.strip().replace('13', '13, ') }
 
 if __name__ == "__main__":
-    scrape_student_office()
+    utils.write_json(scrape_student_office(), "../json/student_office.json")
