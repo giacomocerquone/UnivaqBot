@@ -10,7 +10,6 @@ import telegram
 
 from telegram.ext import Updater
 from telegram import TelegramError
-from dotenv import load_dotenv
 
 from libs.utils import utils
 from libs.news_commands import news
@@ -97,9 +96,6 @@ def commands_keyboard(bot, update):
 
 def main():
     """Defining the main function"""
-
-    dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
-    load_dotenv(dotenv_path)
 
     news.create_news_json()
     utils.load_subscribers_json()
