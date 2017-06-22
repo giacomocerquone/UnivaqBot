@@ -1,1 +1,1 @@
-bot: python botcore.py
+web: python botcore.py
