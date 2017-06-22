@@ -1,0 +1,8 @@
+{
+  "name": "Univaq telegram Bot",
+  "description": "The telegram bot of the univaq",
+  "image": "",
+  "repository": "",
+  "keywords": ["python", "bot", "university" ],
+  "addons": [ "" ]
+}
