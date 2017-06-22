@@ -68,7 +68,6 @@ def get_soup_from_url(url):
     if request.status_code == 200:
         return bs4.BeautifulSoup(request.text, 'html.parser')
     else:
-        fmt = 'Error! get_soup_from_url({}) --> Status: {}' 
+        fmt = 'Error! get_soup_from_url({}) --> Status: {}'
         print(fmt.format(url, request.status_code))
         return None
-
