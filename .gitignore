@@ -3,3 +3,4 @@ utls/__pycache__
 __pycache__
 nohup.out
 json/subscribers.json
+.env

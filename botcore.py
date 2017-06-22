@@ -5,7 +5,9 @@
 This is the core script of the UnivaqInformaticaBot created by Giacomo Cerquone and Diego Mariani
 """
 
+import os
 import telegram
+
 from telegram.ext import Updater
 from telegram import TelegramError
 
@@ -98,9 +100,8 @@ def main():
     news.create_news_json()
     utils.load_subscribers_json()
 
-    config = utils.get_configuration()
-    token = config.get('API-KEYS', 'TelegramBot')
-    debug = config.getboolean('UTILS', 'Debug')
+    token = os.environ['TELEGRAMBOT']
+    debug = os.environ['DEBUG']
     logger = utils.get_logger(debug)
 
     updater = Updater(token)
