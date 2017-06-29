@@ -15,6 +15,7 @@ from libs.utils import utils
 from libs.news_commands import news
 from libs.other_commands import other_commands
 
+
 def start_command(bot, update):
     """Defining the `start` command"""
 
@@ -23,6 +24,7 @@ def start_command(bot, update):
                "digita /help per vedere la lista di comandi.")
 
     bot.sendMessage(update.message.chat_id, text=welcome)
+
 
 def help_command(bot, update):
     """Defining the `help` command"""
@@ -43,26 +45,30 @@ def help_command(bot, update):
 
     bot.sendMessage(update.message.chat_id, text=help_message)
 
+
 def newson_command(bot, update):
     """Defining the command to enable notifications for news"""
 
     if update.message.chat_id not in utils.SUBSCRIBERS:
         utils.SUBSCRIBERS.append(update.message.chat_id)
+        utils.add_subscriber(update.message.chat_id)
         bot.sendMessage(update.message.chat_id, text='Notifiche Abilitate!')
-        utils.write_json(utils.SUBSCRIBERS, "json/subscribers.json")
     else:
-        bot.sendMessage(update.message.chat_id, text='Le notifiche sono già abilitate!')
+        bot.sendMessage(update.message.chat_id,
+                        text='Le notifiche sono già abilitate!')
+
 
 def newsoff_command(bot, update):
     """Defining the command to disable notifications for news"""
 
     if update.message.chat_id in utils.SUBSCRIBERS:
         utils.SUBSCRIBERS.remove(update.message.chat_id)
+        utils.remove_subscriber(update.message.chat_id)
         bot.sendMessage(update.message.chat_id, text='Notifiche Disattivate!')
-        utils.write_json(utils.SUBSCRIBERS, "json/subscribers.json")
     else:
         bot.sendMessage(update.message.chat_id,
                         text='Per disattivare le notifiche dovresti prima attivarle.')
+
 
 def notify_news(bot):
     """Defining method that will be repeated over and over"""
@@ -70,35 +76,43 @@ def notify_news(bot):
     invalid_chatid = list()
 
     if unread_news:
+        # need to store only additional news (they are in unread_news)
         data = news.pull_news(10)
         news_to_string = ""
-        utils.write_json(data, "json/news.json")
+        utils.DISIMNEWS = data
+        utils.store_disim_news(data)
 
         for item in unread_news:
             news_to_string += "- [{title}]({link})\n{description}\n".format(**item)
 
         for chat_id in utils.SUBSCRIBERS:
             try:
-                bot.sendMessage(chat_id, parse_mode='Markdown', text=news_to_string)
+                bot.sendMessage(chat_id, parse_mode='Markdown',
+                                text=news_to_string)
             except TelegramError:
                 invalid_chatid.append(chat_id)
 
         for chat_id in invalid_chatid:
             utils.SUBSCRIBERS.remove(chat_id)
-            utils.write_json(utils.SUBSCRIBERS, "json/subscribers.json")
+            utils.remove_subscriber(chat_id)
 
-# For testing only
+# Testing
+
 def commands_keyboard(bot, update):
     """Enable a custom keyboard"""
     keyboard = [[]]
-    markup = telegram.ReplyKeyboardMarkup(keyboard, resize_keyboard=True, one_time_keyboard=False)
-    bot.sendMessage(update.message.chat_id, text="Enabled keyboard", reply_markup=markup)
+    markup = telegram.ReplyKeyboardMarkup(
+        keyboard, resize_keyboard=True, one_time_keyboard=False)
+    bot.sendMessage(update.message.chat_id,
+                    text="Enabled keyboard", reply_markup=markup)
+
 
 def main():
     """Defining the main function"""
 
-    news.create_news_json()
-    utils.load_subscribers_json()
+    news.memory_disim_news()
+    utils.db_connection()
+    utils.get_subscribers()
 
     token = os.environ['TELEGRAMBOT'] or os.environ['UNIVERSITYBOT']
     debug = os.environ['DEBUG']
@@ -114,17 +128,21 @@ def main():
     dispatcher.addTelegramCommandHandler("newson", newson_command)
     dispatcher.addTelegramCommandHandler("newsoff", newsoff_command)
     dispatcher.addTelegramCommandHandler("prof", other_commands.prof_command)
-    dispatcher.addTelegramCommandHandler("segreteria", other_commands.student_office_command)
-    dispatcher.addTelegramCommandHandler("mensa", other_commands.canteen_command)
+    dispatcher.addTelegramCommandHandler(
+        "segreteria", other_commands.student_office_command)
+    dispatcher.addTelegramCommandHandler(
+        "mensa", other_commands.canteen_command)
     dispatcher.addTelegramCommandHandler("adsu", other_commands.adsu_command)
 
-    # For Testing only
-    dispatcher.addTelegramCommandHandler("commands_keyboard", commands_keyboard)
+    # Testing
+    dispatcher.addTelegramCommandHandler(
+        "commands_keyboard", commands_keyboard)
 
     logger.info('Bot started')
 
     updater.start_polling()
     updater.idle()
+
 
 if __name__ == '__main__':
     main()

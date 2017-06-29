@@ -3,22 +3,22 @@
 
 """The Package that contains all the telegram's news functions used"""
 
-import os.path
 import sys
-sys.path.insert(0, '../')
+
+from bs4 import BeautifulSoup
+import requests
+
 from libs.utils import utils
 
-import requests
-from bs4 import BeautifulSoup
-
+sys.path.insert(0, '../')
 
 def news_command(bot, update, args):
     """Defining the `news` command"""
 
     if len(args) and int(args[0]) <= 10:
-        news_array = utils.read_json("json/news.json")[0:int(args[0])]
+        news_array = utils.DISIMNEWS[0:int(args[0])]
     else:
-        news_array = utils.read_json("json/news.json")
+        news_array = utils.DISIMNEWS
 
     news_to_string = ""
     for i, item in enumerate(news_array):
@@ -68,7 +68,7 @@ def check_news():
     """This function check if there are some unread news from the website"""
 
     pulled_news = pull_news(5)
-    stored_news = utils.read_json("json/news.json")
+    stored_news = utils.DISIMNEWS
     unread_news = []
 
     if len(pulled_news) > 0:
@@ -86,8 +86,7 @@ def check_news():
 
     return unread_news
 
-def create_news_json():
-    """Defining command to check (and create) the news.json file"""
+def memory_disim_news():
+    """Save as dictionary the last 10 disim news"""
 
-    if not os.path.isfile("json/news.json"):
-        utils.write_json(pull_news(10), "json/news.json")
+    utils.DISIMNEWS = pull_news(10)

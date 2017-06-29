@@ -3,56 +3,82 @@
 
 """The package that contains groups all the functions needed by other scripts."""
 
-import sys
-sys.path.insert(0, '../')
-
-import bs4
-import configparser
 import json
 import logging
 import os
+import sys
+
+import bs4
 import requests
+import pymongo
+
+sys.path.insert(0, '../')
+
+USERCOLL = ""
+DISIMNEWSCOLL = ""
+SUBSCRIBERS = []
+DISIMNEWS = {}
 
 
-def get_configuration():
-    """Get global configuration from service.cfg"""
+def db_connection():
+    """Get MongoDB connection"""
 
-    config = configparser.ConfigParser()
-    config.read("service.cfg")
+    try:
+        conn = pymongo.MongoClient(os.environ['MONGOLAB_URI'] or os.environ['MONGODB_URI'])
+        print("Connected successfully!")
+    except (pymongo.errors.ConnectionFailure) as err:
+        print("Could not connect to MongoDB: %s" % err)
 
-    return config
+    global USERCOLL, DISIMNEWSCOLL
 
-def get_logger(debug):
-    """Get logger object"""
+    database = conn.univaqbot
+    USERCOLL = database.users
+    DISIMNEWSCOLL = database['disim_news']
 
-    logging.basicConfig(
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-        level=logging.INFO
-        )
-    logger = logging.getLogger(__name__)
-
-    if debug is False:
-        logging.disable(logging.CRITICAL)
-
-    return logger
-
+# to remove
 def write_json(data, json_file):
-    """General function used everywhere to write data into a json file"""
+    """General function to write data into a json file"""
 
-    with open(json_file, "w") as json_file:
-        json.dump(data, json_file, indent=4)
+    with open(json_file, "w") as file:
+        json.dump(data, file, indent=4)
+
 
 def read_json(json_file):
-    """General function used everywhere to read a json file"""
+    """General function to read a json file"""
 
-    with open(json_file, "r") as json_file:
-        return json.load(json_file)
+    with open(json_file, "r") as file:
+        return json.load(file)
 
-def load_subscribers_json(json_file="json/subscribers.json"):
-    """Defining command to check (and create) the subscribers.json file"""
 
-    global SUBSCRIBERS
-    SUBSCRIBERS = read_json(json_file) if os.path.isfile(json_file) else []
+def get_subscribers():
+    """Get from DB all the subscribers"""
+
+    for document in USERCOLL.find({}):
+        SUBSCRIBERS.append(document['telegramID'])
+
+def add_subscriber(telegram_id):
+    """Add subscriber to the DB"""
+
+    USERCOLL.insert({"telegramID": telegram_id})
+
+
+def remove_subscriber(telegram_id):
+    """Remove subscriber from DB"""
+
+    USERCOLL.remove({"telegramID": telegram_id})
+
+
+def get_disim_news():
+    """Get the disims' news"""
+
+    return DISIMNEWSCOLL.find({})
+
+
+def store_disim_news(data):
+    """Get the disims' news"""
+
+    DISIMNEWSCOLL.insert_many(data)
+
 
 def get_soup_from_url(url):
     """Download a webpage and return its BeautifulSoup"""
@@ -62,12 +88,27 @@ def get_soup_from_url(url):
         'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
         'accept-charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.3',
         'accept-encoding': 'gzip,deflate,sdch',
-        'accept-language': 'en-US,en;q=0.8',
+        'accept-language': 'it-IT',
     }
     request = requests.get(url, headers=headers)
     if request.status_code == 200:
         return bs4.BeautifulSoup(request.text, 'html.parser')
-    else:
-        fmt = 'Error! get_soup_from_url({}) --> Status: {}'
-        print(fmt.format(url, request.status_code))
-        return None
+
+    fmt = 'Error! get_soup_from_url({}) --> Status: {}'
+    print(fmt.format(url, request.status_code))
+    return None
+
+
+def get_logger(debug):
+    """Get logger object"""
+
+    logging.basicConfig(
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        level=logging.INFO
+    )
+    logger = logging.getLogger(__name__)
+
+    if debug is False:
+        logging.disable(logging.CRITICAL)
+
+    return logger
