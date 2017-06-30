@@ -85,8 +85,3 @@ def check_news():
                                     "link": single_pulled['link']})
 
     return unread_news
-
-def memory_disim_news():
-    """Save as dictionary the last 10 disim news"""
-
-    utils.DISIMNEWS = utils.get_disim_news()

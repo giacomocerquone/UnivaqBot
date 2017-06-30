@@ -31,7 +31,7 @@ def db_connection():
 
     global USERCOLL, DISIMNEWSCOLL
 
-    database = conn.univaqbot
+    database = conn.get_default_database()
     USERCOLL = database.users
     DISIMNEWSCOLL = database['disim_news']
 

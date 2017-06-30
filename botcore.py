@@ -111,7 +111,6 @@ def commands_keyboard(bot, update):
 def main():
     """Defining the main function"""
 
-    # news.memory_disim_news()
     utils.db_connection()
     utils.get_subscribers()
     utils.get_disim_news()
