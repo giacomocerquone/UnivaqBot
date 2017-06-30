@@ -79,6 +79,7 @@ def notify_news(bot):
         # need to store only additional news (they are in unread_news)
         data = news.pull_news(10)
         news_to_string = ""
+
         utils.DISIMNEWS = data
         utils.store_disim_news(data)
 
@@ -110,9 +111,10 @@ def commands_keyboard(bot, update):
 def main():
     """Defining the main function"""
 
-    news.memory_disim_news()
+    # news.memory_disim_news()
     utils.db_connection()
     utils.get_subscribers()
+    utils.get_disim_news()
 
     token = os.environ['TELEGRAMBOT'] or os.environ['UNIVERSITYBOT']
     debug = os.environ['DEBUG']

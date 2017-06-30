@@ -17,7 +17,7 @@ sys.path.insert(0, '../')
 USERCOLL = ""
 DISIMNEWSCOLL = ""
 SUBSCRIBERS = []
-DISIMNEWS = {}
+DISIMNEWS = []
 
 
 def db_connection():
@@ -61,22 +61,21 @@ def add_subscriber(telegram_id):
 
     USERCOLL.insert({"telegramID": telegram_id})
 
-
 def remove_subscriber(telegram_id):
     """Remove subscriber from DB"""
 
     USERCOLL.remove({"telegramID": telegram_id})
 
-
 def get_disim_news():
     """Get the disims' news"""
 
-    return DISIMNEWSCOLL.find({})
-
+    for document in DISIMNEWSCOLL.find({}):
+        DISIMNEWS.append(document)
 
 def store_disim_news(data):
     """Get the disims' news"""
 
+    DISIMNEWSCOLL.remove({})
     DISIMNEWSCOLL.insert_many(data)
 
 
