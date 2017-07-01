@@ -12,17 +12,25 @@ sys.path.insert(0, '../')
 def prof_command(bot, update, args):
     """Defining the `prof` command"""
 
-    data = utils.read_json("json/professors.json")
-    prof_name = args[0].strip().lower() if args else ''
+    prof_name = " ".join(args).strip().title() if args else ''
+
     if prof_name:
-        fmt = '{nome} - {telefono} - {e-mail} - {corsi}\n'
+        prof_db = list(utils.DATABASE.prof.find({"nome":  {'$regex': prof_name}}))
+        fmt = ('<b>{nome}</b>\n\n'
+               '<b>Stanza: </b>\n\t<i>{stanza}</i>\n\n'
+               '<b>Email: </b>\n\t<a href="mailto:{email}">{email}</a>\n\n'
+               '<b>Telefono: </b>\n\t<a href="tel:{telefono}">{telefono}</a>\n\n'
+               '<b>Curriculum Vitae: </b>\n\t<a href="{CV}">Download Curriculum Vitae</a>\n\n'
+               #'<b>Corsi: </b>\n\t- <a href="{corsi[0][link]}">{corsi[0][nome]}</a>\n'
+               # TODO need a thought above
+              )
+        professors = '\n'.join(fmt.format(**prof) for prof in prof_db)
     else:
-        fmt = '{nome} - {telefono} - {e-mail}'
-    professors = '\n'.join(fmt.format(**prof) for prof in data
-                           if prof_name in prof['nome'].lower())
+        prof_db = list(utils.DATABASE.prof.find({}, {'nome': 1}))
+        fmt = ("<i>{nome}</i>")
+        professors = '\n'.join(fmt.format(**prof) for prof in prof_db)
 
-    bot.sendMessage(update.message.chat_id, text=professors + '\n')
-
+    bot.sendMessage(update.message.chat_id, text=professors, parse_mode="HTML")
 
 def student_office_command(bot, update):
     """Defining the `student_office` command"""

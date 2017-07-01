@@ -3,7 +3,6 @@
 
 """The package that contains groups all the functions needed by other scripts."""
 
-import json
 import logging
 import os
 import sys
@@ -30,12 +29,6 @@ def db_connection():
     global DATABASE
 
     DATABASE = conn.get_default_database()
-
-def read_json(json_file):
-    """General function to read a json file"""
-
-    with open(json_file, "r") as file:
-        return json.load(file)
 
 def get_subscribers():
     """Get from DB all the subscribers"""
