@@ -2,13 +2,14 @@
 # -*- coding: utf-8 -*-
 
 """
-This is the core script of the UnivaqInformaticaBot created by Giacomo Cerquone, Stefano Martella e Diego Mariani
+This is the core script of the UnivaqInformaticaBot
+created by Giacomo Cerquone e Stefano Martella
 """
 
 import os
 import telegram
 
-from telegram.ext import Updater
+from telegram.ext import Updater, CommandHandler
 from telegram import TelegramError
 
 from libs.utils import utils
@@ -70,7 +71,7 @@ def disimoff_command(bot, update):
                         text='Per disattivare le notifiche dovresti prima attivarle.')
 
 
-def notify_news(bot):
+def notify_news(bot, job):
     """Defining method that will be repeated over and over"""
     unread_news = news.check_news()
     invalid_chatid = list()
@@ -99,7 +100,6 @@ def notify_news(bot):
 
 # Testing
 
-
 def commands_keyboard(bot, update):
     """Enable a custom keyboard"""
     keyboard = [[]]
@@ -121,24 +121,25 @@ def main():
     logger = utils.get_logger(debug)
 
     updater = Updater(token)
-    updater.job_queue.put(notify_news, 40, repeat=True)
+    j = updater.job_queue
+    j.run_repeating(notify_news, 40.0)
     dispatcher = updater.dispatcher
 
-    dispatcher.addTelegramCommandHandler("start", start_command)
-    dispatcher.addTelegramCommandHandler("help", help_command)
-    dispatcher.addTelegramCommandHandler("news", news.news_command)
-    dispatcher.addTelegramCommandHandler("disimon", disimon_command)
-    dispatcher.addTelegramCommandHandler("disimoff", disimoff_command)
-    dispatcher.addTelegramCommandHandler("prof", other_commands.prof_command)
-    dispatcher.addTelegramCommandHandler(
-        "segreteria", other_commands.student_office_command)
-    dispatcher.addTelegramCommandHandler(
-        "mensa", other_commands.canteen_command)
-    dispatcher.addTelegramCommandHandler("adsu", other_commands.adsu_command)
+    dispatcher.add_handler(CommandHandler("start", start_command))
+    dispatcher.add_handler(CommandHandler("help", help_command))
+    dispatcher.add_handler(CommandHandler("news", news.news_command, pass_args=True))
+    dispatcher.add_handler(CommandHandler("disimon", disimon_command))
+    dispatcher.add_handler(CommandHandler("disimoff", disimoff_command))
+    dispatcher.add_handler(CommandHandler("prof", other_commands.prof_command, pass_args=True))
+    dispatcher.add_handler(CommandHandler(
+        "segreteria", other_commands.student_office_command))
+    dispatcher.add_handler(CommandHandler(
+        "mensa", other_commands.canteen_command))
+    dispatcher.add_handler(CommandHandler("adsu", other_commands.adsu_command))
 
     # Testing
-    dispatcher.addTelegramCommandHandler(
-        "commands_keyboard", commands_keyboard)
+    dispatcher.add_handler(CommandHandler(
+        "commands_keyboard", commands_keyboard))
 
     logger.info('Bot started')
 
