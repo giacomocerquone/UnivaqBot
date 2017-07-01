@@ -63,7 +63,7 @@ Overall Description
 
 
 - The service is built to be extended along time, it's a sort of continuous improvement.
-- The service operativity strictly depends on the infrastructure freely provided by the main project contributors ([@diegomariani](http://diegomariani.com) and [@giacomocerquone](http://giacomocerquone.com))
+- The service operativity strictly depends on the infrastructure freely provided by the main project contributors
 - Some service's functionalities (news push notifications, lectures time table, ...) depends on the official university website
 
 Specific Requirements

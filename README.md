@@ -31,8 +31,8 @@ La lista di comandi:
 /help - Stampa questo messaggio
 /news - Leggi le ultime 10 news
 /news num - Leggi le ultime <num> news
-/newson - Abilita le notifiche per ogni nuova news (default)
-/newsoff - Disabilita le notifiche per ogni nuova news
+/disimon - Abilita le notifiche per ogni nuova news (default)
+/disimoff - Disabilita le notifiche per ogni nuova news
 /prof - Stampa la lista dei professori
 /prof cognome - Info su un docente
 /segreteria - Info sulla segreteria studenti

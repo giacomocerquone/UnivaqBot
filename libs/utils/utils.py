@@ -14,11 +14,9 @@ import pymongo
 
 sys.path.insert(0, '../')
 
-USERCOLL = ""
-DISIMNEWSCOLL = ""
+DATABASE = ""
 SUBSCRIBERS = []
 DISIMNEWS = []
-
 
 def db_connection():
     """Get MongoDB connection"""
@@ -29,19 +27,9 @@ def db_connection():
     except (pymongo.errors.ConnectionFailure) as err:
         print("Could not connect to MongoDB: %s" % err)
 
-    global USERCOLL, DISIMNEWSCOLL
+    global DATABASE
 
-    database = conn.get_default_database()
-    USERCOLL = database.users
-    DISIMNEWSCOLL = database['disim_news']
-
-# to remove
-def write_json(data, json_file):
-    """General function to write data into a json file"""
-
-    with open(json_file, "w") as file:
-        json.dump(data, file, indent=4)
-
+    DATABASE = conn.get_default_database()
 
 def read_json(json_file):
     """General function to read a json file"""
@@ -49,34 +37,33 @@ def read_json(json_file):
     with open(json_file, "r") as file:
         return json.load(file)
 
-
 def get_subscribers():
     """Get from DB all the subscribers"""
 
-    for document in USERCOLL.find({}):
+    for document in DATABASE.users.find({}):
         SUBSCRIBERS.append(document['telegramID'])
 
 def add_subscriber(telegram_id):
     """Add subscriber to the DB"""
 
-    USERCOLL.insert({"telegramID": telegram_id})
+    DATABASE.users.insert({"telegramID": telegram_id})
 
 def remove_subscriber(telegram_id):
     """Remove subscriber from DB"""
 
-    USERCOLL.remove({"telegramID": telegram_id})
+    DATABASE.users.remove({"telegramID": telegram_id})
 
 def get_disim_news():
     """Get the disims' news"""
 
-    for document in DISIMNEWSCOLL.find({}):
+    for document in DATABASE['disim_news'].find({}):
         DISIMNEWS.append(document)
 
 def store_disim_news(data):
     """Get the disims' news"""
 
-    DISIMNEWSCOLL.remove({})
-    DISIMNEWSCOLL.insert_many(data)
+    DATABASE['disim_news'].remove({})
+    DATABASE['disim_news'].insert_many(data)
 
 
 def get_soup_from_url(url):

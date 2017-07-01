@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-This is the core script of the UnivaqInformaticaBot created by Giacomo Cerquone and Diego Mariani
+This is the core script of the UnivaqInformaticaBot created by Giacomo Cerquone, Stefano Martella e Diego Mariani
 """
 
 import os
@@ -33,20 +33,20 @@ def help_command(bot, update):
                     "/help - Stampa questo messaggio\n"
                     "/news - Leggi le ultime 10 news\n"
                     "/news num - Leggi le ultime <num> news\n"
-                    "/newson - Abilita le notifiche per ogni nuova news (default)\n"
-                    "/newsoff - Disabilita le notifiche per ogni nuova news\n"
+                    "/disimon - Abilita le notifiche le news del disim (default)\n"
+                    "/disimoff - Disabilita le notifiche per ogni nuova news\n"
                     "/prof - Stampa la lista dei professori\n"
                     "/prof cognome - Info su un docente\n"
                     "/segreteria - Info sulla segreteria studenti\n"
                     "/mensa - Info sugli orari della mensa\n"
                     "/adsu - Info sull'adsu"
-                    "\n\nQuesto bot è orgogliosamente open source, sviluppato da Giacomo Cerquone"
-                    " e Diego Mariani.")
+                    "\n\nQuesto bot è orgogliosamente open source"
+                    ", sviluppato e mantenuto da Giacomo Cerquone e Stefano Martella.")
 
     bot.sendMessage(update.message.chat_id, text=help_message)
 
 
-def newson_command(bot, update):
+def disimon_command(bot, update):
     """Defining the command to enable notifications for news"""
 
     if update.message.chat_id not in utils.SUBSCRIBERS:
@@ -58,7 +58,7 @@ def newson_command(bot, update):
                         text='Le notifiche sono già abilitate!')
 
 
-def newsoff_command(bot, update):
+def disimoff_command(bot, update):
     """Defining the command to disable notifications for news"""
 
     if update.message.chat_id in utils.SUBSCRIBERS:
@@ -99,6 +99,7 @@ def notify_news(bot):
 
 # Testing
 
+
 def commands_keyboard(bot, update):
     """Enable a custom keyboard"""
     keyboard = [[]]
@@ -126,8 +127,8 @@ def main():
     dispatcher.addTelegramCommandHandler("start", start_command)
     dispatcher.addTelegramCommandHandler("help", help_command)
     dispatcher.addTelegramCommandHandler("news", news.news_command)
-    dispatcher.addTelegramCommandHandler("newson", newson_command)
-    dispatcher.addTelegramCommandHandler("newsoff", newsoff_command)
+    dispatcher.addTelegramCommandHandler("disimon", disimon_command)
+    dispatcher.addTelegramCommandHandler("disimoff", disimoff_command)
     dispatcher.addTelegramCommandHandler("prof", other_commands.prof_command)
     dispatcher.addTelegramCommandHandler(
         "segreteria", other_commands.student_office_command)
