@@ -9,7 +9,7 @@ from libs.utils import utils
 
 sys.path.insert(0, '../')
 
-def prof_command(bot, update, arg):
+def prof_command(bot, update, args):
     """Defining the `prof` command"""
 
     data = utils.read_json("json/professors.json")
