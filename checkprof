@@ -1,0 +1,1309 @@
+Claudio Arbib
+Marco Castellani
+Carlo Cecati
+Stefania Costantini
+Anna De Masi
+Maria Domenica Di Benedetto
+Klaus Engel
+Michele Flammini
+Paolo Freguglia
+Alfredo Germani
+Nicola Guglielmi
+Paola Inverardi
+Francesco Leonetti
+Pierangelo Marcati
+Filippo Mignosi
+Guido Proietti
+Bruno Rubino
+Fortunato Santucci
+Malavolta Ivano - +39-0862-433172 - ivano.malavolta@univaq.it
+Carlo Maria Scoppola
+Giuseppe Alesii
+Debora Amadori
+Fabio Antonelli
+Eramo Romina - non disponibile - romina.eramo@di.univaq.it
+Concettina Buccella
+Dajana Cassioli
+Serafino Cicerone
+Vittorio Cortellessa
+Elena De Santis
+Marottoli Maria Silvia  - non disponibile - msilviamarottoli@gmail.com
+Marco Di Francesco
+Stefano Di Gennaro
+Antinisca Di Marco
+Gabriele Di Stefano
+Donatella Donatelli
+Maria Lucia Fania
+Alessandro Fedeli
+Daniele Frigioni
+Norberto Gavioli
+Fabio Graziosi
+Anna Guerrieri
+Corrado Lattanzio
+Elvira Laura Livorni
+Costanzo Manes
+Henry Muccini
+Barbara Nelli
+Monica Nesi
+Margherita Nolasco
+Sergio Orefice
+Pierini Pierluigi - +39-0862-344783 - pierluigi.pierini@intecs.it
+Pierdomenico Pepe
+Alfonso Pierantonio
+Cristina Pignotti
+Fabrizio Rossi
+Maurizio Serva
+Stefano Smriglio
+Laura Tarantino
+Amabile Tatone
+Massimo Tivoli
+Anna Tozzi
+Umberto Triacca
+Lucio Bedulli
+Pasquale Caianiello
+Maria Gabriella Cimoroni
+Mimi Coccia
+Domenica De Acutis
+Giovanni De Gasperis
+Giuseppe Della Penna
+Luca Forlizzi
+Davide Gabrielli
+Vellante Massimo - +39-0862-433079 - massimo.vellante@aquila.infn.it
+Massimiliano Giuli
+Vetrano Luigi - +39-0862-344703 - luigi.vetrano@technolabs.it
+Francesca Romana Guarguaglini
+Marta Macri
+Giovanna Melideo
+Immacolata Merola
+Ida Minelli Germana
+Gianpiero Monaco
+Mariapia Palombaro
+Patrizio Pelliccione
+Marco Pratesi
+Rosella Colomba Sampalmieri
+Marco Autili
+Matteo Colangeli
+Tania Di Mascio
+Davide Di Ruscio
+Amleto Di Salle
+Alessandro D'Innocenzo
+Giordano Pola
+Luigi Pomante
+Stefano Spirito
+
+{
+  "nome": "Claudio Arbib",
+  "email": "claudio.arbib@univaq.it",
+  "telefono": "0862433126",
+  "stanza": "Blocco Zero, Room 219",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=claudio.arbib&cv",
+  "corsi": [{
+    "nome": "[DT0220] Optimisation Models and Algorithms (Optimisation Models and Algorithms)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=606&pid=86&did=0&lid=en&fid=xhtml "
+  }]
+}, {
+  "nome": "Marco Castellani",
+  "email": "marco.castellani@univaq.it",
+  "telefono": "+390862434887",
+  "stanza": "Coppito 1, Room 1057",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=marco.castellani&cv",
+  "corsi": []
+}, {
+  "nome": "Carlo Cecati",
+  "email": "carlo.cecati@univaq.it",
+  "telefono": "+39 0862 434450",
+  "stanza": "Coppito 1, Room 2nd Floor",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=carlo.cecati&cv",
+  "corsi": [{
+    "nome": "[DT0097] Elettronica Industriale per L'Automazione e l'Energia (Industrial Electronics for Automation and Energy)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=583&pid=86&did=0&lid=en&fid=xhtml "
+  }]
+}, {
+  "nome": "Stefania Costantini",
+  "email": "stefania.costantini@univaq.it",
+  "telefono": "+39 (0862) 433135",
+  "stanza": "Blocco Zero, Room 218",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=stefania.costantini&cv",
+  "corsi": [{
+    "nome": "[F0070] Intelligent Agents (Agenti Intelligenti)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=64&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+    "nome": "[F1I015] Basi di Dati (Databases)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=18&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+    "nome": "[DT0210] Description Logics and Web Ontologies  (Description Logics and Web Ontologies )",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=603&pid=86&did=0&lid=en&fid=xhtml "
+  }]
+}, {
+
+  "nome": "Anna De Masi",
+  "email": "anna.demasi@univaq.it",
+  "telefono": "+39 0862 43 3157",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=anna.demasi&cv",
+  "corsi": [{
+
+    "nome": "[DT0028] Calcolo delle probabilitÓ B (Probability B)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=528&pid=86&did=0&lid=en&fid=xhtml "
+  }]
+}, {
+  "nome": "Maria Domenica Di Benedetto",
+  "email": "mariadomenica.dibenedetto@univaq.it",
+  "telefono": "+39 0862434449",
+  "stanza": "Felix 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=mariadomenica.dibenedetto&cv",
+  "corsi": []
+}, {
+  "nome": "Klaus Engel",
+  "email": "klaus.engel@univaq.it",
+  "telefono": "+39 0862 43 4709",
+  "stanza": "Coppito 1, Room 1040",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=klaus.engel&cv",
+  "corsi": []
+}, {
+  "nome": "Michele Flammini",
+  "email": "michele.flammini@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Blocco Zero, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=michele.flammini&cv",
+  "corsi": []
+}, {
+  "nome": "Paolo Freguglia",
+  "email": "paolo.freguglia@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=paolo.freguglia&cv",
+  "corsi": [{
+    "nome": "[DT0124] Foundation of Mathematics (Foundation of Mathematics)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=554&pid=86&did=0&lid=en&fid=xhtml "
+  }]
+}, {
+  "nome": "Alfredo Germani",
+  "email": "alfredo.germani@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Non disponibile",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=alfredo.germani&cv",
+  "corsi": []
+}, {
+  "nome": "Nicola Guglielmi",
+  "email": "guglielm@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=nicola.guglielmi&cv",
+  "corsi": [{
+    "nome": "[DT0021] Analisi Numerica (Numerical Analysis)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=431&pid=86&did=0&lid=en&fid=xhtml "
+  }]
+}, {
+  "nome": "Paola Inverardi",
+  "email": "paola.inverardi@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Non disponibile",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=paola.inverardi&cv",
+  "corsi": []
+}, {
+  "nome": "Francesco Leonetti",
+  "email": "leonetti@univaq.it",
+  "telefono": "0862 433140",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=francesco.leonetti&cv",
+  "corsi": []
+}, {
+  "nome": "Pierangelo Marcati",
+  "email": "pierangelo.marcati@univaq.it",
+  "telefono": "+39(086)2433143",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=pierangelo.marcati&cv",
+  "corsi": []
+}, {
+  "nome": "Filippo Mignosi",
+  "email": "filippo.mignosi@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Non disponibile",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=filippo.mignosi&cv",
+  "corsi": [{
+    "nome": "[DT0211] Information Retrieval (Information Retrieval)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=141&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+    "nome": "[F0158] Teoria dell'Informazione (Information Theory)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=35&pid=86&did=0&lid=en&fid=xhtml "
+  }]
+}, {
+  "nome": "Guido Proietti",
+  "email": "guido.proietti@univaq.it",
+  "telefono": "0862 433727",
+  "stanza": "Blocco Zero, Room 204",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=guido.proietti&cv",
+  "corsi": [{
+    "nome": "[F1I012] Algoritmi e Strutture Dati (Algorithms and Data Structures)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=23&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+    "nome": "[DT0168] Distributed Systems (Distributed Systems)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=535&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+    "nome": "[DT0174] Non-cooperative networks (Non-cooperative networks)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=592&pid=86&did=0&lid=en&fid=xhtml "
+  }]
+}, {
+  "nome": "Bruno Rubino",
+  "email": "bruno.rubino@univaq.it",
+  "telefono": "+39 0862 434701",
+  "stanza": "Coppito 1, Room 1003",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=bruno.rubino&cv",
+  "corsi": [{
+    "nome": "[DT0017] Analisi Matematica A mod. II (Mathematical Analysis A, mod. II)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=494&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+    "nome": "[DT0049] Applied Partial Differential Equations and Fluid Dynamics (Applied Partial Differential Equations and Fluid Dynamics)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=361&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+    "nome": "[I0459] Dynamical systems and bifurcation theory (Dynamical systems and bifurcation theory)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=367&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+    "nome": "[I0060] Mathematical Fluid Dynamics (Fluidodinamica matematica)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=437&pid=86&did=0&lid=en&fid=xhtml "
+  }]
+}, {
+  "nome": "Fortunato Santucci",
+  "email": "fortunato.santucci@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Felix 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=fortunato.santucci&cv",
+  "corsi": []
+}, {
+
+  "nome": "Carlo Maria Scoppola",
+  "email": "scoppola@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=carlo.scoppola&cv",
+  "corsi": [{
+
+    "nome": "[DT0044] Algebra mod. I (Algebra mod. I)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=263&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+
+    "nome": "[DT0045] Algebra mod. II (Algebra mod. II)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=246&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Giuseppe Alesii",
+  "email": "galesii@univaq.it",
+  "telefono": "+39 0862433156",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=giuseppe.alesii&cv",
+  "corsi": [{
+
+    "nome": "[F0157] Modelli e Algoritmi per la Finanza Aziendale I (Models and Algorithms for Financial Management I)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=94&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Debora Amadori",
+  "email": "amadori@univaq.it",
+  "telefono": "+390862433146",
+  "stanza": "Coppito 1, Room 1021",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=debora.amadori&cv",
+  "corsi": [{
+
+    "nome": "[DT0002] Analisi Matematica (Mathematical Analysis)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=144&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+
+    "nome": "[I0195] Analisi Matematica I (Mathematical Analysis I)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=403&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Fabio Antonelli",
+  "email": "antonf@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Coppito 1, Room 1020",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=fabio.antonelli&cv",
+  "corsi": [{
+
+    "nome": "[I0643] Calcolo Delle ProbabilitÓ (Probability)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=337&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+
+    "nome": "[DT0022] Calcolo delle probabilitÓ A (Probability A)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=523&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Concettina Buccella",
+  "email": "concettina.buccella@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Felix 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=concettina.buccella&cv",
+  "corsi": [{
+
+    "nome": "[I0536] Elettrotecnica (Electrotechnical)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=339&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Dajana Cassioli",
+  "email": "dajana.cassioli@univaq.it",
+  "telefono": "+39 0862434452",
+  "stanza": "Blocco Zero, Room 211",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=dajana.cassioli&cv",
+  "corsi": [{
+
+    "nome": "[DT0185] Propagation and Modeling of Communication Channels (Propagation and Modeling of Communication Channels)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=619&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Serafino Cicerone",
+  "email": "serafino.cicerone@univaq.it",
+  "telefono": "+39 0862 434472",
+  "stanza": "Felix 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=serafino.cicerone&cv",
+  "corsi": []
+}, {
+
+  "nome": "Vittorio Cortellessa",
+  "email": "vittorio.cortellessa@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Non disponibile",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=vittorio.cortellessa&cv",
+  "corsi": [{
+
+    "nome": "[DT0291] Advanced Models for Software Engineering I (Advanced Models for Software Engineering I)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=600&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+
+    "nome": "[F0174] Software Engineering II (Ingegneria del Software II)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=16&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+
+    "nome": "[F1I020] Sistemi Operativi (Operating Systems)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=12&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Elena De Santis",
+  "email": "elena.desantis@univaq.it",
+  "telefono": "0862 434435",
+  "stanza": "Non disponibile",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=elena.desantis&cv",
+  "corsi": []
+}, {
+
+  "nome": "Marco Di Francesco",
+  "email": "marco.difrancesco@univaq.it",
+  "telefono": "0862434712",
+  "stanza": "Coppito 1, Room 1047",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=marco.difrancesco&cv",
+  "corsi": [{
+
+    "nome": "[DT0026] Functional analysis (Analisi Funzionale (Istituzioni di Analisi Superiore mod.1))",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=294&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+
+    "nome": "[DT0262] Biomathematics (Biomathematics)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=607&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Stefano Di Gennaro",
+  "email": "stefano.digennaro@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Non disponibile",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=stefano.digennaro&cv",
+  "corsi": []
+}, {
+
+  "nome": "Antinisca Di Marco",
+  "email": "antinisca.dimarco@univaq.it",
+  "telefono": "+39 0862 433178",
+  "stanza": "Blocco Zero, Room 211",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=antinisca.dimarco&cv",
+  "corsi": []
+}, {
+
+  "nome": "Gabriele Di Stefano",
+  "email": "gabriele.distefano@univaq.it",
+  "telefono": "+39 0862 434416",
+  "stanza": "Felix 1, Room 14",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=gabriele.distefano&cv",
+  "corsi": []
+}, {
+
+  "nome": "Donatella Donatelli",
+  "email": "donatella.donatelli@univaq.it",
+  "telefono": "0862433161",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=donatella.donatelli&cv",
+  "corsi": [{
+
+    "nome": "[DT0020] Analisi Matematica B (Mathematical Analysis B)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=518&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Maria Lucia Fania",
+  "email": "marialucia.fania@univaq.it",
+  "telefono": "433166",
+  "stanza": "Coppito 1, Room 1051",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=lucia.fania&cv",
+  "corsi": []
+}, {
+
+  "nome": "Alessandro Fedeli",
+  "email": "alessandro.fedeli@univaq.it",
+  "telefono": "0862433723",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=alessandro.fedeli&cv",
+  "corsi": []
+}, {
+
+  "nome": "Daniele Frigioni",
+  "email": "daniele.frigioni@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=daniele.frigioni&cv",
+  "corsi": []
+}, {
+
+  "nome": "Norberto Gavioli",
+  "email": "gavioli@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Non disponibile",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=norberto.gavioli&cv",
+  "corsi": [{
+
+    "nome": "[DT0029] Algebra B (Algebra B)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=530&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+
+    "nome": "[DT0123] Advanced Algebra 2 (Algebra Superiore 2)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=488&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+
+    "nome": "[DT0181] Combinatorics and Cryptography (Combinatorics and Cryptography)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=558&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Fabio Graziosi",
+  "email": "fabio.graziosi@univaq.it",
+  "telefono": "+390862434445",
+  "stanza": "Felix 1, Room 16",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=fabio.graziosi&cv",
+  "corsi": []
+}, {
+
+  "nome": "Anna Guerrieri",
+  "email": "guerran@univaq.it",
+  "telefono": "0862433147",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=anna.guerrieri&cv",
+  "corsi": [{
+
+    "nome": "[DT0122] Advanced Algebra 1 (Algebra Superiore 1 )",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=489&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Corrado Lattanzio",
+  "email": "corrado@univaq.it",
+  "telefono": "+39 0862 434707",
+  "stanza": "Coppito 1, Room 1052",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=corrado.lattanzio&cv",
+  "corsi": [{
+
+    "nome": "[DT0027] Complex  Analysis (Analisi Complessa (Istituzioni di Analisi Superiore mod. 2))",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=495&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+
+    "nome": "[DT0012] Advanced Analysis I (Analisi Superiore I)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=511&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+
+    "nome": "[I0183] Applied partial differential equations (Applied partial differential equations)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=570&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+
+    "nome": "[DT0049] Applied Partial Differential Equations and Fluid Dynamics (Applied Partial Differential Equations and Fluid Dynamics)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=361&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Elvira Laura Livorni",
+  "email": "livorni@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=laura.livorni&cv",
+  "corsi": []
+}, {
+
+  "nome": "Costanzo Manes",
+  "email": "costanzo.manes@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Non disponibile",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=costanzo.manes&cv",
+  "corsi": []
+}, {
+
+  "nome": "Henry Muccini",
+  "email": "henry.muccini@univaq.it",
+  "telefono": "+39 0862 433721",
+  "stanza": "Blocco Zero, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=henry.muccini&cv",
+  "corsi": [{
+
+    "nome": "[F0175] Analysis and Testing of Component-based Systems (Analisi e Testing di Sistemi a Componenti)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=53&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+
+    "nome": "[F1I018] Ingegneria del Software (Software Engineering)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=556&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+
+    "nome": "[DT0229] Research Project (Research Project)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=548&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Barbara Nelli",
+  "email": "nelli@dm.univaq.it",
+  "telefono": "0862433152",
+  "stanza": "Coppito 1, Room 1061",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=barbara.nelli&cv",
+  "corsi": [{
+
+    "nome": "[DT0019] Geometria B (Geometry B)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=524&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+
+    "nome": "[DT0248] Riemannian Geometry (Geometria Riemaniana)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=566&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Monica Nesi",
+  "email": "monica.nesi@univaq.it",
+  "telefono": "0862 433728",
+  "stanza": "Blocco Zero, Room 216",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=monica.nesi&cv",
+  "corsi": [{
+
+    "nome": "[DT0202] Formal Methods (Formal Methods)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=545&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+
+    "nome": "[F0060] Informatica (Introduction to Computer Science)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=476&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Margherita Nolasco",
+  "email": "nolasco@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=margherita.nolasco&cv",
+  "corsi": [{
+
+    "nome": "[DT0115] Advanced Anaysis 2 (Advanced Anaysis 2)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=478&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Sergio Orefice",
+  "email": "sergio.orefice@univaq.it",
+  "telefono": "+39 (0)862 43-3731",
+  "stanza": "Blocco Zero, Room 215",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=sergio.orefice&cv",
+  "corsi": [{
+
+    "nome": "[F0196] Foundations of Computer Science II (Fondamenti dell'informatica II)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=49&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+
+    "nome": "[DT0275] Laboratorio di Compilatori (Laboratory of Compilers)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=590&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+
+    "nome": "[F0151] Linguaggi di Programmazione e Compilatori (Programming Languages and Compilers)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=24&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Pierdomenico Pepe",
+  "email": "pierdomenico.pepe@univaq.it",
+  "telefono": "+39-320-4232557",
+  "stanza": "Felix 1, Room 22",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=pierdomenico.pepe&cv",
+  "corsi": []
+}, {
+
+  "nome": "Alfonso Pierantonio",
+  "email": "alfonso.pierantonio@univaq.it",
+  "telefono": "+39 0862 43.3725",
+  "stanza": "Blocco Zero, Room 206",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=alfonso&cv",
+  "corsi": [{
+
+    "nome": "[DT0292] Advanced Models for Software Engineering II (Advanced Models for Software Engineering II)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=601&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+
+    "nome": "[F0193] Model Driven Engineering (Model Driven Engineering)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=96&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Cristina Pignotti",
+  "email": "pignotti@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=cristina.pignotti&cv",
+  "corsi": [{
+
+    "nome": "[DT0016] Analisi Matematica A mod. I (Mathematical Analysis A, mod. I)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=493&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Fabrizio Rossi",
+  "email": "fabrizio.rossi@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Blocco Zero, Room 205",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=fabrizio.rossi&cv",
+  "corsi": [{
+
+    "nome": "[DT0177] Data Analytics (Data Analytics)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=595&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+
+    "nome": "[DT0059] Network Flows (Network Flows)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=544&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+
+    "nome": "[DT0215] Network optimisation (Network optimisation)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=579&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Maurizio Serva",
+  "email": "serva@univaq.it",
+  "telefono": "0862433153",
+  "stanza": "Coppito 1, Room 1049",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=maurizio.serva&cv",
+  "corsi": [{
+
+    "nome": "[F0503] Meccanica Razionale (Rational Mechanics)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=522&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Stefano Smriglio",
+  "email": "stefano.smriglio@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Non disponibile",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=stefano.smriglio&cv",
+  "corsi": [{
+
+    "nome": "[F1I017] Ricerca Operativa (Operations Research)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=14&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Laura Tarantino",
+  "email": "laura.tarantino@univaq.it",
+  "telefono": "0862 434415 - Mobile",
+  "stanza": "Coppito 1, Room 2087 - II piano - corridoio DISIM",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=laura.tarantino&cv",
+  "corsi": []
+}, {
+
+  "nome": "Amabile Tatone",
+  "email": "amabile.tatone@univaq.it",
+  "telefono": "0862434527",
+  "stanza": "Coppito 1, Room 05",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=amabile.tatone&cv",
+  "corsi": []
+}, {
+
+  "nome": "Massimo Tivoli",
+  "email": "massimo.tivoli@univaq.it",
+  "telefono": "+393280113365",
+  "stanza": "Blocco Zero, Room 207",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=massimo.tivoli&cv",
+  "corsi": [{
+
+    "nome": "[DT0289] Advanced Service-Oriented Software Engineering (Advanced Service-Oriented Software Engineering)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=598&pid=86&did=0&lid=en&fid=xhtml "
+  }, {
+
+    "nome": "[F1I005] Architettura degli Elaboratori (Computer Architectures)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=5&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Anna Tozzi",
+  "email": "anna.tozzi@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=anna.tozzi&cv",
+  "corsi": [{
+
+    "nome": "[F0513] Istituzioni Di Geometria Superiore I (Foundations of Advanced Geometry I)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=253&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Umberto Triacca",
+  "email": "umberto.triacca@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=umberto.triacca&cv",
+  "corsi": [{
+
+    "nome": "[DT0003] Calcolo delle ProbabilitÓ e Statistica Matematica (Probability and Statistics)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=514&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Lucio Bedulli",
+  "email": "lucio.bedulli@dm.univaq.it",
+  "telefono": "0862/433154",
+  "stanza": "Coppito 1, Room 1013",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=lucio.bedulli&cv",
+  "corsi": [{
+
+    "nome": "[DT0019] Geometria B (Geometry B)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=524&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Pasquale Caianiello",
+  "email": "pasquale.caianiello@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Blocco Zero, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=pasquale.caianiello&cv",
+  "corsi": [{
+
+    "nome": "[DT0171] Artificial Intelligence (Artificial Intelligence)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=540&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Maria Gabriella Cimoroni",
+  "email": "mariagabriella.cimoroni@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=mariagabriella.cimoroni&cv",
+  "corsi": [{
+
+    "nome": "[DT0021] Analisi Numerica (Numerical Analysis)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=431&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Mimi Coccia",
+  "email": "mimi.coccia@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=mimi.coccia&cv",
+  "corsi": []
+}, {
+
+  "nome": "Domenica De Acutis",
+  "email": "deacutis@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Non disponibile",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=domenica.deacutis&cv",
+  "corsi": []
+}, {
+
+  "nome": "Giovanni De Gasperis",
+  "email": "giovanni.degasperis@univaq.it",
+  "telefono": "4457",
+  "stanza": "Coppito 1, Room 2089, 2nd floor, DISIM Corridor",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=giovanni.degasperis&cv",
+  "corsi": []
+}, {
+
+  "nome": "Giuseppe Della Penna",
+  "email": "giuseppe.dellapenna@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Blocco Zero, Room 215",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=giuseppe.dellapenna&cv",
+  "corsi": []
+}, {
+
+  "nome": "Luca Forlizzi",
+  "email": "luca.forlizzi@univaq.it",
+  "telefono": "0862 433722",
+  "stanza": "Non disponibile",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=luca.forlizzi&cv",
+  "corsi": []
+}, {
+
+  "nome": "Davide Gabrielli",
+  "email": "gabriell@univaq.it",
+  "telefono": "+39 0862 433137",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=davide.gabrielli&cv",
+  "corsi": [{
+
+    "nome": "[DT0003] Calcolo delle ProbabilitÓ e Statistica Matematica (Probability and Statistics)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=514&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Massimiliano Giuli",
+  "email": "massimiliano.giuli@univaq.it",
+  "telefono": "+39 0862 434885",
+  "stanza": "Coppito 1, Room 1019",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=massimiliano.giuli&cv",
+  "corsi": []
+}, {
+
+  "nome": "Francesca Romana Guarguaglini",
+  "email": "guarguag@univaq.it",
+  "telefono": "068274237",
+  "stanza": "Non disponibile",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=francesca.guarguaglini&cv",
+  "corsi": []
+}, {
+
+  "nome": "Marta Macri",
+  "email": "marta.macri@univaq.it",
+  "telefono": "+39 0862 433158",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=marta.macri&cv",
+  "corsi": []
+}, {
+
+  "nome": "Giovanna Melideo",
+  "email": "giovanna.melideo@univaq.it",
+  "telefono": "0862 433729",
+  "stanza": "Blocco Zero, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=giovanna.melideo&cv",
+  "corsi": []
+}, {
+
+  "nome": "Immacolata Merola",
+  "email": "immacolata.merola@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=immacolata.merola&cv",
+  "corsi": [{
+
+    "nome": "[DT0126] Mathematical Physics 1 (Mathematical Physics 1)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=516&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Ida Minelli Germana",
+  "email": "ida.minelli@dm.univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=ida.minelli&cv",
+  "corsi": []
+}, {
+
+  "nome": "Gianpiero Monaco",
+  "email": "gianpiero.monaco@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Blocco Zero, Room 217",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=gianpiero.monaco&cv",
+  "corsi": [{
+
+    "nome": "[DS9003] Information Systems and Network Security (Information Systems and Network Security)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=142&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Mariapia Palombaro",
+  "email": "mariapia.palombaro@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=mariapia.palombaro&cv",
+  "corsi": []
+}, {
+
+  "nome": "Patrizio Pelliccione",
+  "email": "patrizio.pelliccione@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Blocco Zero, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=patrizio.pelliccione&cv",
+  "corsi": []
+}, {
+
+  "nome": "Marco Pratesi",
+  "email": "marco.pratesi@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Non disponibile",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=marco.pratesi&cv",
+  "corsi": []
+}, {
+
+  "nome": "Rosella Colomba Sampalmieri",
+  "email": "rosellacolomba.sampalmieri@univaq.it",
+  "telefono": "+39 0862434709",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=rosellacolomba.sampalmieri&cv",
+  "corsi": []
+}, {
+
+  "nome": "Marco Autili",
+  "email": "marco.autili@univaq.it",
+  "telefono": "+39 0862 43 3186",
+  "stanza": "Blocco Zero, Room 208",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=marco.autili&cv",
+  "corsi": [{
+
+    "nome": "[F1I021] Laboratorio di Sistemi Operativi (Operating Systems Laboratory)",
+    "link": "http://www.disim.univaq.it/didattica/content.php?corso=13&pid=86&did=0&lid=en&fid=xhtml "
+  } ]
+}, {
+
+  "nome": "Matteo Colangeli",
+  "email": "matteo.colangeli1@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Non disponibile",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=matteo.colangeli&cv",
+  "corsi": []
+}, {
+
+  "nome": "Tania Di Mascio",
+  "email": "tania.dimascio@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Non disponibile",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=tania.dimascio&cv",
+  "corsi": []
+}, {
+
+  "nome": "Davide Di Ruscio",
+  "email": "davide.diruscio@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Blocco Zero, Room 208",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=davide.diruscio&cv",
+  "corsi": []
+}, {
+
+  "nome": "Amleto Di Salle",
+  "email": "amleto.disalle@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Blocco Zero, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=a.disalle&cv",
+  "corsi": []
+}, {
+
+  "nome": "Alessandro D'Innocenzo",
+  "email": "alessandro.dinnocenzo@univaq.it",
+  "telefono": "+39 0862 434473",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=alessandro.dinnocenzo&cv",
+  "corsi": []
+}, {
+
+  "nome": "Giordano Pola",
+  "email": "giordano.pola@univaq.it",
+  "telefono": "+39 0862 434453",
+  "stanza": "Felix 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=giordano.pola&cv",
+  "corsi": []
+}, {
+
+  "nome": "Luigi Pomante",
+  "email": "luigi.pomante@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Felix 1, Room DEWS Lab",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=luigi.pomante&cv",
+  "corsi": []
+}, {
+
+  "nome": "Stefano Spirito",
+  "email": "stefano.spirito@univaq.it",
+  "telefono": "08622434715",
+  "stanza": "Coppito 1, Room 1037",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=stefano.spirito&cv",
+  "corsi": []
+}, {
+
+  "nome": "Luca Berardinelli",
+  "email": "berardinelli@di.univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Blocco Zero, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=luca.berardinelli&cv",
+  "corsi": []
+}, {
+
+  "nome": "Antonio Cicone",
+  "email": "antonio.cicone@univaq.it",
+  "telefono": "+39 0862 434714",
+  "stanza": "Coppito 1, Room 0005B",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=antonio.cicone&cv",
+  "corsi": []
+}, {
+
+  "nome": "Mattia D'Emidio",
+  "email": "mattia.demidio@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Blocco Zero, Room 210",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=mattia.demidio&cv",
+  "corsi": []
+}, {
+
+  "nome": "Romina Eramo",
+  "email": "romina.eramo@univaq.it",
+  "telefono": "+39 0862 43 3172",
+  "stanza": "Non disponibile",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=romina.eramo&cv",
+  "corsi": []
+}, {
+
+  "nome": "Ludovico Iovino",
+  "email": "ludovico.iovino",
+  "telefono": "Non disponibile",
+  "stanza": "Blocco Zero, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=ludovico.iovino&cv",
+  "corsi": []
+}, {
+
+  "nome": "Ivano Malavolta",
+  "email": "ivano.malavolta@gssi.infn.it",
+  "telefono": "(+39) 0862 433172",
+  "stanza": "Non disponibile",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=ivano.malavolta&cv",
+  "corsi": []
+}, {
+
+  "nome": "Mara Servilio",
+  "email": "mara.servilio@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Blocco Zero, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=mara.servilio&cv",
+  "corsi": []
+}, {
+
+  "nome": "Romina Spalazzese",
+  "email": "romina.spalazzese@gmail.com",
+  "telefono": "Non disponibile",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=romina.spallazzese&cv",
+  "corsi": []
+}, {
+
+  "nome": "Subhasis Thakur",
+  "email": "subhasis.thakur@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Blocco Zero, Room 205",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=subhasis.thakur&cv",
+  "corsi": []
+}, {
+
+  "nome": "Catia Trubiani",
+  "email": "catia.trubiani@univaq.it",
+  "telefono": "+39 0862 433173",
+  "stanza": "Blocco Zero, Room 210",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=catia.trubiani&cv",
+  "corsi": []
+}, {
+
+  "nome": "Davide Arcelli",
+  "email": "davide.arcelli@graduate.univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Blocco Zero, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=davide.arcelli&cv",
+  "corsi": []
+}, {
+
+  "nome": "Riccardo Cecchi",
+  "email": "riccardo.cecchi2@gmail.com",
+  "telefono": "Non disponibile",
+  "stanza": "Non disponibile",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=r.cecchi&cv",
+  "corsi": []
+}, {
+
+  "nome": "Roberto Congiu",
+  "email": "robcong.rc@gmail.com",
+  "telefono": "Non disponibile",
+  "stanza": "Non disponibile",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=r.congiu&cv",
+  "corsi": []
+}, {
+
+  "nome": "Mario Di Ferdinando",
+  "email": "mariodiferdinando86@gmail.com",
+  "telefono": "3489951238",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=m.diferdinando&cv",
+  "corsi": []
+}, {
+
+  "nome": "Gianni Di Girolamo",
+  "email": "giandoman@me.com",
+  "telefono": "Non disponibile",
+  "stanza": "Felix 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=gianni.digirolamo&cv",
+  "corsi": []
+}, {
+
+  "nome": "Daniele Di Pompeo",
+  "email": "dipompeodaniele@gmail.com",
+  "telefono": "Non disponibile",
+  "stanza": "Non disponibile",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=d.dipompeo&cv",
+  "corsi": []
+}, {
+
+  "nome": "Juri Di Rocco",
+  "email": "juri.dirocco@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Blocco Zero, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=juri.dirocco&cv",
+  "corsi": []
+}, {
+
+  "nome": "Abeer Dyoub",
+  "email": "abeer.dyoub@ymail.com",
+  "telefono": "Non disponibile",
+  "stanza": "Blocco Zero, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=a.dyoub&cv",
+  "corsi": []
+}, {
+
+  "nome": "Gabriella Fiore",
+  "email": "gabriella.fiore@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=gabriella.fiore&cv",
+  "corsi": []
+}, {
+
+  "nome": "Raffaele Folino",
+  "email": "raff.folino@libero.it",
+  "telefono": "Non disponibile",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=raffaele.folino&cv",
+  "corsi": []
+}, {
+
+  "nome": "Mirco Franzago",
+  "email": "mircofranzago@gmail.com",
+  "telefono": "Non disponibile",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=mirco.franzago&cv",
+  "corsi": []
+}, {
+
+  "nome": "Romeo Marinelli",
+  "email": "romeo.marinelli@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Blocco Zero, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=romeo.marinelli&cv",
+  "corsi": []
+}, {
+
+  "nome": "Andrea Marotta",
+  "email": "andreamarotta.contact@gmail.com",
+  "telefono": "Non disponibile",
+  "stanza": "Non disponibile",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=a.marotta&cv",
+  "corsi": []
+}, {
+
+  "nome": "Vittoriano Muttillo",
+  "email": "vittoriano.muttillo@graduate.univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Felix 1, Room DEWS lab",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=v.muttillo&cv",
+  "corsi": []
+}, {
+
+  "nome": "Giacomo Sconrnavacca",
+  "email": "giacomo.scornavacca@gmail.com",
+  "telefono": "Non disponibile",
+  "stanza": "Non disponibile",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=g.scornavacca&cv",
+  "corsi": []
+}, {
+
+  "nome": "Muhammad Sharifzade",
+  "email": "muhammad.sharifzade@gmail.com",
+  "telefono": "Non disponibile",
+  "stanza": "Non disponibile",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=m.sharifzade&cv",
+  "corsi": []
+}, {
+
+  "nome": "Ali Usman",
+  "email": "mail.usmanali@gmail.com",
+  "telefono": "Non disponibile",
+  "stanza": "Non disponibile",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=a.usman&cv",
+  "corsi": []
+}, {
+
+  "nome": "GIacomo Valente",
+  "email": "giacomo.valente@graduate.univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Felix 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=g.valente&cv",
+  "corsi": []
+}, {
+
+  "nome": "Giuliana Centi",
+  "email": "giuliana.centi@cc.univaq.it",
+  "telefono": "0862 433259",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=giuliana.centi&cv",
+  "corsi": []
+}, {
+
+  "nome": "Franca Corrieri",
+  "email": "franca.corrieri@univaq.it",
+  "telefono": "0862433125",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=franca.corrieri&cv",
+  "corsi": []
+}, {
+
+  "nome": "Mara Grisenti",
+  "email": "mara.grisenti@cc.univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=mara.grisenti&cv",
+  "corsi": []
+}, {
+
+  "nome": "Alessandra Rotilio",
+  "email": "alessandra.rotilio@univaq.it",
+  "telefono": "0862433133",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=a.rotilio&cv",
+  "corsi": []
+}, {
+
+  "nome": "Franca Ventricini",
+  "email": "franca.ventricini@univaq.it",
+  "telefono": "0862433124",
+  "stanza": "Coppito 1, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=franca.ventricini&cv",
+  "corsi": []
+}, {
+
+  "nome": "Alessandro Celi",
+  "email": "alessandro.celi@univaq.it",
+  "telefono": "+39.862.43.3274",
+  "stanza": "Coppito 2, Room",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=a.celi&cv",
+  "corsi": []
+}, {
+
+  "nome": "Donato Pera",
+  "email": "donato.pera@univaq.it",
+  "telefono": "Non disponibile",
+  "stanza": "Non disponibile",
+  "CV": "http://www.disim.univaq.it/didattica/content.php?pid=87&docente=d.pera&cv",
+  "corsi": []
+}
