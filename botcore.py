@@ -122,7 +122,7 @@ def main():
 
     updater = Updater(token)
     j = updater.job_queue
-    j.run_repeating(notify_news, os.environ['NOTIFICATION_INTERVAL'])
+    j.run_repeating(notify_news, float(os.environ['NOTIFICATION_INTERVAL']))
     dispatcher = updater.dispatcher
 
     dispatcher.add_handler(CommandHandler("start", start_command))
