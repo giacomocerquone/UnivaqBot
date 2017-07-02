@@ -76,7 +76,7 @@ def check_news():
             counter = 0
             for single_stored in stored_news:
                 if len(single_pulled) > 0:
-                    if single_pulled["description"] == single_stored["description"]:
+                    if single_pulled["description"] == single_stored["description"] and single_pulled["link"] == single_stored["link"] and single_pulled["title"] == single_stored["title"]:
                         counter = counter+1
 
             if counter == 0:
