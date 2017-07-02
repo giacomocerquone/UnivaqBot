@@ -8,7 +8,7 @@ from telegram.ext import Updater, CommandHandler
 from bs4          import BeautifulSoup
 from urllib2      import urlopen
 
-TOKEN = '291613624:AAHv2Tqg4nhCV6mSVlNH5fvXQ72Fr4I7l_s'
+TOKEN = 'BotToken'
 bot = telegram.Bot(TOKEN)
 
 #Urls used by bot to retrieve informations.
