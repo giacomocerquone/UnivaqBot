@@ -112,17 +112,17 @@ def commands_keyboard(bot, update):
 def main():
     """Defining the main function"""
 
-    utils.db_connection()
-    utils.get_subscribers()
-    utils.get_disim_news()
-
     token = os.environ['TELEGRAMBOT'] or os.environ['UNIVERSITYBOT']
     debug = os.environ['DEBUG']
     logger = utils.get_logger(debug)
 
+    utils.db_connection()
+    utils.get_subscribers()
+    utils.get_disim_news()
+
     updater = Updater(token)
     j = updater.job_queue
-    j.run_repeating(notify_news, 40.0)
+    j.run_repeating(notify_news, os.environ['NOTIFICATION_INTERVAL'])
     dispatcher = updater.dispatcher
 
     dispatcher.add_handler(CommandHandler("start", start_command))
