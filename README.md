@@ -59,6 +59,9 @@ The website of univaq telegram bot is http://univaqtelegrambot.github.io/
 1. Implement the ability to search professors from their subjects.
 2. Implement in some way (maybe scraping pdf documents) the lessons timetables with their notifications.
 3. Implement notifications on new jobs that appears on the University's website.
+4. Ability to search with a minimum of 4 chars
+5. Insert "Not available" message for searched prof
+6. News command will get 5 news but better formatted
 
 ### DISCLAIMER
 

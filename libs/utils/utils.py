@@ -33,8 +33,8 @@ def db_connection():
 def get_subscribers():
     """Get from DB all the subscribers"""
 
-    for document in DATABASE.users.find({}):
-        SUBSCRIBERS.append(document['telegramID'])
+    global SUBSCRIBERS
+    SUBSCRIBERS = list(DATABASE.users.find({}))
 
 def add_subscriber(telegram_id):
     """Add subscriber to the DB"""
@@ -49,8 +49,8 @@ def remove_subscriber(telegram_id):
 def get_disim_news():
     """Get the disims' news"""
 
-    for document in DATABASE['disim_news'].find({}):
-        DISIMNEWS.append(document)
+    global DISIMNEWS
+    DISIMNEWS = list(DATABASE['disim_news'].find({}))
 
 def store_disim_news(data):
     """Get the disims' news"""
