@@ -33,8 +33,8 @@ def db_connection():
 def get_subscribers():
     """Get from DB all the subscribers"""
 
-    global SUBSCRIBERS
-    SUBSCRIBERS = list(DATABASE.users.find({}))
+    for user in DATABASE.users.find({}):
+        SUBSCRIBERS.append(user['telegramID'])
 
 def add_subscriber(telegram_id):
     """Add subscriber to the DB"""
