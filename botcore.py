@@ -62,14 +62,14 @@ def main():
     token = os.environ['TELEGRAMBOT'] or os.environ['UNIVERSITYBOT']
     debug = os.environ['DEBUG']
     logger = utils.get_logger(debug)
+    updater = Updater(token)
 
     utils.db_connection()
     utils.get_subscribers()
     utils.get_disim_news()
 
-    updater = Updater(token)
-    j = updater.job_queue
-    j.run_repeating(news.notify_news, float(os.environ['NOTIFICATION_INTERVAL']))
+    updater.job_queue.run_repeating(news.notify_news, float(os.environ['NOTIFICATION_INTERVAL']))
+    updater.job_queue.run_once(utils.botupdated_message, 0)
     dispatcher = updater.dispatcher
 
     dispatcher.add_handler(CommandHandler("start", start_command))
