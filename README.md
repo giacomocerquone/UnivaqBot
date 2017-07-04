@@ -29,12 +29,17 @@ As with every telegram bot, you can ask the bot what does by entering `/help` or
 La lista di comandi:
 
 /help - Stampa questo messaggio
-/news - Leggi le ultime 10 news
-/news num - Leggi le ultime <num> news
-/disimon - Abilita le notifiche per ogni nuova news (default)
-/disimoff - Disabilita le notifiche per ogni nuova news
+/disim - Leggi le ultime 5 news del disim
+/disimon - Abilita le notifiche per le news del disim
+/disimoff - Disabilita le notifiche per le news del disim
+/univaq - Leggi le ultime 5 news dell\'univaq
+/univaq on/off - Abilita/Disabilita le notifiche per le news dell\'univaq
+/mesvaq - Leggi le ultime 5 news del mesvaq
+/mesvaq on/off - Abilita/Disabilita le notifiche per le news del mesvaq
+/discab - Leggi le ultime 5 news del discab
+/discab on/off - Abilita/Disabilita le notifiche per le news del discab
 /prof - Stampa la lista dei professori
-/prof cognome - Info su un docente
+/prof cognome/corso - Info su un docente filtrato per corso o cognome
 /segreteria - Info sulla segreteria studenti
 /mensa - Info sugli orari della mensa
 /adsu - Info sull\'adsu
@@ -56,10 +61,10 @@ The website of univaq telegram bot is http://univaqtelegrambot.github.io/
 
 ### TODO
 
-1. Implement the ability to search professors from their subjects.
-2. Implement in some way (maybe scraping pdf documents) the lessons timetables with their notifications.
-3. Implement notifications on new jobs that appears on the University's website.
-4. News command will get 5 news but better formatted
+1. Implement in some way (maybe scraping pdf documents) the lessons timetables with their notifications.
+2. Implement notifications on new jobs that appears on the University's website.
+3. Implement univaq, mesvaq e discab
+4. Need to change the feedback command in a conversation
 
 ### DISCLAIMER
 
