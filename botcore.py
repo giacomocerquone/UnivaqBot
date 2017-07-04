@@ -55,7 +55,6 @@ def commands_keyboard(bot, update):
     bot.sendMessage(update.message.chat_id,
                     text="Enabled keyboard", reply_markup=markup)
 
-
 def main():
     """Defining the main function"""
 

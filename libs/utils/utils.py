@@ -61,10 +61,15 @@ def store_disim_news(data):
 def botupdated_message(bot, job):
     """
     Defining a command to notify the user and tell them what updates have been released
-    It is called at every execution ONLY if there is a document in a specific db collection
+    It is called at every execution ONLY if there are documents in a specific db collection
     """
 
-    # bot.sendMessage(180852051, "asdasd", parse_mode='HTML')
+    messages = list(DATABASE.messages.find())
+    DATABASE.messages.remove()
+
+    for message in messages:
+        for user in SUBSCRIBERS:
+            bot.sendMessage(user, message['text'], parse_mode='HTML')
 
 
 def get_soup_from_url(url):

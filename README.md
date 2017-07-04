@@ -29,20 +29,16 @@ As with every telegram bot, you can ask the bot what does by entering `/help` or
 La lista di comandi:
 
 /help - Stampa questo messaggio
-/disim - Leggi le ultime 5 news del disim
-/disimon - Abilita le notifiche per le news del disim
-/disimoff - Disabilita le notifiche per le news del disim
-/univaq - Leggi le ultime 5 news dell\'univaq
-/univaq on/off - Abilita/Disabilita le notifiche per le news dell\'univaq
-/mesvaq - Leggi le ultime 5 news del mesvaq
-/mesvaq on/off - Abilita/Disabilita le notifiche per le news del mesvaq
-/discab - Leggi le ultime 5 news del discab
-/discab on/off - Abilita/Disabilita le notifiche per le news del discab
+/disim - Leggi le ultime 5 news del disim, /disimon o /disimoff per abilitare o meno le notifiche
+/univaq - Leggi le ultime 5 news dell'univaq, /univaqon o /univaqoff per abilitare o meno le notifiche
+/mesva - Leggi le ultime 5 news del mesvaq, /mesvaon o /mesvaoff per abilitare o meno le notifiche
+/discab - Leggi le ultime 5 news del discab, /discabon o /discaboff per abilitare o meno le notifiche
 /prof - Stampa la lista dei professori
 /prof cognome/corso - Info su un docente filtrato per corso o cognome
 /segreteria - Info sulla segreteria studenti
 /mensa - Info sugli orari della mensa
-/adsu - Info sull\'adsu
+/adsu - Info sull'adsu
+/feedback messaggio - Lascia un messaggio agli sviluppatori
 ```
 
 ### CONTRIBUTING
@@ -62,10 +58,8 @@ The website of univaq telegram bot is http://univaqtelegrambot.github.io/
 ### TODO
 
 1. Implement in some way (maybe scraping pdf documents) the lessons timetables with their notifications.
-2. Implement notifications on new jobs that appears on the University's website.
-3. Implement univaq, mesvaq e discab
-4. Need to change the feedback command in a conversation
-5. Add a function to notify the users of an update to the bot
+2. Implement univaq, mesvaq e discab
+3. Need to change the feedback command in a conversation
 
 ### DISCLAIMER
 
