@@ -58,6 +58,14 @@ def store_disim_news(data):
     DATABASE['disim_news'].remove({})
     DATABASE['disim_news'].insert_many(data)
 
+def botupdated_message(bot, job):
+    """
+    Defining a command to notify the user and tell them what updates have been released
+    It is called at every execution ONLY if there is a document in a specific db collection
+    """
+
+    # bot.sendMessage(180852051, "asdasd", parse_mode='HTML')
+
 
 def get_soup_from_url(url):
     """Download a webpage and return its BeautifulSoup"""
