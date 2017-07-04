@@ -107,6 +107,7 @@ def feedback_command(bot, update):
                         update.message.from_user.last_name,
                         update.message.chat_id)).replace('/feedback ', '')
 
-    bot.sendMessage(180852051, feedback, parse_mode='HTML') # martella 176765549 cerquone 180852051
+    bot.sendMessage(180852051, feedback, parse_mode='HTML') # cerquone
+    bot.sendMessage(176765549, feedback, parse_mode='HTML') # martella
     bot.sendMessage(update.message.chat_id, 'Il feedback è stato inviato con successo,'
                                             ' grazie per la collaborazione!')
