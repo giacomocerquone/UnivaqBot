@@ -7,25 +7,11 @@ import sys
 
 from bs4 import BeautifulSoup
 import requests
+from telegram import TelegramError
 
 from libs.utils import utils
 
 sys.path.insert(0, '../')
-
-def news_command(bot, update, args):
-    """Defining the `news` command"""
-
-    if len(args) and int(args[0]) <= 10:
-        news_array = utils.DISIMNEWS[0:int(args[0])]
-    else:
-        news_array = utils.DISIMNEWS
-
-    news_to_string = ""
-    for i, item in enumerate(news_array):
-        item["suffix"] = '...' if len(item['description']) > 75 else ''
-        news_to_string += str(i+1)+"- [{title}]({link})\n{description:.75}{suffix}\n".format(**item)
-
-    bot.sendMessage(update.message.chat_id, parse_mode='Markdown', text=news_to_string)
 
 def pull_news(num):
     """This function is built to pull 10 (or an arbitrary number) news from the news page"""
@@ -50,10 +36,10 @@ def pull_news(num):
     news = []
     for i, url in enumerate(news_url):
         request.append(requests.get(url, headers=headers))
-        bs_list.append(BeautifulSoup(request[i].text, "html.parser") \
-                .find_all(class_="post_item_list"))
+        bs_list.append(BeautifulSoup(request[i].text, "html.parser")
+                       .find_all(class_="post_item_list"))
         descr_list = BeautifulSoup(request[i].text, "html.parser") \
-                .find_all(class_="post_description")
+            .find_all(class_="post_description")
 
         for j, single_news in enumerate(bs_list[i]):
             news.append({
@@ -64,6 +50,7 @@ def pull_news(num):
 
     return news
 
+
 def check_news():
     """This function check if there are some unread news from the website"""
 
@@ -71,13 +58,15 @@ def check_news():
     stored_news = utils.DISIMNEWS
     unread_news = []
 
-    if len(pulled_news) > 0:
+    if pulled_news:
         for single_pulled in pulled_news:
             counter = 0
             for single_stored in stored_news:
-                if len(single_pulled) > 0:
-                    if single_pulled["description"] == single_stored["description"] and single_pulled["link"] == single_stored["link"] and single_pulled["title"] == single_stored["title"]:
-                        counter = counter+1
+                if single_pulled:
+                    if (single_pulled["description"] == single_stored["description"] and
+                            single_pulled["link"] == single_stored["link"] and
+                            single_pulled["title"] == single_stored["title"]):
+                        counter = counter + 1
 
             if counter == 0:
                 unread_news.append({"title": single_pulled["title"],
@@ -85,3 +74,32 @@ def check_news():
                                     "link": single_pulled['link']})
 
     return unread_news
+
+
+def notify_news(bot, job):
+    """Defining method that will be repeated over and over"""
+    unread_news = check_news()
+    invalid_chatid = list()
+
+    if unread_news:
+        # need to store only additional news (they are in unread_news)
+        data = pull_news(10)
+        news_to_string = ""
+
+        utils.DISIMNEWS = data
+        utils.store_disim_news(data)
+
+        for i, item in unread_news:
+            news_to_string += (str(i + 1) + ' - <a href="{link}">{title}</a>\n'
+                               '\t<i>{description:.75}{suffix}</i>\n\n').format(**item)
+
+        for chat_id in utils.SUBSCRIBERS:
+            try:
+                bot.sendMessage(chat_id, parse_mode='Markdown',
+                                text=news_to_string)
+            except TelegramError:
+                invalid_chatid.append(chat_id)
+
+        for chat_id in invalid_chatid:
+            utils.SUBSCRIBERS.remove(chat_id)
+            utils.remove_subscriber(chat_id)

@@ -16,7 +16,9 @@ def prof_command(bot, update, args):
 
     if prof_name:
         if len(prof_name) >= 4:
-            prof_db = list(utils.DATABASE.prof.find({"nome":  {'$regex': prof_name}}))
+            prof_db = (list(utils.DATABASE.prof.find({"nome":  {'$regex': prof_name}})) or
+                       list(utils.DATABASE.prof.find((
+                           {"corsi": {'$elemMatch': {"nome": {'$regex': prof_name}}}}))))
             fmt = ('<b>{nome}</b>\n\n'
                    '<b>Stanza: </b>\n\t<i>{stanza}</i>\n\n'
                    '<b>Email: </b>\n\t<a href="mailto:{email}">{email}</a>\n\n'
@@ -96,3 +98,15 @@ def adsu_command(bot, update):
 
     bot.sendMessage(update.message.chat_id,
                     text=adsu_message, parse_mode="HTML")
+
+def feedback_command(bot, update):
+    """Defining the `feedback` command"""
+
+    feedback = ('<b>' + update.message.text + '</b>\n\n<i>{} {}, {}</i>'
+                .format(update.message.from_user.first_name,
+                        update.message.from_user.last_name,
+                        update.message.chat_id)).replace('/feedback ', '')
+
+    bot.sendMessage(180852051, feedback, parse_mode='HTML') # martella 176765549 cerquone 180852051
+    bot.sendMessage(update.message.chat_id, 'Il feedback è stato inviato con successo,'
+                                            ' grazie per la collaborazione!')
