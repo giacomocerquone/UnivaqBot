@@ -65,6 +65,7 @@ The website of univaq telegram bot is http://univaqtelegrambot.github.io/
 2. Implement notifications on new jobs that appears on the University's website.
 3. Implement univaq, mesvaq e discab
 4. Need to change the feedback command in a conversation
+5. Add a function to notify the users of an update to the bot
 
 ### DISCLAIMER
 
