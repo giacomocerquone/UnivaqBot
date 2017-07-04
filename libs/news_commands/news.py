@@ -89,13 +89,15 @@ def notify_news(bot, job):
         utils.DISIMNEWS = data
         utils.store_disim_news(data)
 
-        for i, item in unread_news:
-            news_to_string += (str(i + 1) + ' - <a href="{link}">{title}</a>\n'
-                               '\t<i>{description:.75}{suffix}</i>\n\n').format(**item)
+        print(unread_news)
+
+        for item in unread_news:
+            news_to_string += ('- <a href="{link}">{title}</a>\n'
+                               '\t<i>{description}</i>\n\n').format(**item)
 
         for chat_id in utils.SUBSCRIBERS:
             try:
-                bot.sendMessage(chat_id, parse_mode='Markdown',
+                bot.sendMessage(chat_id, parse_mode='HTML',
                                 text=news_to_string)
             except TelegramError:
                 invalid_chatid.append(chat_id)
