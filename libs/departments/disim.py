@@ -14,7 +14,8 @@ def news(bot, update):
         news_to_string += (str(i + 1) + ' - <a href="{link}">{title}</a>\n'
                            '\t<i>{description:.75}{suffix}</i>\n\n').format(**item)
     news_to_string += ('<a href="http://www.disim.univaq.it/main/news.php?entrant=1">'
-                       'Vedi le altre notizie</a>')
+                       'Vedi le altre notizie</a> e attiva le notifiche con /disimon per'
+                       'restare sempre aggiornato')
 
     bot.sendMessage(update.message.chat_id,
                     parse_mode='HTML', disable_web_page_preview=True, text=news_to_string)
