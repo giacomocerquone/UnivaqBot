@@ -5,6 +5,7 @@
 
 from libs.utils import utils
 
+
 def news(bot, update):
     """Defining the command to retrieve 5 news"""
 
@@ -20,6 +21,7 @@ def news(bot, update):
     bot.sendMessage(update.message.chat_id,
                     parse_mode='HTML', disable_web_page_preview=True, text=news_to_string)
 
+
 def disimon(bot, update):
     """Defining the command to enable notification for disim"""
 
@@ -31,6 +33,7 @@ def disimon(bot, update):
     else:
         bot.sendMessage(update.message.chat_id,
                         text='Le notifiche sono già abilitate!')
+
 
 def disimoff(bot, update):
     """Defining the command to disable notification for disim"""

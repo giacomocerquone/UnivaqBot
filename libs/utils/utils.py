@@ -17,6 +17,7 @@ DATABASE = ""
 SUBSCRIBERS = []
 DISIMNEWS = []
 
+
 def db_connection():
     """Get MongoDB connection"""
 
@@ -30,21 +31,25 @@ def db_connection():
 
     DATABASE = conn.get_default_database()
 
+
 def get_subscribers():
     """Get from DB all the subscribers"""
 
     for user in DATABASE.users.find({}):
         SUBSCRIBERS.append(user['telegramID'])
 
+
 def add_subscriber(telegram_id):
     """Add subscriber to the DB"""
 
     DATABASE.users.insert({"telegramID": telegram_id})
 
+
 def remove_subscriber(telegram_id):
     """Remove subscriber from DB"""
 
     DATABASE.users.remove({"telegramID": telegram_id})
+
 
 def get_disim_news():
     """Get the disims' news"""
@@ -52,11 +57,13 @@ def get_disim_news():
     global DISIMNEWS
     DISIMNEWS = list(DATABASE['disim_news'].find({}))
 
+
 def store_disim_news(data):
     """Get the disims' news"""
 
     DATABASE['disim_news'].remove({})
     DATABASE['disim_news'].insert_many(data)
+
 
 def botupdated_message(bot, job):
     """

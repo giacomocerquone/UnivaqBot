@@ -13,6 +13,7 @@ from libs.utils import utils
 
 sys.path.insert(0, '../')
 
+
 def pull_news(num):
     """This function is built to pull 10 (or an arbitrary number) news from the news page"""
 

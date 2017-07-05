@@ -9,6 +9,7 @@ from libs.utils import utils
 
 sys.path.insert(0, '../')
 
+
 def prof_command(bot, update, args):
     """Defining the `prof` command"""
 
@@ -24,7 +25,7 @@ def prof_command(bot, update, args):
                    '<b>Email: </b>\n\t<a href="mailto:{email}">{email}</a>\n\n'
                    '<b>Telefono: </b>\n\t<a href="tel:{telefono}">{telefono}</a>\n\n'
                    '<b>Curriculum Vitae: </b>\n\t<a href="{CV}">Download Curriculum Vitae</a>\n\n'
-                   #'<b>Corsi: </b>\n\t- <a href="{corsi[0][link]}">{corsi[0][nome]}</a>\n'
+                   # '<b>Corsi: </b>\n\t- <a href="{corsi[0][link]}">{corsi[0][nome]}</a>\n'
                    # TODO need a thought above
                   )
             if not prof_db:
@@ -39,6 +40,7 @@ def prof_command(bot, update, args):
         professors = '\n'.join(fmt.format(**prof) for prof in prof_db)
 
     bot.sendMessage(update.message.chat_id, text=professors, parse_mode="HTML")
+
 
 def student_office_command(bot, update):
     """Defining the `student_office` command"""
@@ -99,6 +101,7 @@ def adsu_command(bot, update):
     bot.sendMessage(update.message.chat_id,
                     text=adsu_message, parse_mode="HTML")
 
+
 def feedback_command(bot, update):
     """Defining the `feedback` command"""
 
@@ -107,7 +110,7 @@ def feedback_command(bot, update):
                         update.message.from_user.last_name,
                         update.message.chat_id)).replace('/feedback ', '')
 
-    bot.sendMessage(180852051, feedback, parse_mode='HTML') # cerquone
-    bot.sendMessage(176765549, feedback, parse_mode='HTML') # martella
+    bot.sendMessage(180852051, feedback, parse_mode='HTML')  # cerquone
+    bot.sendMessage(176765549, feedback, parse_mode='HTML')  # martella
     bot.sendMessage(update.message.chat_id, 'Il feedback è stato inviato con successo,'
                                             ' grazie per la collaborazione!')
