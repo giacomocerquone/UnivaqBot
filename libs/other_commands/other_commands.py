@@ -25,13 +25,15 @@ def prof_command(bot, update, args):
                    '<b>Email: </b>\n\t<a href="mailto:{email}">{email}</a>\n\n'
                    '<b>Telefono: </b>\n\t<a href="tel:{telefono}">{telefono}</a>\n\n'
                    '<b>Curriculum Vitae: </b>\n\t<a href="{CV}">Download Curriculum Vitae</a>\n\n'
-                   # '<b>Corsi: </b>\n\t- <a href="{corsi[0][link]}">{corsi[0][nome]}</a>\n'
-                   # TODO need a thought above
                   )
             if not prof_db:
                 professors = "Professore non trovato"
             else:
-                professors = '\n'.join(fmt.format(**prof) for prof in prof_db)
+                for prof in prof_db:
+                    professors = fmt.format(**prof) + '<b>Corsi:</b>\n'
+                    professors += ('\n'.join('\t - <a href="{link}">{nome}</a>\n'.format(
+                        **course) for course in prof['corsi']) if prof['corsi'] else
+                                   '\t<i>Non disponibile.</i>')
         else:
             professors = "Puoi cercare immettendo dai 4 caratteri in su"
     else:
@@ -39,7 +41,8 @@ def prof_command(bot, update, args):
         fmt = ("<i>{nome}</i>")
         professors = '\n'.join(fmt.format(**prof) for prof in prof_db)
 
-    bot.sendMessage(update.message.chat_id, text=professors, parse_mode="HTML")
+    bot.sendMessage(update.message.chat_id, text=professors,
+                    parse_mode="HTML", disable_web_page_preview=True)
 
 
 def student_office_command(bot, update):
