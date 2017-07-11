@@ -30,11 +30,12 @@ def prof_command(bot, update, args):
             if not prof_db:
                 professors = "Professore non trovato"
             else:
+                professors = ""
                 for prof in prof_db:
-                    professors = fmt.format(**prof) + '<b>Corsi:</b>\n'
-                    professors += ('\n'.join('\t - <a href="{link}">{nome}</a>\n'.format(
+                    professors += fmt.format(**prof) + '<b>Corsi:</b>\n'
+                    professors += ('\n'.join('\t - <a href="{link}">{nome}</a>\n\n'.format(
                         **course) for course in prof['corsi']) if prof['corsi'] else
-                                   '\t<i>Non disponibile.</i>')
+                                   '\t<i>Non disponibile.</i>\n\n')
         else:
             professors = "Puoi cercare immettendo dai 4 caratteri in su"
     else:
