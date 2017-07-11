@@ -23,7 +23,8 @@ def prof_command(bot, update, args):
             fmt = ('<b>{nome}</b>\n\n'
                    '<b>Stanza: </b>\n\t<i>{stanza}</i>\n\n'
                    '<b>Email: </b>\n\t<a href="mailto:{email}">{email}</a>\n\n'
-                   '<b>Telefono: </b>\n\t<a href="tel:{telefono}">{telefono}</a>\n\n'
+                   '<b>Telefono: </b>\n\t<i>{telefono}</i>\n\n'
+                   # tel links won't work due to telegram api limitation to 200 chars
                    '<b>Curriculum Vitae: </b>\n\t<a href="{CV}">Download Curriculum Vitae</a>\n\n'
                   )
             if not prof_db:
