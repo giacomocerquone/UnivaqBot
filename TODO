@@ -1,0 +1,27 @@
+### TODO
+
+Functional:
+
+0. Change bot from univaq_informatica_bot to univaq
+1. Implement univaq, mesvaq e discab
+2. Change db structure from:
+    {
+        "_id" : ObjectId("59598f9dc66fc42740e26ff6"),
+        "telegramID" : 180852051
+    }
+   to:
+   {
+        "_id" : ObjectId("59598f9dc66fc42740e26ff6"),
+        "telegramID" : 180852051,
+        "sezioni": {
+          "disim": 1,
+          "univaq": 1
+        }
+    }
+3. If there are more spots to scrape inside one section we use a keyboard to let people chose the one they want
+4. Check the import of packages and avoid use of sys.path.insert(0, '../')
+
+Non functional:
+
+1. Implement in some way (maybe scraping pdf documents) the lessons timetables with their notifications.
+2. Need to change the feedback command in a conversation

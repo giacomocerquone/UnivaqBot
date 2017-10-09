@@ -55,12 +55,6 @@ The **univaq telegram bot also provides a push notification service**. When new 
 
 The website of univaq telegram bot is http://univaqtelegrambot.github.io/
 
-### TODO
-
-1. Implement in some way (maybe scraping pdf documents) the lessons timetables with their notifications.
-2. Implement univaq, mesvaq e discab
-3. Need to change the feedback command in a conversation
-
 ### DISCLAIMER
 
 **THIS PROJECT IS NOT OFFICIALLY AFFILIATED WITH UNIVAQ INSTITUTION**
