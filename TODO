@@ -13,7 +13,7 @@ Functional:
    {
         "_id" : ObjectId("59598f9dc66fc42740e26ff6"),
         "telegramID" : 180852051,
-        "sezioni": {
+        "iscrizioni": {
           "disim": 1,
           "univaq": 1
         }

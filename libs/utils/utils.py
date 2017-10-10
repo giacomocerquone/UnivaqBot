@@ -28,7 +28,6 @@ def db_connection():
         print("Could not connect to MongoDB: %s" % err)
 
     global DATABASE
-
     DATABASE = conn.get_default_database()
 
 
