@@ -15,7 +15,10 @@ sys.path.insert(0, '../')
 
 DATABASE = ""
 SUBSCRIBERS = []
-DISIMNEWS = []
+NEWS = {
+    'disim': '',
+    'univaq': ''
+}
 
 
 def db_connection():
@@ -53,8 +56,8 @@ def remove_subscriber(telegram_id):
 def get_disim_news():
     """Get the disims' news"""
 
-    global DISIMNEWS
-    DISIMNEWS = list(DATABASE['disim_news'].find({}))
+    global NEWS
+    NEWS['disim'] = list(DATABASE['disim_news'].find({}))
 
 
 def store_disim_news(data):

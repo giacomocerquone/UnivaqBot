@@ -56,7 +56,7 @@ def check_news():
     """This function check if there are some unread news from the website"""
 
     pulled_news = pull_news(5)
-    stored_news = utils.DISIMNEWS
+    stored_news = utils.NEWS['disim']
     unread_news = []
 
     if pulled_news:
@@ -87,7 +87,7 @@ def notify_news(bot, job):
         data = pull_news(10)
         news_to_string = ""
 
-        utils.DISIMNEWS = data
+        utils.NEWS['disim'] = data
         utils.store_disim_news(data)
 
         for item in unread_news:

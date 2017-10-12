@@ -10,7 +10,7 @@ def news(bot, update):
     """Defining the command to retrieve 5 news"""
 
     news_to_string = ""
-    for i, item in enumerate(utils.DISIMNEWS[0:5]):
+    for i, item in enumerate(utils.NEWS['disim'][0:5]):
         item["suffix"] = '...' if len(item['description']) > 75 else ''
         news_to_string += (str(i + 1) + ' - <a href="{link}">{title}</a>\n'
                            '\t<i>{description:.75}{suffix}</i>\n\n').format(**item)
