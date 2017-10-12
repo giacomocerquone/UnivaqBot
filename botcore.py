@@ -24,6 +24,7 @@ def start_command(bot, update):
                "Posso fornirti tutte le informazioni di cui hai bisogno sulla nostra università, "
                "digita /help per vedere la lista di comandi.")
 
+    utils.add_user(update.message.chat_id)
     bot.sendMessage(update.message.chat_id, text=welcome)
 
 
@@ -66,7 +67,7 @@ def main():
 
     utils.db_connection()
     utils.get_subscribers()
-    utils.get_disim_news()
+    utils.get_news()
 
     updater.job_queue.run_repeating(news.notify_news, float(os.environ['NOTIFICATION_INTERVAL']))
     updater.job_queue.run_once(utils.botupdated_message, 0)

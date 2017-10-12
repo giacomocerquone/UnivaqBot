@@ -42,18 +42,23 @@ def get_subscribers():
 
 
 def add_subscriber(telegram_id):
+    # TODO Will change to subscribe_user(telegram_id, section)
     """Add subscriber to the DB"""
 
     DATABASE.users.insert({"telegramID": telegram_id})
 
-
 def remove_subscriber(telegram_id):
+    # TODO Will change to unsubscribe_user(telegram_id, section)
     """Remove subscriber from DB"""
 
     DATABASE.users.remove({"telegramID": telegram_id})
 
+def add_user(telegram_id):
+    """Add subscriber to the DB"""
 
-def get_disim_news():
+    DATABASE.users.insert({"telegramID": telegram_id, "iscrizioni": {}})
+
+def get_news():
     """Get the disims' news"""
 
     global NEWS
