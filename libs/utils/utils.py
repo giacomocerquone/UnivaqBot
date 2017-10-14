@@ -16,8 +16,8 @@ sys.path.insert(0, '../')
 DATABASE = ""
 SUBSCRIBERS = []
 NEWS = {
-    'disim': '',
-    'univaq': ''
+    'disim': [],
+    'univaq': []
 }
 
 
@@ -66,6 +66,7 @@ def get_news():
 
 
 def store_disim_news(data):
+    # TODO Will change to store_news(data, section)
     """Get the disims' news"""
 
     DATABASE['disim_news'].remove({})
