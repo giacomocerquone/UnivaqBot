@@ -3,7 +3,7 @@
 
 """The Package that contains all the news commands for the disim department"""
 
-from libs.utils import utils
+from libs import utils
 
 def news(bot, update):
     """Defining the command to retrieve 5 news"""

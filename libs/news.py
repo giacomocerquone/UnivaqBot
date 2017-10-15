@@ -7,19 +7,19 @@ from bs4 import BeautifulSoup
 import requests
 from telegram import TelegramError
 
-from libs.utils import utils
-from . import scrapers
+from libs import utils
+from libs.news_scrapers import disim
 
 def pull_news():
     """This function is built to pull 5 news from all the websites"""
 
-    scrapersDict = {
-        'disim': scrapers.disim
+    scrapers = {
+        'disim': disim.scraper
     }
     news = {}
 
-    for key in scrapersDict:
-        news[key] = scrapersDict[key]()
+    for key in scrapers:
+        news[key] = scrapers[key]()
 
     return news
 

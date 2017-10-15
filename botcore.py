@@ -11,10 +11,10 @@ import telegram
 
 from telegram.ext import Updater, CommandHandler
 
-from libs.utils import utils
-from libs.news_commands import news
+from libs import utils
+from libs import news
 from libs.departments import disim
-from libs.other_commands import other_commands
+from libs import other_commands
 
 
 def start_command(bot, update):

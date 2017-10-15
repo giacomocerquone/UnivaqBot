@@ -1,9 +1,9 @@
 from bs4 import BeautifulSoup
 import requests
 
-from libs.utils import utils
+from libs import utils
 
-def disim():
+def scraper():
     """This function is built to pull 5 news from the news page of the disim"""
 
     # Thanks to Luca Pattavina for giving me the right url
