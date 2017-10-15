@@ -22,7 +22,7 @@ def db_connection():
     """Get MongoDB connection"""
 
     try:
-        conn = pymongo.MongoClient(os.environ['MONGOLAB_URI'] or os.environ['MONGODB_URI'])
+        conn = pymongo.MongoClient(os.environ['MONGODB_URI'])
         print("Connected successfully!")
     except (pymongo.errors.ConnectionFailure) as err:
         print("Could not connect to MongoDB: %s" % err)

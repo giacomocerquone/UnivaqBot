@@ -61,8 +61,7 @@ def main():
     """Defining the main function"""
 
     token = os.environ['TELEGRAMBOT'] or os.environ['UNIVERSITYBOT']
-    debug = os.environ['DEBUG']
-    logger = utils.get_logger(debug)
+    logger = utils.get_logger(os.environ['DEBUG'])
     updater = Updater(token)
 
     utils.db_connection()
