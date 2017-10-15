@@ -47,13 +47,13 @@ def subscribe_user(telegram_id, section):
     """Add subscriber to the DB"""
 
     USERS[section].append(telegram_id)
-    DATABASE.users.update_one({"telegramID": telegram_id}, {"$set": { section: telegram_id }})
+    DATABASE.users.update_one({"telegramID": telegram_id}, {"$set": {section: telegram_id}})
 
 def unsubscribe_user(telegram_id, section):
     """Remove subscriber from DB"""
 
     USERS[section].remove(telegram_id)
-    DATABASE.users.update_one({"telegramID": telegram_id}, {"$unset": { section: "" }})
+    DATABASE.users.update_one({"telegramID": telegram_id}, {"$unset": {section: ""}})
 
 def get_news():
     """Get all the news"""

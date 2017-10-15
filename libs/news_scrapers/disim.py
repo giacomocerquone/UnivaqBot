@@ -1,7 +1,10 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""The actual scraper of the Disim"""
+
 from bs4 import BeautifulSoup
 import requests
-
-from libs import utils
 
 def scraper():
     """This function is built to pull 5 news from the news page of the disim"""

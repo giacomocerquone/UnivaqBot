@@ -3,8 +3,6 @@
 
 """The Package that contains all the telegram's news functions used"""
 
-from bs4 import BeautifulSoup
-import requests
 from telegram import TelegramError
 
 from libs import utils
@@ -46,11 +44,11 @@ def check_news():
 
                 if counter == 0:
                     unread_news[section].append({"title": single_pulled["title"],
-                                        "description": single_pulled['description'],
-                                        "link": single_pulled['link']})
+                                                 "description": single_pulled['description'],
+                                                 "link": single_pulled['link']})
 
-    return { 'unread_news': unread_news,
-             'pulled_news': pulled_news }
+    return {'unread_news': unread_news,
+            'pulled_news': pulled_news}
 
 
 def notify_news(bot, job):
