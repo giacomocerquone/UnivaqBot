@@ -66,7 +66,7 @@ def main():
     updater = Updater(token)
 
     utils.db_connection()
-    utils.get_subscribers()
+    utils.get_users()
     utils.get_news()
 
     updater.job_queue.run_repeating(news.notify_news, float(os.environ['NOTIFICATION_INTERVAL']))

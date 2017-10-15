@@ -5,20 +5,17 @@
 
 import logging
 import os
-import sys
 
 import bs4
 import requests
 import pymongo
 
-sys.path.insert(0, '../')
-
 DATABASE = ""
-SUBSCRIBERS = []
-NEWS = {
-    'disim': [],
-    'univaq': []
+USERS = {
+    'telegramID': [],
+    'disim': []
 }
+NEWS = {}
 
 
 def db_connection():
@@ -33,45 +30,43 @@ def db_connection():
     global DATABASE
     DATABASE = conn.get_default_database()
 
-
-def get_subscribers():
+def get_users():
     """Get from DB all the subscribers"""
 
-    for user in DATABASE.users.find({}):
-        SUBSCRIBERS.append(user['telegramID'])
-
-
-def add_subscriber(telegram_id):
-    # TODO Will change to subscribe_user(telegram_id, section)
-    """Add subscriber to the DB"""
-
-    DATABASE.users.insert({"telegramID": telegram_id})
-
-def remove_subscriber(telegram_id):
-    # TODO Will change to unsubscribe_user(telegram_id, section)
-    """Remove subscriber from DB"""
-
-    DATABASE.users.remove({"telegramID": telegram_id})
+    for user in DATABASE.users.find({}, {'_id': False}):
+        for section in user:
+            USERS[section].append(user[section])
 
 def add_user(telegram_id):
     """Add subscriber to the DB"""
 
-    DATABASE.users.insert({"telegramID": telegram_id, "iscrizioni": {}})
+    USERS['telegramID'].append(telegram_id)
+    DATABASE.users.insert({"telegramID": telegram_id})
+
+def subscribe_user(telegram_id, section):
+    """Add subscriber to the DB"""
+
+    USERS[section].append(telegram_id)
+    DATABASE.users.update_one({"telegramID": telegram_id}, {"$set": { section: telegram_id }})
+
+def unsubscribe_user(telegram_id, section):
+    """Remove subscriber from DB"""
+
+    USERS[section].remove(telegram_id)
+    DATABASE.users.update_one({"telegramID": telegram_id}, {"$unset": { section: "" }})
 
 def get_news():
-    """Get the disims' news"""
+    """Get all the news"""
 
     global NEWS
-    NEWS['disim'] = list(DATABASE['disim_news'].find({}))
+    NEWS = DATABASE['news'].find_one({})
 
+def store_news(data):
+    # TODO do we need store_news(data, section)?
+    """Store all the news"""
 
-def store_disim_news(data):
-    # TODO Will change to store_news(data, section)
-    """Get the disims' news"""
-
-    DATABASE['disim_news'].remove({})
-    DATABASE['disim_news'].insert_many(data)
-
+    DATABASE['news'].remove({})
+    DATABASE['news'].insert(data)
 
 def botupdated_message(bot, job):
     """
@@ -83,9 +78,8 @@ def botupdated_message(bot, job):
     DATABASE.messages.remove()
 
     for message in messages:
-        for user in SUBSCRIBERS:
+        for user in USERS['telegramID']:
             bot.sendMessage(user, message['text'], parse_mode='HTML')
-
 
 def get_soup_from_url(url):
     """Download a webpage and return its BeautifulSoup"""
@@ -104,7 +98,6 @@ def get_soup_from_url(url):
     fmt = 'Error! get_soup_from_url({}) --> Status: {}'
     print(fmt.format(url, request.status_code))
     return None
-
 
 def get_logger(debug):
     """Get logger object"""

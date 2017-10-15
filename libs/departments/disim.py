@@ -5,7 +5,6 @@
 
 from libs.utils import utils
 
-
 def news(bot, update):
     """Defining the command to retrieve 5 news"""
 
@@ -25,9 +24,8 @@ def news(bot, update):
 def disimon(bot, update):
     """Defining the command to enable notification for disim"""
 
-    if update.message.chat_id not in utils.SUBSCRIBERS:
-        utils.SUBSCRIBERS.append(update.message.chat_id)
-        utils.add_subscriber(update.message.chat_id)
+    if update.message.chat_id not in utils.USERS['disim']:
+        utils.subscribe_user(update.message.chat_id, 'disim')
         bot.sendMessage(update.message.chat_id,
                         text='Notifiche Abilitate!')
     else:
@@ -38,9 +36,8 @@ def disimon(bot, update):
 def disimoff(bot, update):
     """Defining the command to disable notification for disim"""
 
-    if update.message.chat_id in utils.SUBSCRIBERS:
-        utils.SUBSCRIBERS.remove(update.message.chat_id)
-        utils.remove_subscriber(update.message.chat_id)
+    if update.message.chat_id in utils.USERS['disim']:
+        utils.unsubscribe_user(update.message.chat_id, 'disim')
         bot.sendMessage(update.message.chat_id,
                         text='Notifiche Disattivate!')
     else:

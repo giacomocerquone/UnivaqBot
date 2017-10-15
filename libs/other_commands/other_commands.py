@@ -3,12 +3,7 @@
 
 """The Package that contains all the telegram functions used except news"""
 
-import sys
-
 from libs.utils import utils
-
-sys.path.insert(0, '../')
-
 
 def prof_command(bot, update, args):
     """Defining the `prof` command"""
