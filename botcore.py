@@ -13,7 +13,7 @@ from telegram.ext import Updater, CommandHandler
 
 from libs import utils
 from libs import news
-from libs.departments import disim
+from libs.departments import disim, univaq
 from libs import other_commands
 
 
@@ -74,9 +74,12 @@ def main():
 
     dispatcher.add_handler(CommandHandler("start", start_command))
     dispatcher.add_handler(CommandHandler("help", help_command))
-    dispatcher.add_handler(CommandHandler("disim", disim.news))
+    dispatcher.add_handler(CommandHandler("disim", disim.disim))
     dispatcher.add_handler(CommandHandler("disimon", disim.disimon))
     dispatcher.add_handler(CommandHandler("disimoff", disim.disimoff))
+    dispatcher.add_handler(CommandHandler("univaq", univaq.univaq))
+    dispatcher.add_handler(CommandHandler("univaqon", univaq.univaqon))
+    dispatcher.add_handler(CommandHandler("univaqoff", univaq.univaqoff))
     dispatcher.add_handler(CommandHandler("prof", other_commands.prof_command, pass_args=True))
     dispatcher.add_handler(CommandHandler("segreteria", other_commands.student_office_command))
     dispatcher.add_handler(CommandHandler("mensa", other_commands.canteen_command))

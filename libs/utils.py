@@ -13,7 +13,8 @@ import pymongo
 DATABASE = ""
 USERS = {
     'telegramID': [],
-    'disim': []
+    'disim': [],
+    'univaq': []
 }
 NEWS = {}
 

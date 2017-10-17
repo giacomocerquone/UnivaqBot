@@ -10,26 +10,29 @@ def scraper():
     """This function is built to pull 5 news from the news page of univaq"""
 
     prefix = "http://www.univaq.it/"
-    news_url = ["http://www.univaq.it/news_archive.php?tipo=In%20evidenza", "http://www.univaq.it/news_archive.php?tipo=Ultimissime"]
+    news_url = ["http://www.univaq.it/news_archive.php?tipo=In%20evidenza",
+                "http://www.univaq.it/news_archive.php?tipo=Ultimissime"]
 
     request = []
     bs_list = []
-    news = { 'In Evidenza': [], 'Ultimissime': [] }
+    news = {'In Evidenza': [], 'Ultimissime': []}
 
     for i, url in enumerate(news_url):
         request.append(requests.get(url))
         bs_list.append(BeautifulSoup(request[i].text, "html.parser").find_all(class_='avviso')[0:5])
 
-        for j, single_news in enumerate(bs_list[i]):
+        for single_news in bs_list[i]:
             if i == 0:
                 news['In Evidenza'].append({
+                    'description': '',
                     'title': single_news.div.next_sibling.next_sibling.string,
-                    'link': single_news.a['href']
+                    'link': prefix+single_news.a['href']
                 })
             else:
                 news['Ultimissime'].append({
+                    'description': '',
                     'title': single_news.div.next_sibling.next_sibling.string,
-                    'link': single_news.a['href']
+                    'link': prefix+single_news.a['href']
                 })
 
-    return news
+    return news['In Evidenza']

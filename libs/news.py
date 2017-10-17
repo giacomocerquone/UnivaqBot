@@ -6,13 +6,14 @@
 from telegram import TelegramError
 
 from libs import utils
-from libs.news_scrapers import disim
+from libs.news_scrapers import disim, univaq
 
 def pull_news():
     """This function is built to pull 5 news from all the websites"""
 
     scrapers = {
-        'disim': disim.scraper
+        'disim': disim.scraper,
+        'univaq': univaq.scraper
     }
     news = {}
 
@@ -28,7 +29,8 @@ def check_news():
     pulled_news = pull_news()
     stored_news = utils.NEWS
     unread_news = {
-        'disim': []
+        'disim': [],
+        'univaq': []
     }
 
     if pulled_news:
