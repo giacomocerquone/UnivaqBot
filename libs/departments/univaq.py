@@ -13,7 +13,7 @@ def univaq(bot, update):
         item["suffix"] = '...' if len(item['description']) > 75 else ''
         news_to_string += (str(i + 1) + ' - <a href="{link}">{title}</a>\n'
                            '\t<i>{description:.75}{suffix}</i>\n\n').format(**item)
-    news_to_string += ('<a href="http://www.univaq.univaq.it/main/news.php?entrant=1">'
+    news_to_string += ('<a href="http://www.univaq.it">'
                        'Vedi le altre notizie</a> e attiva le notifiche con /univaqon per '
                        'restare sempre aggiornato')
 

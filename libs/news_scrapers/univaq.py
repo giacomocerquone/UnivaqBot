@@ -15,24 +15,17 @@ def scraper():
 
     request = []
     bs_list = []
-    news = {'In Evidenza': [], 'Ultimissime': []}
+    news = []
 
     for i, url in enumerate(news_url):
         request.append(requests.get(url))
         bs_list.append(BeautifulSoup(request[i].text, "html.parser").find_all(class_='avviso')[0:5])
 
         for single_news in bs_list[i]:
-            if i == 0:
-                news['In Evidenza'].append({
-                    'description': '',
-                    'title': single_news.div.next_sibling.next_sibling.string,
-                    'link': prefix+single_news.a['href']
-                })
-            else:
-                news['Ultimissime'].append({
-                    'description': '',
-                    'title': single_news.div.next_sibling.next_sibling.string,
-                    'link': prefix+single_news.a['href']
-                })
+            news.append({
+                'description': '',
+                'title': single_news.div.next_sibling.next_sibling.string,
+                'link': prefix + single_news.a['href']
+            })
 
-    return news['In Evidenza']
+    return news
