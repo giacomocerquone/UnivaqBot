@@ -1,4 +1,4 @@
-utls/__pycache__
 __pycache__
 nohup.out
 .env
+*.pyc
