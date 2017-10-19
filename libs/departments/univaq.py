@@ -10,9 +10,8 @@ def univaq(bot, update):
 
     news_to_string = ""
     for i, item in enumerate(utils.NEWS['univaq'][0:5]):
-        item["suffix"] = '...' if len(item['description']) > 75 else ''
-        news_to_string += (str(i + 1) + ' - <a href="{link}">{title}</a>\n'
-                           '\t<i>{description:.75}{suffix}</i>\n\n').format(**item)
+        news_to_string += (str(i + 1) + ' - <a href="{link}">{title}</a>\n\n').format(**item)
+
     news_to_string += ('<a href="http://www.univaq.it">'
                        'Vedi le altre notizie</a> e attiva le notifiche con /univaqon per '
                        'restare sempre aggiornato')
