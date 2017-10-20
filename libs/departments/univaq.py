@@ -3,13 +3,33 @@
 
 """The Package that contains all the news commands for the univaq department"""
 
+import telegram
 from libs import utils
 
 def univaq(bot, update):
     """Defining the command to retrieve 5 news"""
 
+    options = [['In Evidenza'], ['Ultimissime'], ['Annulla']]
+
+    reply_markup = telegram.ReplyKeyboardMarkup(options,
+                                                resize_keyboard=True,
+                                                one_time_keyboard=True)
+
+    bot.sendMessage(chat_id=update.message.chat_id,
+                    text="Scegli la sezione",
+                    reply_markup=reply_markup)
+
+    #reply_markup = telegram.ReplyKeyboardRemove()
+    #bot.send_message(update.message.chat_id, text="I'm back.", reply_markup=reply_markup)
+
+    #text is the choice made by custom keyboard
+    '''if text == 'In Evidenza':
+        index = 5
+    else:
+        index = 10
+
     news_to_string = ""
-    for i, item in enumerate(utils.NEWS['univaq'][0:5]):
+    for i, item in enumerate(utils.NEWS['univaq'][0:index]):
         news_to_string += (str(i + 1) + ' - <a href="{link}">{title}</a>\n\n').format(**item)
 
     news_to_string += ('<a href="http://www.univaq.it">'
@@ -17,8 +37,7 @@ def univaq(bot, update):
                        'restare sempre aggiornato')
 
     bot.sendMessage(update.message.chat_id,
-                    parse_mode='HTML', disable_web_page_preview=True, text=news_to_string)
-
+                    parse_mode='HTML', disable_web_page_preview=True, text=news_to_string)'''
 
 def univaqon(bot, update):
     """Defining the command to enable notification for univaq"""
