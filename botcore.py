@@ -32,6 +32,8 @@ def help_command(bot, update):
                     "/help - Stampa questo messaggio\n"
                     "/disim - Leggi le ultime 5 news del disim, /disimon o /disimoff"
                     " per abilitare o meno le notifiche\n"
+                    "/univaq - Leggi le ultime 5 news (ultimissime o in evidenza)"
+                    "dell'univaq, /univaqon o /univaqoff per abilitare o meno le notifiche\n"
                     "/prof - Visualizza tutti i docenti\n"
                     "/prof cognome/corso - Info su un docente filtrato per corso o cognome\n"
                     "/segreteria - Info sulla segreteria studenti\n"
