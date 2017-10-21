@@ -60,7 +60,7 @@ def get_news():
     """Get all the news"""
 
     global NEWS
-    NEWS = DATABASE['news'].find_one({})
+    NEWS = DATABASE['news'].find_one({}, {'_id': False})
 
 def store_news(data):
     # TODO do we need store_news(data, section)?
