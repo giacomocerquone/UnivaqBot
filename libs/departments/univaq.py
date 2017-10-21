@@ -4,32 +4,26 @@
 """The Package that contains all the news commands for the univaq department"""
 
 import telegram
+from telegram.ext import CommandHandler, ConversationHandler, RegexHandler
 from libs import utils
 
 def univaq(bot, update):
     """Defining the command to retrieve 5 news"""
 
-    options = [['In Evidenza'], ['Ultimissime'], ['Annulla']]
+    keys = [['In Evidenza'], ['Ultimissime'], ['Chiudi']]
 
-    reply_markup = telegram.ReplyKeyboardMarkup(options,
-                                                resize_keyboard=True,
-                                                one_time_keyboard=True)
+    bot.sendMessage(update.message.chat_id,
+                    'Scegli la sezione',
+                    reply_markup=telegram.ReplyKeyboardMarkup(
+                        keys, one_time_keyboard=True))
 
-    bot.sendMessage(chat_id=update.message.chat_id,
-                    text="Scegli la sezione",
-                    reply_markup=reply_markup)
+    return "option"
 
-    #reply_markup = telegram.ReplyKeyboardRemove()
-    #bot.send_message(update.message.chat_id, text="I'm back.", reply_markup=reply_markup)
-
-    #text is the choice made by custom keyboard
-    '''if text == 'In Evidenza':
-        index = 5
-    else:
-        index = 10
+def inevidenza(bot, update):
+    """Defining function that prints 5 news from in evidenza"""
 
     news_to_string = ""
-    for i, item in enumerate(utils.NEWS['univaq'][0:index]):
+    for i, item in enumerate(utils.NEWS['univaq'][0:5]):
         news_to_string += (str(i + 1) + ' - <a href="{link}">{title}</a>\n\n').format(**item)
 
     news_to_string += ('<a href="http://www.univaq.it">'
@@ -37,7 +31,30 @@ def univaq(bot, update):
                        'restare sempre aggiornato')
 
     bot.sendMessage(update.message.chat_id,
-                    parse_mode='HTML', disable_web_page_preview=True, text=news_to_string)'''
+                    parse_mode='HTML', disable_web_page_preview=True, text=news_to_string)
+
+def ultimissime(bot, update):
+    """Defining function that prints 5 news from ultimissime"""
+
+    news_to_string = ""
+    for i, item in enumerate(utils.NEWS['univaq'][5:10]):
+        news_to_string += (str(i + 1) + ' - <a href="{link}">{title}</a>\n\n').format(**item)
+
+    news_to_string += ('<a href="http://www.univaq.it">'
+                       'Vedi le altre notizie</a> e attiva le notifiche con /univaqon per '
+                       'restare sempre aggiornato')
+
+    bot.sendMessage(update.message.chat_id,
+                    parse_mode='HTML', disable_web_page_preview=True, text=news_to_string)
+
+def close(bot, update):
+    """Defining Function for remove keyboard"""
+
+    bot.sendMessage(update.message.chat_id,
+                    'Ho chiuso le news dell\'univaq!',
+                    reply_markup=telegram.ReplyKeyboardRemove())
+
+    return ConversationHandler.END
 
 def univaqon(bot, update):
     """Defining the command to enable notification for univaq"""
@@ -61,3 +78,13 @@ def univaqoff(bot, update):
     else:
         bot.sendMessage(update.message.chat_id,
                         text='Per disattivare le notifiche dovresti prima attivarle.')
+
+
+NEWS_CONV = ConversationHandler(
+    entry_points=[CommandHandler('univaq', univaq)],
+    states={
+        "option": [RegexHandler('^(Ultimissime)$', ultimissime),
+                   RegexHandler('^(In Evidenza)$', inevidenza)],
+    },
+    fallbacks=[RegexHandler('^(Chiudi)$', close)]
+)

@@ -7,15 +7,12 @@ created by Giacomo Cerquone e Stefano Martella
 """
 
 import os
-import telegram
-
 from telegram.ext import Updater, CommandHandler
 
 from libs import utils
 from libs import news
 from libs.departments import disim, univaq
 from libs import other_commands
-
 
 def start_command(bot, update):
     """Defining the `start` command"""
@@ -46,17 +43,6 @@ def help_command(bot, update):
 
     bot.sendMessage(update.message.chat_id, text=help_message)
 
-
-# Testing
-def commands_keyboard(bot, update):
-    """Enable a custom keyboard"""
-    keyboard = [[]]
-    markup = telegram.ReplyKeyboardMarkup(
-        keyboard, resize_keyboard=True, one_time_keyboard=False)
-    bot.sendMessage(update.message.chat_id,
-                    text="Enabled keyboard", reply_markup=markup)
-
-
 def main():
     """Defining the main function"""
 
@@ -77,7 +63,7 @@ def main():
     dispatcher.add_handler(CommandHandler("disim", disim.disim))
     dispatcher.add_handler(CommandHandler("disimon", disim.disimon))
     dispatcher.add_handler(CommandHandler("disimoff", disim.disimoff))
-    dispatcher.add_handler(CommandHandler("univaq", univaq.univaq))
+    dispatcher.add_handler(univaq.NEWS_CONV)
     dispatcher.add_handler(CommandHandler("univaqon", univaq.univaqon))
     dispatcher.add_handler(CommandHandler("univaqoff", univaq.univaqoff))
     dispatcher.add_handler(CommandHandler("prof", other_commands.prof_command, pass_args=True))
@@ -86,14 +72,10 @@ def main():
     dispatcher.add_handler(CommandHandler("adsu", other_commands.adsu_command))
     dispatcher.add_handler(CommandHandler("feedback", other_commands.feedback_command))
 
-    # Testing
-    dispatcher.add_handler(CommandHandler("commands_keyboard", commands_keyboard))
-
     logger.info('Bot started')
 
     updater.start_polling()
     updater.idle()
-
 
 if __name__ == '__main__':
     main()
