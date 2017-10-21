@@ -1,12 +1,11 @@
 ### TODO
 
-Functional:
+Priority 0:
 
 0. Change bot from univaq_informatica_bot to univaq
-1. Implement univaq, mesvaq e discab
-2. If there are more spots to scrape inside one section we use a keyboard to let people chose the one they want
+1. Implement mesvaq e discab
 
-Non functional:
+Priority 1:
 
 1. Implement in some way (maybe scraping pdf documents) the lessons timetables with their notifications.
 2. Need to change the feedback command in a conversation
