@@ -11,7 +11,7 @@ from telegram.ext import Updater, CommandHandler
 
 from libs import utils
 from libs import news
-from libs.departments import disim, univaq, discab
+from libs.departments import disim, univaq, discab, mesva
 from libs import other_commands, feedback
 
 def start_command(bot, update):
@@ -68,6 +68,9 @@ def main():
     dispatcher.add_handler(discab.NEWS_CONV)
     dispatcher.add_handler(discab.NEWS_ON_CONV)
     dispatcher.add_handler(discab.NEWS_OFF_CONV)
+    dispatcher.add_handler(mesva.NEWS_CONV)
+    dispatcher.add_handler(mesva.NEWS_ON_CONV)
+    dispatcher.add_handler(mesva.NEWS_OFF_CONV)
     dispatcher.add_handler(univaq.NEWS_CONV)
     dispatcher.add_handler(CommandHandler("univaqon", univaq.univaqon))
     dispatcher.add_handler(CommandHandler("univaqoff", univaq.univaqoff))
