@@ -33,27 +33,11 @@ def check_news():
         'univaq': []
     }
 
-    if pulled_news:
-        for section in pulled_news:
-            for single_pulled in pulled_news[section]:
-                counter = 0
-                for single_stored in stored_news[section]:
-                    if single_pulled:
-                        if (single_pulled["description"] == single_stored["description"] and
-                                single_pulled["link"] == single_stored["link"] and
-                                single_pulled["title"] == single_stored["title"]):
-                            counter = counter + 1
-
-                if counter == 0:
-                    unread_news[section].append({"title": single_pulled["title"],
-                                                 "description": single_pulled['description'],
-                                                 "link": single_pulled['link']})
-
-    # # TODO _id field coming back don't know why
-    # for section in stored_news:
-    #     if section != '_id':
-    #         unread_news[section] = ([x for x in pulled_news[section]
-    #                                  if x not in stored_news[section]])
+    # TODO _id field coming back don't know why
+    for section in stored_news:
+        if section != '_id':
+            unread_news[section] = ([x for x in pulled_news[section]
+                                     if x not in stored_news[section]])
 
     return {'unread_news': unread_news,
             'pulled_news': pulled_news}
