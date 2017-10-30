@@ -38,11 +38,11 @@ def check_news():
             for single_pulled in pulled_news[section]:
                 counter = 0
                 for single_stored in stored_news[section]:
-                    if single_pulled:
-                        if (single_pulled["description"] == single_stored["description"] and
-                                single_pulled["link"] == single_stored["link"] and
-                                single_pulled["title"] == single_stored["title"]):
-                            counter = counter + 1
+                    if (single_pulled and
+                            single_pulled["description"] == single_stored["description"] and
+                            single_pulled["link"] == single_stored["link"] and
+                            single_pulled["title"] == single_stored["title"]):
+                        counter = counter + 1
 
                 if counter == 0:
                     unread_news[section].append({"title": single_pulled["title"],
