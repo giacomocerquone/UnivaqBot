@@ -8,10 +8,10 @@ from telegram.ext import ConversationHandler
 from libs import utils
 
 def discab(bot, update):
-    """Defining the command to retrieve 5 news"""
+    """Command that asks where to retrieve news from Discab"""
 
-    keys = [['News del Dipartimento'], ['Area delle Biotecnologie'], ['Area Medica'],
-            ['Area delle Scienze Motorie'], ['Area della Psicologia'], ['Chiudi']]
+    keys = [['News del dipartimento'], ['Area Biotecnologie'], ['Area Medica'],
+            ['Area Scienze Motorie'], ['Area Psicologia'], ['Chiudi']]
 
     bot.sendMessage(update.message.chat_id,
                     'Scegli la sezione',
@@ -21,7 +21,7 @@ def discab(bot, update):
     return "discab"
 
 def discab_news(bot, update, section):
-    """Defining function that prints 5 news from Discab given section"""
+    """Function that prints 5 news from Discab general page"""
 
     news_to_string = ""
     for i, item in enumerate(utils.NEWS[section]):
@@ -40,8 +40,8 @@ def discab_news(bot, update, section):
 def discabon(bot, update):
     """Defining the command to retrieve 5 news"""
 
-    keys = [['News del Dipartimento'], ['Area delle Biotecnologie'], ['Area Medica'],
-            ['Area delle Scienze Motorie'], ['Area della Psicologia'], ['Chiudi']]
+    keys = [['News del dipartimento'], ['Area Biotecnologie'], ['Area Medica'],
+            ['Area Scienze Motorie'], ['Area Psicologia'], ['Chiudi']]
 
     bot.sendMessage(update.message.chat_id,
                     'Scegli la sezione',
@@ -68,8 +68,8 @@ def discab_news_on(bot, update, section):
 def discaboff(bot, update):
     """Defining the command to retrieve 5 news"""
 
-    keys = [['News del Dipartimento'], ['Area delle Biotecnologie'], ['Area Medica'],
-            ['Area delle Scienze Motorie'], ['Area della Psicologia'], ['Chiudi']]
+    keys = [['News del dipartimento'], ['Area Biotecnologie'], ['Area Medica'],
+            ['Area Scienze Motorie'], ['Area Psicologia'], ['Chiudi']]
 
     bot.sendMessage(update.message.chat_id,
                     'Scegli la sezione',

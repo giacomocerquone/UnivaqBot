@@ -8,7 +8,7 @@ from telegram.ext import CommandHandler, ConversationHandler, RegexHandler
 from libs.departments import disim, univaq, discab, mesva
 
 def news(bot, update):
-    """Defining the command to retrieve 5 news"""
+    """Command that asks from which department retrieve the news"""
 
     keys = [['Univaq'], ['Disim'], ['Mesva'],
             ['Discab'], ['Chiudi']]
@@ -82,13 +82,13 @@ NEWS_CONV = ConversationHandler(
         "discab": [RegexHandler('^(News del Dipartimento)$',
                                 lambda bot, update: discab.discab_news(bot, update,
                                                                        'discab_general')),
-                   RegexHandler('^(Area delle Biotecnologie)$',
+                   RegexHandler('^(Area Biotecnologie)$',
                                 lambda bot, update: discab.discab_news(bot, update,
                                                                        'discab_biotechnology')),
                    RegexHandler('^(Area Medica)$',
                                 lambda bot, update: discab.discab_news(bot, update,
                                                                        'discab_medical')),
-                   RegexHandler('^(Area delle Scienze Motorie)$',
+                   RegexHandler('^(Area Scienze Motorie)$',
                                 lambda bot, update: discab.discab_news(bot, update,
                                                                        'discab_motor_science')),
                    RegexHandler('^(Area della Psicologia)$',
