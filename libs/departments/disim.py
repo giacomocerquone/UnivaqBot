@@ -41,10 +41,12 @@ def disimon(bot, update):
     if update.message.chat_id not in utils.USERS['disim']:
         utils.subscribe_user(update.message.chat_id, 'disim')
         bot.sendMessage(update.message.chat_id,
-                        text='Notifiche Abilitate!')
+                        text='Notifiche Abilitate!',
+                        reply_markup=telegram.ReplyKeyboardRemove())
     else:
         bot.sendMessage(update.message.chat_id,
-                        text='Le notifiche sono già abilitate!')
+                        text='Le notifiche sono già abilitate!',
+                        reply_markup=telegram.ReplyKeyboardRemove())
 
     return ConversationHandler.END
 
@@ -55,9 +57,11 @@ def disimoff(bot, update):
     if update.message.chat_id in utils.USERS['disim']:
         utils.unsubscribe_user(update.message.chat_id, 'disim')
         bot.sendMessage(update.message.chat_id,
-                        text='Notifiche Disattivate!')
+                        text='Notifiche Disattivate!',
+                        reply_markup=telegram.ReplyKeyboardRemove())
     else:
         bot.sendMessage(update.message.chat_id,
-                        text='Per disattivare le notifiche dovresti prima attivarle.')
+                        text='Per disattivare le notifiche dovresti prima attivarle.',
+                        reply_markup=telegram.ReplyKeyboardRemove())
 
     return ConversationHandler.END

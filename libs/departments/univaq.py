@@ -44,7 +44,7 @@ def ultimissime(bot, update):
         news_to_string += (str(i + 1) + ' - <a href="{link}">{title}</a>\n\n').format(**item)
 
     news_to_string += ('<a href="http://www.univaq.it">'
-                       'Vedi le altre notizie</a> e attiva le notifiche con /univaqon per '
+                       'Vedi le altre notizie</a> e attiva le notifiche con /newson per '
                        'restare sempre aggiornato')
 
     bot.sendMessage(update.message.chat_id,
@@ -59,10 +59,12 @@ def univaqon(bot, update):
     if update.message.chat_id not in utils.USERS['univaq']:
         utils.subscribe_user(update.message.chat_id, 'univaq')
         bot.sendMessage(update.message.chat_id,
-                        text='Notifiche Abilitate!')
+                        text='Notifiche Abilitate!',
+                        reply_markup=telegram.ReplyKeyboardRemove())
     else:
         bot.sendMessage(update.message.chat_id,
-                        text='Le notifiche sono già abilitate!')
+                        text='Le notifiche sono già abilitate!',
+                        reply_markup=telegram.ReplyKeyboardRemove())
 
     return ConversationHandler.END
 
