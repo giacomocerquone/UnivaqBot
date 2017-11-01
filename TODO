@@ -3,7 +3,8 @@
 Priority 0:
 
 0. Change bot from univaq_informatica_bot to univaq
-1. Provide back button in keyboards
+1. Check professors with relative file in this repo and put them into the db
+2. Provide back button in keyboards
 
 Priority 1:
 
