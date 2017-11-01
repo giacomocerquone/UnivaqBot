@@ -28,18 +28,15 @@ Let's check out what commands you can use:
 
 ```sh
 help - Stampa la lista dei comandi
-disim - Leggi le ultime 5 news del disim
-disimon - Abilita le notifiche del disim
-disimoff - Disabilita le notifiche del disim
-univaq - Leggi le ultime 5 news dell'univaq (ultimissime o in evidenza)
-univaqon - Abilita le notifiche dell'univaq
-univaqoff - Disabilita le notifiche dell'univaq
+news - Mostra le notifiche per la sezione del dipartimento che preferisci.
+newson - Abilita le notifiche per la sezione del dipartimento che preferisci.
+newsoff - Disattiva le notifiche per la sezione del dipartimento che preferisci.
 prof - Stampa la lista dei professori
 prof cognome/corso - Info su un docente filtrato per corso o cognome
 segreteria - Info sulla segreteria studenti
 mensa - Info sugli orari della mensa
 adsu - Info sull'adsu
-feedback messaggio - Lascia un messaggio agli sviluppatori
+feedback - Lascia un messaggio agli sviluppatori
 ```
 
 ### CONTRIBUTING
