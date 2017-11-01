@@ -8,7 +8,10 @@ from telegram.ext import ConversationHandler
 from libs import utils
 
 def mesva_keyboard(bot, update):
-    """Command that shows keyboard of sections for mesva_news, mesvaon and mesvaoff"""
+    """
+    Command that shows keyboard of sections for:
+    mesva_news, mesvaon and mesvaoff
+    """
 
     keys = [['In Evidenza'], ['Area Medicina'], ['Area Scienze Ambientali'],
             ['Area Scienze Biologiche'], ['Chiudi']]
@@ -38,7 +41,7 @@ def mesva_news(bot, update, section):
     return ConversationHandler.END
 
 def mesvaon(bot, update, section):
-    """Defining the command to enable notification for mesva section"""
+    """Defining the command to enable notification for mesva"""
 
     if update.message.chat_id not in utils.USERS[section]:
         utils.subscribe_user(update.message.chat_id, section)
@@ -53,7 +56,7 @@ def mesvaon(bot, update, section):
     return ConversationHandler.END
 
 def mesvaoff(bot, update, section):
-    """Defining the command to disable notification for mesva section"""
+    """Defining the command to disable notification for mesva"""
 
     if update.message.chat_id in utils.USERS[section]:
         utils.unsubscribe_user(update.message.chat_id, section)

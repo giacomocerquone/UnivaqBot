@@ -8,7 +8,10 @@ from telegram.ext import ConversationHandler
 from libs import utils
 
 def univaq(bot, update):
-    """Defining the command to retrieve 5 news"""
+    """
+    Command that shows keyboard of sections for:
+    inevidenza, ultimissime, univaqon, univaqoff
+    """
 
     keys = [['In Evidenza'], ['Ultimissime'], ['Chiudi']]
 

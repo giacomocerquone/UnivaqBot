@@ -7,8 +7,11 @@ import telegram
 from telegram.ext import ConversationHandler
 from libs import utils
 
-def discab(bot, update):
-    """Command that asks where to retrieve news from Discab"""
+def discab_keyboard(bot, update):
+    """
+    Command that shows keyboard of sections for:
+    discab_news, discabon and discaboff
+    """
 
     keys = [['News del dipartimento'], ['Area Biotecnologie'], ['Area Medica'],
             ['Area Scienze Motorie'], ['Area Psicologia'], ['Chiudi']]
@@ -21,7 +24,7 @@ def discab(bot, update):
     return "discab"
 
 def discab_news(bot, update, section):
-    """Function that prints 5 news from Discab general page"""
+    """Defining function that prints 5 news from discab given section"""
 
     news_to_string = ""
     for i, item in enumerate(utils.NEWS[section]):
@@ -37,21 +40,8 @@ def discab_news(bot, update, section):
 
     return ConversationHandler.END
 
-def discabon(bot, update):
-    """Defining the command to retrieve 5 news"""
-
-    keys = [['News del dipartimento'], ['Area Biotecnologie'], ['Area Medica'],
-            ['Area Scienze Motorie'], ['Area Psicologia'], ['Chiudi']]
-
-    bot.sendMessage(update.message.chat_id,
-                    'Scegli la sezione:',
-                    reply_markup=telegram.ReplyKeyboardMarkup(
-                        keys, one_time_keyboard=True))
-
-    return "discab"
-
-def discab_news_on(bot, update, section):
-    """Defining the command to enable notification for discab section"""
+def discabon(bot, update, section):
+    """Defining the command to enable notification for discab"""
 
     if update.message.chat_id not in utils.USERS[section]:
         utils.subscribe_user(update.message.chat_id, section)
@@ -65,21 +55,8 @@ def discab_news_on(bot, update, section):
 
     return ConversationHandler.END
 
-def discaboff(bot, update):
-    """Defining the command to retrieve 5 news"""
-
-    keys = [['News del dipartimento'], ['Area Biotecnologie'], ['Area Medica'],
-            ['Area Scienze Motorie'], ['Area Psicologia'], ['Chiudi']]
-
-    bot.sendMessage(update.message.chat_id,
-                    'Scegli la sezione:',
-                    reply_markup=telegram.ReplyKeyboardMarkup(
-                        keys, one_time_keyboard=True))
-
-    return "discab"
-
-def discab_news_off(bot, update, section):
-    """Defining the command to disable notification for discab section"""
+def discaboff(bot, update, section):
+    """Defining the command to disable notification for discab"""
 
     if update.message.chat_id in utils.USERS[section]:
         utils.unsubscribe_user(update.message.chat_id, section)

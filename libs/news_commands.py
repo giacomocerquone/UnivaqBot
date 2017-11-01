@@ -7,34 +7,11 @@ import telegram
 from telegram.ext import CommandHandler, ConversationHandler, RegexHandler
 from libs.departments import disim, univaq, discab, mesva
 
-def news(bot, update):
-    """Command that asks from which department retrieve the news"""
-
-    keys = [['Univaq'], ['Disim'], ['Mesva'],
-            ['Discab'], ['Chiudi']]
-
-    bot.sendMessage(update.message.chat_id,
-                    'Scegli il dipartimento:',
-                    reply_markup=telegram.ReplyKeyboardMarkup(
-                        keys, one_time_keyboard=True))
-
-    return "department"
-
-def newson(bot, update):
-    """Defining the command to active notifications"""
-
-    keys = [['Univaq'], ['Disim'], ['Mesva'],
-            ['Discab'], ['Chiudi']]
-
-    bot.sendMessage(update.message.chat_id,
-                    'Scegli il dipartimento:',
-                    reply_markup=telegram.ReplyKeyboardMarkup(
-                        keys, one_time_keyboard=True))
-
-    return "department"
-
-def newsoff(bot, update):
-    """Defining the command to active notifications"""
+def section_keyboard(bot, update):
+    """
+    Command that shows keyboard of departments for:
+    news, newson and newsoff
+    """
 
     keys = [['Univaq'], ['Disim'], ['Mesva'],
             ['Discab'], ['Chiudi']]
@@ -56,12 +33,12 @@ def close(bot, update):
     return ConversationHandler.END
 
 NEWS_CONV = ConversationHandler(
-    entry_points=[CommandHandler('news', news)],
+    entry_points=[CommandHandler('news', section_keyboard)],
     states={
         "department": [RegexHandler('^(Univaq)$', univaq.univaq),
                        RegexHandler('^(Disim)$', disim.disim),
                        RegexHandler('^(Mesva)$', mesva.mesva_keyboard),
-                       RegexHandler('^(Discab)$', discab.discab),
+                       RegexHandler('^(Discab)$', discab.discab_keyboard),
                       ],
         "univaq": [RegexHandler('^(Ultimissime)$', univaq.ultimissime),
                    RegexHandler('^(In Evidenza)$', univaq.inevidenza)
@@ -100,7 +77,7 @@ NEWS_CONV = ConversationHandler(
 )
 
 NEWS_ON_CONV = ConversationHandler(
-    entry_points=[CommandHandler('newson', newson)],
+    entry_points=[CommandHandler('newson', section_keyboard)],
     states={
         "department": [RegexHandler('^(Univaq)$', univaq.univaqon),
                        RegexHandler('^(Disim)$', disim.disimon),
@@ -122,27 +99,27 @@ NEWS_ON_CONV = ConversationHandler(
                                                                  'mesva_biological_science'))
                  ],
         "discab": [RegexHandler('^(News del Dipartimento)$',
-                                lambda bot, update: discab.discab_news_on(bot, update,
-                                                                          'discab_general')),
+                                lambda bot, update: discab.discabon(bot, update,
+                                                                    'discab_general')),
                    RegexHandler('^(Area Biotecnologie)$',
-                                lambda bot, update: discab.discab_news_on(bot, update,
-                                                                          'discab_biotechnology')),
+                                lambda bot, update: discab.discabon(bot, update,
+                                                                    'discab_biotechnology')),
                    RegexHandler('^(Area Medica)$',
-                                lambda bot, update: discab.discab_news_on(bot, update,
-                                                                          'discab_medical')),
+                                lambda bot, update: discab.discabon(bot, update,
+                                                                    'discab_medical')),
                    RegexHandler('^(Area Scienze Motorie)$',
-                                lambda bot, update: discab.discab_news_on(bot, update,
-                                                                          'discab_motor_science')),
+                                lambda bot, update: discab.discabon(bot, update,
+                                                                    'discab_motor_science')),
                    RegexHandler('^(Area Psicologia)$',
-                                lambda bot, update: discab.discab_news_on(bot, update,
-                                                                          'discab_psychology'))
+                                lambda bot, update: discab.discabon(bot, update,
+                                                                    'discab_psychology'))
                   ]
     },
     fallbacks=[RegexHandler('^(Chiudi)$', close)]
 )
 
 NEWS_OFF_CONV = ConversationHandler(
-    entry_points=[CommandHandler('newsoff', newsoff)],
+    entry_points=[CommandHandler('newsoff', section_keyboard)],
     states={
         "department": [RegexHandler('^(Univaq)$', univaq.univaqoff),
                        RegexHandler('^(Disim)$', disim.disimoff),
@@ -164,20 +141,20 @@ NEWS_OFF_CONV = ConversationHandler(
                                                                   'mesva_biological_science'))
                  ],
         "discab": [RegexHandler('^(News del Dipartimento)$',
-                                lambda bot, update: discab.discab_news_off(bot, update,
-                                                                           'discab_general')),
+                                lambda bot, update: discab.discaboff(bot, update,
+                                                                     'discab_general')),
                    RegexHandler('^(Area Biotecnologie)$',
-                                lambda bot, update: discab.discab_news_off(bot, update,
-                                                                           'discab_biotechnology')),
+                                lambda bot, update: discab.discaboff(bot, update,
+                                                                     'discab_biotechnology')),
                    RegexHandler('^(Area Medica)$',
-                                lambda bot, update: discab.discab_news_off(bot, update,
-                                                                           'discab_medical')),
+                                lambda bot, update: discab.discaboff(bot, update,
+                                                                     'discab_medical')),
                    RegexHandler('^(Area Scienze Motorie)$',
-                                lambda bot, update: discab.discab_news_off(bot, update,
-                                                                           'discab_motor_science')),
+                                lambda bot, update: discab.discaboff(bot, update,
+                                                                     'discab_motor_science')),
                    RegexHandler('^(Area Psicologia)$',
-                                lambda bot, update: discab.discab_news_off(bot, update,
-                                                                           'discab_psychology'))
+                                lambda bot, update: discab.discaboff(bot, update,
+                                                                     'discab_psychology'))
                   ]
     },
     fallbacks=[RegexHandler('^(Chiudi)$', close)]
