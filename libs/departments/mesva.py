@@ -7,8 +7,8 @@ import telegram
 from telegram.ext import ConversationHandler
 from libs import utils
 
-def mesva(bot, update):
-    """Defining the command to retrieve 5 news"""
+def mesva_keyboard(bot, update):
+    """Command that shows keyboard of sections for mesva_news, mesvaon and mesvaoff"""
 
     keys = [['In Evidenza'], ['Area Medicina'], ['Area Scienze Ambientali'],
             ['Area Scienze Biologiche'], ['Chiudi']]
@@ -37,20 +37,7 @@ def mesva_news(bot, update, section):
 
     return ConversationHandler.END
 
-def mesvaon(bot, update):
-    """Defining the command to retrieve 5 news"""
-
-    keys = [['In Evidenza'], ['Area Medicina'], ['Area Scienze Ambientali'],
-            ['Area Scienze Biologiche'], ['Chiudi']]
-
-    bot.sendMessage(update.message.chat_id,
-                    'Scegli la sezione:',
-                    reply_markup=telegram.ReplyKeyboardMarkup(
-                        keys, one_time_keyboard=True))
-
-    return "mesva"
-
-def mesva_news_on(bot, update, section):
+def mesvaon(bot, update, section):
     """Defining the command to enable notification for mesva section"""
 
     if update.message.chat_id not in utils.USERS[section]:
@@ -65,20 +52,7 @@ def mesva_news_on(bot, update, section):
 
     return ConversationHandler.END
 
-def mesvaoff(bot, update):
-    """Defining the command to retrieve 5 news"""
-
-    keys = [['In Evidenza'], ['Area Medicina'], ['Area Scienze Ambientali'],
-            ['Area Scienze Biologiche'], ['Chiudi']]
-
-    bot.sendMessage(update.message.chat_id,
-                    'Scegli la sezione:',
-                    reply_markup=telegram.ReplyKeyboardMarkup(
-                        keys, one_time_keyboard=True))
-
-    return "mesva"
-
-def mesva_news_off(bot, update, section):
+def mesvaoff(bot, update, section):
     """Defining the command to disable notification for mesva section"""
 
     if update.message.chat_id in utils.USERS[section]:
