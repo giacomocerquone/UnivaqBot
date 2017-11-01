@@ -14,7 +14,7 @@ def mesva(bot, update):
             ['Area Scienze Biologiche'], ['Chiudi']]
 
     bot.sendMessage(update.message.chat_id,
-                    'Scegli la sezione',
+                    'Scegli la sezione:',
                     reply_markup=telegram.ReplyKeyboardMarkup(
                         keys, one_time_keyboard=True))
 
@@ -44,7 +44,7 @@ def mesvaon(bot, update):
             ['Area Scienze Biologiche'], ['Chiudi']]
 
     bot.sendMessage(update.message.chat_id,
-                    'Scegli la sezione',
+                    'Scegli la sezione:',
                     reply_markup=telegram.ReplyKeyboardMarkup(
                         keys, one_time_keyboard=True))
 
@@ -72,7 +72,7 @@ def mesvaoff(bot, update):
             ['Area Scienze Biologiche'], ['Chiudi']]
 
     bot.sendMessage(update.message.chat_id,
-                    'Scegli la sezione',
+                    'Scegli la sezione:',
                     reply_markup=telegram.ReplyKeyboardMarkup(
                         keys, one_time_keyboard=True))
 

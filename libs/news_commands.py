@@ -91,7 +91,7 @@ NEWS_CONV = ConversationHandler(
                    RegexHandler('^(Area Scienze Motorie)$',
                                 lambda bot, update: discab.discab_news(bot, update,
                                                                        'discab_motor_science')),
-                   RegexHandler('^(Area della Psicologia)$',
+                   RegexHandler('^(Area Psicologia)$',
                                 lambda bot, update: discab.discab_news(bot, update,
                                                                        'discab_psychology'))
                   ]
@@ -133,7 +133,7 @@ NEWS_ON_CONV = ConversationHandler(
                    RegexHandler('^(Area delle Scienze Motorie)$',
                                 lambda bot, update: discab.discab_news_on(bot, update,
                                                                           'discab_motor_science')),
-                   RegexHandler('^(Area della Psicologia)$',
+                   RegexHandler('^(Area Psicologia)$',
                                 lambda bot, update: discab.discab_news_on(bot, update,
                                                                           'discab_psychology'))
                   ]
@@ -175,7 +175,7 @@ NEWS_OFF_CONV = ConversationHandler(
                    RegexHandler('^(Area delle Scienze Motorie)$',
                                 lambda bot, update: discab.discab_news_off(bot, update,
                                                                            'discab_motor_science')),
-                   RegexHandler('^(Area della Psicologia)$',
+                   RegexHandler('^(Area Psicologia)$',
                                 lambda bot, update: discab.discab_news_off(bot, update,
                                                                            'discab_psychology'))
                   ]
