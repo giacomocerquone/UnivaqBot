@@ -13,7 +13,7 @@ def discab_keyboard(bot, update):
     discab_news, discabon and discaboff
     """
 
-    keys = [['News del dipartimento'], ['Area Biotecnologie'], ['Area Medica'],
+    keys = [['News del Dipartimento'], ['Area Biotecnologie'], ['Area Medica'],
             ['Area Scienze Motorie'], ['Area Psicologia'], ['Chiudi']]
 
     bot.sendMessage(update.message.chat_id,
