@@ -10,6 +10,8 @@ import bs4
 import requests
 import pymongo
 
+from telegram import TelegramError
+
 DATABASE = ""
 USERS = {
     'telegramID': [],
@@ -87,9 +89,19 @@ def botupdated_message(bot, job):
     messages = list(DATABASE.messages.find())
     DATABASE.messages.remove()
 
+    invalid_chatid = []
+
     for message in messages:
-        for user in USERS['telegramID']:
-            bot.sendMessage(user, message['text'], parse_mode='HTML')
+        for chat_id in USERS['telegramID']:
+            try:
+                bot.sendMessage(chat_id, parse_mode='HTML',
+                                text=message['text'])
+            except TelegramError:
+                invalid_chatid.append(chat_id)
+
+    for chat_id in invalid_chatid:
+        USERS['telegramID'].remove(chat_id)
+        unsubscribe_user(chat_id, 'telegramID')
 
 def get_soup_from_url(url):
     """Download a webpage and return its BeautifulSoup"""
