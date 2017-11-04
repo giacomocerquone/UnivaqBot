@@ -94,7 +94,7 @@ NEWS_CONV = ConversationHandler(
                    RegexHandler('^(Indietro)$', section_keyboard)
                   ]
     },
-    fallbacks=[RegexHandler('^(Chiudi)', close)]
+    fallbacks=[RegexHandler('^(Chiudi)$', close)]
 )
 
 NEWS_ON_CONV = ConversationHandler(
