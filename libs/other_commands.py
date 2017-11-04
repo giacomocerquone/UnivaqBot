@@ -30,7 +30,7 @@ def prof_command(bot, update, args):
                     professors += fmt.format(**prof) + '<b>Corsi:</b>\n'
                     professors += ('\n'.join('\t - <a href="{link}">{nome}</a>\n\n'.format(
                         **course) for course in prof['corsi']) if prof['corsi'] else
-                                   '\t<i>Non disponibile.</i>\n\n')
+                                   '\t<i>Non disponibile.</i>\n\n\n')
         else:
             professors = "Puoi cercare immettendo dai 4 caratteri in su"
     else:
@@ -47,15 +47,15 @@ def student_office_command(bot, update):
 
     student_office_db = utils.DATABASE.info.find_one({"nome": "segreteria"})
     fmt = ("La segreteria studenti è situata nel <b>{sede}</b> "
-           "(a lato dell\'edificio di Medicina).\n\nI recapiti telefonici sono i seguenti:\n"
+           "(a lato dell\'edificio di Medicina).\n\nI <b>recapiti telefonici</b> sono i seguenti:\n"
            "\t<i>{telefono[0]} - {telefono[1]}</i>.\n\n"
-           "La segreteria è anche contattabile al seguente indirizzo e-mail:\n"
+           "La segreteria è anche contattabile al seguente <b>indirizzo e-mail</b>:\n"
            "\t<i>{email}</i>\n\n"
-           "La fascia oraria per i contatti telefonici e tramite posta elettronica è:\n"
-           "<b>Lunedì - Mercoledì - Venerdì</b>:\n"
+           "La <b>fascia oraria</b> per i <b>contatti telefonici</b> e tramite posta elettronica è:"
+           "\n\n<b>Lunedì - Mercoledì - Venerdì</b>:\n"
            "\t<i>{orari[posta][lunedi-mercoledi-venerdi]}</i>\n\n"
            "<b>Martedì - Giovedì</b>:\n\t<i>{orari[posta][martedi-giovedi]}</i>\n\n"
-           "Gli orari di apertura agli studenti sono i seguenti:\n"
+           "Gli <b>orari</b> di apertura agli <b>studenti</b> sono i seguenti:\n\n"
            "<b>Lunedì - Mercoledì - Venerdì</b>:\n"
            "\t<i>{orari[studenti][lunedi-mercoledi-venerdi]}</i>\n\n"
            "<b>Martedì - Giovedì</b>:\n\t<i>{orari[studenti][martedi-giovedi]}</i>\n\n"
@@ -71,7 +71,7 @@ def canteen_command(bot, update):
 
     canteen_db = utils.DATABASE.info.find_one({"nome": "mensa"})
     fmt = ("Gli orari della mensa di <b>{sede}</b> sono:\n\n"
-           "<b>Lunedì - Venerdì:</b>\n\n"
+           "<b>Lunedì - Venerdì:</b>\n"
            "\t<i>{orari[lunedi-venerdi]}</i>\n\n"
            "Per usufruire del servizio mensa è necessaria la <b>tessera</b> "
            "ritirabile presso gli uffici /adsu di Campomizzi. "

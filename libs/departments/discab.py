@@ -14,7 +14,7 @@ def discab_keyboard(bot, update):
     """
 
     keys = [['News del Dipartimento'], ['Area Biotecnologie'], ['Area Medica'],
-            ['Area Scienze Motorie'], ['Area Psicologia'], ['Chiudi']]
+            ['Area Scienze Motorie'], ['Area Psicologia'], ['Indietro', 'Chiudi']]
 
     bot.sendMessage(update.message.chat_id,
                     'Scegli la sezione:',

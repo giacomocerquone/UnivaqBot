@@ -6,23 +6,49 @@
 from telegram import TelegramError
 
 from libs import utils
-from libs.news_scrapers import disim, univaq, discab, mesva
+from libs.news_scrapers import disim, univaq, discab, mesva, dsfc
 
 def pull_news():
     """This function is built to pull 5 news from all the websites"""
 
     scrapers = {
-        'disim': disim.scraper,
-        'univaq': univaq.scraper,
-        'discab_general': discab.general_news,
-        'discab_biotechnology': discab.biotechnology_news,
-        'discab_medical': discab.medical_news,
-        'discab_motor_science': discab.motor_science_news,
-        'discab_psychology': discab.psychology_news,
-        'mesva_general': mesva.general_news,
-        'mesva_medical': mesva.medical_news,
-        'mesva_environmental_science': mesva.environmental_science_news,
-        'mesva_biological_science': mesva.biological_science_news
+        'disim': lambda: disim.scraper(
+            ["http://www.disim.univaq.it/main/news.php?entrant=1",
+             "http://www.disim.univaq.it/main/news.php?entrant=2"]),
+        'univaq': lambda: univaq.scraper(
+            ["http://www.univaq.it/news_archive.php?tipo=In%20evidenza",
+             "http://www.univaq.it/news_archive.php?tipo=Ultimissime"]),
+        'dsfc_news': lambda: dsfc.scraper(
+            ['http://www.dsfc.univaq.it/it/news.html']),
+        'dsfc_inevidenza' : lambda: dsfc.scraper(
+            ['http://www.dsfc.univaq.it/it/in-evidenza.html']),
+        'dsfc_chemistry_and_physics': lambda: dsfc.scraper(
+            ['http://www.dsfc.univaq.it/it/avvisi-agli-studenti/'
+             'avvisi-comuni-ai-due-corsi.html']),
+        'dsfc_chemistry' : lambda: dsfc.scraper(
+            ['http://www.dsfc.univaq.it/it/avvisi-agli-studenti/'
+             'avvisi-corso-di-chimica.html']),
+        'dsfc_physics' : lambda: dsfc.scraper(
+            ['http://www.dsfc.univaq.it/it/avvisi-agli-studenti/'
+             'avvisi-corso-di-fisica.html']),
+        'discab_general': lambda: discab.scraper(
+            ['http://discab.univaq.it/index.php?id=2004']),
+        'discab_biotechnology': lambda: discab.scraper(
+            ['http://discab.univaq.it/index.php?id=1957']),
+        'discab_medical': lambda: discab.scraper(
+            ['http://discab.univaq.it/index.php?id=1958']),
+        'discab_motor_science': lambda: discab.scraper(
+            ['http://discab.univaq.it/index.php?id=2003']),
+        'discab_psychology': lambda: discab.scraper(
+            ['http://discab.univaq.it/index.php?id=2321']),
+        'mesva_general': lambda: mesva.scraper(
+            ['http://mesva.univaq.it/']),
+        'mesva_medical': lambda: mesva.scraper(
+            ['http://mesva.univaq.it/?q=avvisi/cl-clm/52666']),
+        'mesva_environmental_science': lambda: mesva.scraper(
+            ['http://mesva.univaq.it/?q=avvisi/cl-clm/52671']),
+        'mesva_biological_science': lambda: mesva.scraper(
+            ['http://mesva.univaq.it/?q=avvisi/cl-clm/52672'])
     }
     news = {}
 
@@ -40,6 +66,11 @@ def check_news():
     unread_news = {
         'disim': [],
         'univaq': [],
+        'dsfc_news': [],
+        'dsfc_inevidenza' : [],
+        'dsfc_chemistry_and_physics': [],
+        'dsfc_chemistry' : [],
+        'dsfc_physics' : [],
         'discab_general': [],
         'discab_biotechnology': [],
         'discab_medical':[],
@@ -67,6 +98,11 @@ def notify_news(bot, job):
     translation = {
         'disim': 'Disim',
         'univaq': 'Univaq',
+        'dsfc_news': 'Dsfc News',
+        'dsfc_inevidenza' : 'Dsfc In Evidenza',
+        'dsfc_chemistry_and_physics': 'Chimica-Fisica',
+        'dsfc_chemistry' : 'Chimica',
+        'dsfc_physics' : 'Fisica',
         'discab_general': 'Discab',
         'discab_biotechnology': 'Biotecnologie',
         'discab_medical': 'Discab Medicina',

@@ -13,7 +13,7 @@ def univaq(bot, update):
     inevidenza, ultimissime, univaqon, univaqoff
     """
 
-    keys = [['In Evidenza'], ['Ultimissime'], ['Chiudi']]
+    keys = [['In Evidenza'], ['Ultimissime'], ['Indietro', 'Chiudi']]
 
     bot.sendMessage(update.message.chat_id,
                     'Scegli la sezione:',

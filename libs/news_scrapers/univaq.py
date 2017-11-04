@@ -6,18 +6,16 @@
 from bs4 import BeautifulSoup
 import requests
 
-def scraper():
+def scraper(section_url):
     """This function is built to pull 5 news from the news page of univaq"""
 
     prefix = "http://www.univaq.it/"
-    news_url = ["http://www.univaq.it/news_archive.php?tipo=In%20evidenza",
-                "http://www.univaq.it/news_archive.php?tipo=Ultimissime"]
 
     request = []
     bs_list = []
     news = []
 
-    for i, url in enumerate(news_url):
+    for i, url in enumerate(section_url):
         request.append(requests.get(url))
         bs_list.append(BeautifulSoup(request[i].text, "html.parser").find_all(class_='avviso')[0:5])
 

@@ -6,7 +6,7 @@
 from bs4 import BeautifulSoup
 import requests
 
-def general_scraper(section_url):
+def scraper(section_url):
     """This function is built to have a general news scraper to get news from Mesva"""
 
     prefix = "http://mesva.univaq.it"
@@ -28,23 +28,3 @@ def general_scraper(section_url):
             })
 
     return news
-
-def general_news():
-    """This function is built to get Mesva general news"""
-
-    return general_scraper(['http://mesva.univaq.it/'])
-
-def medical_news():
-    """This function is built to get medical news"""
-
-    return general_scraper(['http://mesva.univaq.it/?q=avvisi/cl-clm/52666'])
-
-def environmental_science_news():
-    """This function is built to get environmental science news"""
-
-    return general_scraper(['http://mesva.univaq.it/?q=avvisi/cl-clm/52671'])
-
-def biological_science_news():
-    """This function is built to get biological science news"""
-
-    return general_scraper(['http://mesva.univaq.it/?q=avvisi/cl-clm/52672'])
