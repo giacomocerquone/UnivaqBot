@@ -51,7 +51,7 @@ The **univaq telegram bot also provides a push notification service**. When new 
 
 ### Website
 
-The website of univaq telegram bot is http://univaqtelegrambot.github.io/
+The website of univaq telegram bot is http://giacomocerquone.github.io/UnivaqBot/
 
 ### DISCLAIMER
 
