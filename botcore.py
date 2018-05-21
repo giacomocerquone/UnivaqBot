@@ -40,7 +40,7 @@ def help_command(bot, update):
                     "/segreteria - Info sulla segreteria studenti.\n"
                     "/mensa - Info sugli orari della mensa.\n"
                     "/adsu - Info sull'adsu.\n"
-                    "/feedback messaggio - Lascia un messaggio agli sviluppatori."
+                    "/feedback - Lascia un messaggio agli sviluppatori."
                     "\n\nQuesto bot è orgogliosamente open source"
                     ", sviluppato e mantenuto da Giacomo Cerquone e Stefano Martella.")
 
