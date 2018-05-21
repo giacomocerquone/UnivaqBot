@@ -37,24 +37,13 @@ def check_news():
 
     pulled_news = pull_news()
     stored_news = utils.NEWS
-    unread_news = {
-        'disim': [],
-        'univaq': [],
-        'discab_general': [],
-        'discab_biotechnology': [],
-        'discab_medical':[],
-        'discab_motor_science': [],
-        'discab_psychology': [],
-        'mesva_general': [],
-        'mesva_medical': [],
-        'mesva_environmental_science': [],
-        'mesva_biological_science': []
-    }
+    unread_news = {}
 
     # TODO _id field coming back don't know why
     for section in stored_news:
         if section != '_id':
-            unread_news[section] = ([x for x in pulled_news[section]
+            index = (10 if section == 'univaq' else 5)
+            unread_news[section] = ([x for x in pulled_news[section][0: index]
                                      if x not in stored_news[section]])
 
     return {'unread_news': unread_news,
