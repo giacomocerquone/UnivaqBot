@@ -3,3 +3,5 @@ nohup.out
 .env
 *.pyc
 bin/
+
+.vscode/

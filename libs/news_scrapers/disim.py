@@ -17,17 +17,25 @@ def scraper():
     bs_list = []
     news = []
     for i, url in enumerate(news_url):
-        request.append(requests.get(url))
-        bs_list.append(BeautifulSoup(request[i].text, "html.parser")
-                       .find_all(class_="post_item_list"))
-        descr_list = BeautifulSoup(request[i].text, "html.parser") \
-            .find_all(class_="post_description")
+        try:
+            request.append(requests.get(url))
+        except requests.exceptions.ConnectionError:
+            # Return an empy list if the remote host in not reachable.
+            return []
+        # TODO: Remove try-except.
+        try:
+            bs_list.append(BeautifulSoup(request[i].text, "html.parser")
+                        .find_all(class_="post_item_list"))
+            descr_list = BeautifulSoup(request[i].text, "html.parser") \
+                .find_all(class_="post_description")
 
-        for j, single_news in enumerate(bs_list[i]):
-            news.append({
-                "title": single_news.h3.a.text,
-                "description": descr_list[j].get_text().replace("\n", " "),
-                "link": "http://www.disim.univaq.it/main/" + single_news.a.get('href')
-            })
+            for j, single_news in enumerate(bs_list[i]):
+                news.append({
+                    "title": single_news.h3.a.text,
+                    "description": descr_list[j].get_text().replace("\n", " "),
+                    "link": "http://www.disim.univaq.it/main/" + single_news.a.get('href')
+                })
+        except AttributeError:
+            print('HTML structure has been changed for this url: %s' % url)
 
     return news

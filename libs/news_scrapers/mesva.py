@@ -15,17 +15,26 @@ def general_scraper(section_url):
     news = []
 
     for i, url in enumerate(section_url):
-        request.append(requests.get(url))
-        news_division = BeautifulSoup(request[i].text, "html.parser").find(class_="view-content")
+        try:
+            request.append(requests.get(url))
+        except requests.exceptions.ConnectionError:
+            # Return an empy list if the remote host in not reachable.
+            return []
+        # TODO: Remove try-except.
+        try:
+            news_division = BeautifulSoup(
+                request[i].text, "html.parser").find(class_="view-content")
 
-        discab_news = news_division.find_all("div", recursive=False)[0:5]
+            discab_news = news_division.find_all("div", recursive=False)[0:5]
 
-        for single_news in discab_news:
-            news.append({
-                'description': '',
-                'title': single_news.a.string,
-                'link': prefix + single_news.a['href']
-            })
+            for single_news in discab_news:
+                news.append({
+                    'description': '',
+                    'title': single_news.a.string,
+                    'link': prefix + single_news.a['href']
+                })
+        except AttributeError:
+            print('HTML structure has been changed for this url: %s' % url)
 
     return news
 

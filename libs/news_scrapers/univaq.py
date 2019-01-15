@@ -18,15 +18,24 @@ def scraper():
     news = []
 
     for i, url in enumerate(news_url):
-        request.append(requests.get(url))
-        bs_list.append(BeautifulSoup(request[i].text, "html.parser").find_all(class_='avviso')[0:5])
+        try:
+            request.append(requests.get(url))
+        except requests.exceptions.ConnectionError:
+            # Return an empy list if the remote host in not reachable.
+            return []
+        # TODO: Remove try-except.
+        try:
+            bs_list.append(BeautifulSoup(
+                request[i].text, "html.parser").find_all(class_='avviso')[0:5])
 
-        for single_news in bs_list[i]:
-            news.append({
-                'description': '',
-                'title': single_news.div.next_sibling.next_sibling.string,
-                'link': prefix + single_news.a['href'] if 'http://' not in single_news.a['href']
-                        else single_news.a['href']
-            })
+            for single_news in bs_list[i]:
+                news.append({
+                    'description': '',
+                    'title': single_news.div.next_sibling.next_sibling.string,
+                    'link': prefix + single_news.a['href'] if 'http://' not in single_news.a['href']
+                            else single_news.a['href']
+                })
+        except AttributeError:
+            print('HTML structure has been changed for this url: %s' % url)
 
     return news
